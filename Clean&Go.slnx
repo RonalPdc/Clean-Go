@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Clean&amp;Go-BusinessLogic/Clean&amp;Go-BusinessLogic.csproj" Id="7b32395e-943d-4412-88f1-79717065d8ff" />
+  <Project Path="Clean&amp;Go-DataAccess/Clean&amp;Go-DataAccess.csproj" Id="a3d72f1c-6930-4988-9a69-6f748347e4e2" />
+  <Project Path="Clean&amp;Go-Entities/Clean&amp;Go-Entities.csproj" Id="24faacc3-1a1a-4cdd-9f43-1d43a4c45593" />
+  <Project Path="Clean&amp;Go.BusinessLogic/Clean&amp;Go.UI.csproj" Id="6437844e-884a-4381-8af3-34c6b06393de" />
+</Solution>
