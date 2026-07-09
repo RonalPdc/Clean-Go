@@ -1,6 +1,6 @@
 ﻿namespace Clean_Go.BusinessLogic
 {
-    partial class Form1
+    partial class FormPrincial
     {
         /// <summary>
         /// Variable del diseñador necesaria.

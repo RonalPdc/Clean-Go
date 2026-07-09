@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Clean_Go.BusinessLogic
 {
-    public partial class Form1 : Form
+    public partial class FormPrincial : Form
     {
-        public Form1()
+        public FormPrincial()
         {
             InitializeComponent();
         }
