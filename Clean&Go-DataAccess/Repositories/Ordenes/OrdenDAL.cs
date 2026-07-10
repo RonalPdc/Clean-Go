@@ -80,7 +80,7 @@ namespace Clean_Go_DataAccess.Repositories.Ordenes
             return orden;
         }
 
-        public bool ActualizarEstado(int ordenId, int nuevoEstadoId)
+        public bool ActualizarEstado(int ordenId, int nuevoEstadoId, int usuarioId, string comentario)
         {
             using (SqlConnection cn = ConexionDB.Instancia.ObtenerConexion())
             {
@@ -88,7 +88,9 @@ namespace Clean_Go_DataAccess.Repositories.Ordenes
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@OrdenId", ordenId);
-                    cmd.Parameters.AddWithValue("@EstadoId", nuevoEstadoId);
+                    cmd.Parameters.AddWithValue("@EstadoNuevo", nuevoEstadoId);
+                    cmd.Parameters.AddWithValue("@UsuarioId", usuarioId);
+                    cmd.Parameters.AddWithValue("@Comentario", (object)comentario ?? DBNull.Value);
 
                     cn.Open();
                     int rows = cmd.ExecuteNonQuery();

@@ -169,6 +169,7 @@ namespace Clean_Go.BusinessLogic.Prendas
             this.Controls.Add(this.dgvPrendas);
             this.Controls.Add(this.panelInferior);
             this.Controls.Add(this.panelSuperior);
+            this.Load += new System.EventHandler(this.FrmPrendas_Load);
             this.Name = "FrmPrendas";
             this.Padding = new System.Windows.Forms.Padding(15, 0, 15, 0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

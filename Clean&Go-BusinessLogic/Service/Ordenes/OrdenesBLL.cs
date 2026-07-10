@@ -67,20 +67,10 @@ namespace Clean_Go_BusinessLogic.Service.Ordenes
 
             _validator.ValidarCambioEstado(orden.EstadoId, nuevoEstadoId);
 
-            bool estadoActualizado = _ordenDAL.ActualizarEstado(ordenId, nuevoEstadoId);
+            bool estadoActualizado = _ordenDAL.ActualizarEstado(ordenId, nuevoEstadoId, usuarioId, comentario);
 
             if (estadoActualizado)
             {
-                _historialDAL.RegistrarCambio(ordenId, orden.EstadoId, nuevoEstadoId, usuarioId, comentario);
-
-                Cliente cliente = _clienteDAL.ObtenerPorId(orden.ClienteId);
-                if (cliente != null && !string.IsNullOrWhiteSpace(cliente.TelegramChatId))
-                {
-                    IEstadoOrden estadoNuevo = EstadoOrdenHelper.ObtenerEstado(nuevoEstadoId);
-                    string mensajeTelegram = $"Hola {cliente.Nombre}, el estado de su orden {orden.NumeroOrden} ha cambiado a: '{estadoNuevo.Nombre}'.";
-                    _notificacionDAL.RegistrarNotificacion(ordenId, orden.ClienteId, mensajeTelegram);
-                }
-
                 AlCambiarOrdenes?.Invoke();
             }
 

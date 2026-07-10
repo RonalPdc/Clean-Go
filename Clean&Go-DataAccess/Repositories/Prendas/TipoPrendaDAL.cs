@@ -29,6 +29,7 @@ namespace Clean_Go_DataAccess.Repositories.Prendas
                             {
                                 TipoPrendaId = Convert.ToInt32(dr["TipoPrendaId"]),
                                 Nombre = dr["Nombre"].ToString(),
+                                Descripcion = dr["Descripcion"].ToString(),
                                 Estado = Convert.ToBoolean(dr["Estado"])
                             });
                         }
@@ -59,6 +60,7 @@ namespace Clean_Go_DataAccess.Repositories.Prendas
                             {
                                 TipoPrendaId = Convert.ToInt32(dr["TipoPrendaId"]),
                                 Nombre = dr["Nombre"].ToString(),
+                                Descripcion = dr["Descripcion"].ToString(),
                                 Estado = Convert.ToBoolean(dr["Estado"])
                             };
                         }

@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using Clean_Go_Entities.Usuarios;
 using Clean_Go.BusinessLogic.Usuarios;
 using Clean_Go.BusinessLogic.Patterns.Factory;
+using Clean_Go.BusinessLogic.Reportes;
 
 namespace Clean_Go.BusinessLogic
 {
@@ -27,6 +28,9 @@ namespace Clean_Go.BusinessLogic
             menuItemServicios.Click += MenuServicios_Click;
             menuItemTiposPrenda.Click += MenuTiposPrenda_Click;
             menuItemOrdenes.Click += MenuOrdenes_Click;
+            menuItemReporteOrdenes.Click += MenuReporteOrdenes_Click;
+            menuItemReporteClientes.Click += MenuReporteHistorial_Click;
+            menuItemReporteServicios.Click += MenuReporteAuditoria_Click;
         }
 
         private void FormPrincial_Load(object sender, EventArgs e)
@@ -126,6 +130,21 @@ namespace Clean_Go.BusinessLogic
         private void MenuOrdenes_Click(object sender, EventArgs e)
         {
             AbrirFormularioHijo(FormFactory.Crear(TipoModulo.Ordenes, _usuarioLogueado));
+        }
+
+        private void MenuReporteOrdenes_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmReporteOrdenes());
+        }
+
+        private void MenuReporteHistorial_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmReporteHistorialOrden());
+        }
+
+        private void MenuReporteAuditoria_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmReporteAuditoria());
         }
     }
 }

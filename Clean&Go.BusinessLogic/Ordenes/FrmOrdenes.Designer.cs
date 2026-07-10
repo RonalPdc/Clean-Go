@@ -153,6 +153,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
             this.Controls.Add(this.dgvOrdenes);
             this.Controls.Add(this.panelInferior);
             this.Controls.Add(this.panelSuperior);
+            this.Load += new System.EventHandler(this.FrmOrdenes_Load);
             this.Name = "FrmOrdenes";
             this.Padding = new System.Windows.Forms.Padding(15, 0, 15, 0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

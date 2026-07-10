@@ -137,6 +137,24 @@
     <Compile Include="Ordenes\FrmOrdenesCambiarEstado.Designer.cs">
       <DependentUpon>FrmOrdenesCambiarEstado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\FrmReporteOrdenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FrmReporteOrdenes.Designer.cs">
+      <DependentUpon>FrmReporteOrdenes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FrmReporteAuditoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FrmReporteAuditoria.Designer.cs">
+      <DependentUpon>FrmReporteAuditoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FrmReporteHistorialOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FrmReporteHistorialOrden.Designer.cs">
+      <DependentUpon>FrmReporteHistorialOrden.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Login\LoginForm.resx">

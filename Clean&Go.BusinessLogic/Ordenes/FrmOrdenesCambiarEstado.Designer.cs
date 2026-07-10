@@ -153,6 +153,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
             this.Name = "FrmOrdenesCambiarEstado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cambiar Estado";
+            this.Load += new System.EventHandler(this.FrmOrdenesCambiarEstado_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
         }

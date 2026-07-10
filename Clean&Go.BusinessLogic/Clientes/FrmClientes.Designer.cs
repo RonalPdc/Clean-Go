@@ -169,6 +169,7 @@ namespace Clean_Go.BusinessLogic.Clientes
             this.Controls.Add(this.dgvClientes);
             this.Controls.Add(this.panelInferior);
             this.Controls.Add(this.panelSuperior);
+            this.Load += new System.EventHandler(this.FrmClientes_Load);
             this.Name = "FrmClientes";
             this.Padding = new System.Windows.Forms.Padding(15, 0, 15, 0);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
