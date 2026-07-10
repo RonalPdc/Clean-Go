@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Clean_Go_BusinessLogic
+namespace Clean_Go_DataAccess.Interface
 {
-    public class Class1
+    internal interface Interface1
     {
     }
 }

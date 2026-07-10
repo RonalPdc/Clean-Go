@@ -52,6 +52,7 @@
     <Compile Include="Principal\FormPrincial.Designer.cs">
       <DependentUpon>FormPrincial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Patterns\Factory\FormFactory.cs" />
     <Compile Include="Login\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,10 +65,88 @@
     <Compile Include="Login\RecuperarPasswordForm.Designer.cs">
       <DependentUpon>RecuperarPasswordForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login\FrmCambiarPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\FrmCambiarPassword.Designer.cs">
+      <DependentUpon>FrmCambiarPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\FrmUsuarioEditar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\FrmUsuarioEditar.Designer.cs">
+      <DependentUpon>FrmUsuarioEditar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\FrmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\FrmUsuarios.Designer.cs">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\FrmClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\FrmClientes.Designer.cs">
+      <DependentUpon>FrmClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\FrmClienteEditar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\FrmClienteEditar.Designer.cs">
+      <DependentUpon>FrmClienteEditar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\FrmServicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\FrmServicios.Designer.cs">
+      <DependentUpon>FrmServicios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\FrmServicioEditar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\FrmServicioEditar.Designer.cs">
+      <DependentUpon>FrmServicioEditar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Prendas\FrmPrendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Prendas\FrmPrendas.Designer.cs">
+      <DependentUpon>FrmPrendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Prendas\FrmPrendaEditar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Prendas\FrmPrendaEditar.Designer.cs">
+      <DependentUpon>FrmPrendaEditar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ordenes\FrmOrdenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ordenes\FrmOrdenes.Designer.cs">
+      <DependentUpon>FrmOrdenes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ordenes\FrmOrdenesNuevo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ordenes\FrmOrdenesNuevo.Designer.cs">
+      <DependentUpon>FrmOrdenesNuevo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ordenes\FrmOrdenesCambiarEstado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ordenes\FrmOrdenesCambiarEstado.Designer.cs">
+      <DependentUpon>FrmOrdenesCambiarEstado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\RecuperarPasswordForm.resx">
+      <DependentUpon>RecuperarPasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal\FormPrincial.resx">
+      <DependentUpon>FormPrincial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -78,6 +157,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Usuarios\FrmUsuarioEditar.resx">
+      <DependentUpon>FrmUsuarioEditar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios\FrmUsuarios.resx">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -95,6 +180,10 @@
     <ProjectReference Include="..\Clean&amp;Go-BusinessLogic\Clean&amp;Go-BusinessLogic.csproj">
       <Project>{7b32395e-943d-4412-88f1-79717065d8ff}</Project>
       <Name>Clean&amp;Go-BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Clean&amp;Go-DataAccess\Clean&amp;Go-DataAccess.csproj">
+      <Project>{a3d72f1c-6930-4988-9a69-6f748347e4e2}</Project>
+      <Name>Clean&amp;Go-DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\Clean&amp;Go-Entities\Clean&amp;Go-Entities.csproj">
       <Project>{24faacc3-1a1a-4cdd-9f43-1d43a4c45593}</Project>

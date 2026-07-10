@@ -38,6 +38,7 @@ namespace Clean_Go.BusinessLogic
             this.panelLeft = new System.Windows.Forms.Panel();
             this.lblLogo = new System.Windows.Forms.Label();
             this.lblSlogan = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelRight = new System.Windows.Forms.Panel();
             this.lblLoginTitle = new System.Windows.Forms.Label();
             this.lblLoginSubtitle = new System.Windows.Forms.Label();
@@ -49,15 +50,14 @@ namespace Clean_Go.BusinessLogic
             this.chkShowPassword = new System.Windows.Forms.CheckBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblForgotPassword = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelLeft.SuspendLayout();
-            this.panelRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelRight.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelLeft
             // 
-            this.panelLeft.BackColor = System.Drawing.Color.FromArgb(8, 145, 178);
+            this.panelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(145)))), ((int)(((byte)(178)))));
             this.panelLeft.Controls.Add(this.lblLogo);
             this.panelLeft.Controls.Add(this.lblSlogan);
             this.panelLeft.Controls.Add(this.pictureBox1);
@@ -80,7 +80,7 @@ namespace Clean_Go.BusinessLogic
             // lblSlogan
             // 
             this.lblSlogan.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.lblSlogan.ForeColor = System.Drawing.Color.FromArgb(200, 255, 255, 255);
+            this.lblSlogan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.lblSlogan.Location = new System.Drawing.Point(89, 321);
             this.lblSlogan.Name = "lblSlogan";
             this.lblSlogan.Size = new System.Drawing.Size(194, 25);
@@ -120,10 +120,10 @@ namespace Clean_Go.BusinessLogic
             // 
             this.lblLoginTitle.AutoSize = true;
             this.lblLoginTitle.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold);
-            this.lblLoginTitle.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
+            this.lblLoginTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
             this.lblLoginTitle.Location = new System.Drawing.Point(50, 60);
             this.lblLoginTitle.Name = "lblLoginTitle";
-            this.lblLoginTitle.Size = new System.Drawing.Size(227, 41);
+            this.lblLoginTitle.Size = new System.Drawing.Size(205, 41);
             this.lblLoginTitle.TabIndex = 0;
             this.lblLoginTitle.Text = "Iniciar Sesión";
             // 
@@ -131,10 +131,10 @@ namespace Clean_Go.BusinessLogic
             // 
             this.lblLoginSubtitle.AutoSize = true;
             this.lblLoginSubtitle.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblLoginSubtitle.ForeColor = System.Drawing.Color.FromArgb(148, 163, 184);
+            this.lblLoginSubtitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(163)))), ((int)(((byte)(184)))));
             this.lblLoginSubtitle.Location = new System.Drawing.Point(54, 105);
             this.lblLoginSubtitle.Name = "lblLoginSubtitle";
-            this.lblLoginSubtitle.Size = new System.Drawing.Size(242, 15);
+            this.lblLoginSubtitle.Size = new System.Drawing.Size(212, 15);
             this.lblLoginSubtitle.TabIndex = 1;
             this.lblLoginSubtitle.Text = "Ingresa tus credenciales para continuar";
             // 
@@ -142,7 +142,7 @@ namespace Clean_Go.BusinessLogic
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(51, 65, 85);
+            this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(65)))), ((int)(((byte)(85)))));
             this.lblUsuario.Location = new System.Drawing.Point(53, 155);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(60, 19);
@@ -151,10 +151,10 @@ namespace Clean_Go.BusinessLogic
             // 
             // txtUsuario
             // 
-            this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(241, 245, 249);
+            this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUsuario.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtUsuario.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
+            this.txtUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
             this.txtUsuario.Location = new System.Drawing.Point(55, 180);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(310, 27);
@@ -164,19 +164,19 @@ namespace Clean_Go.BusinessLogic
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(51, 65, 85);
+            this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(65)))), ((int)(((byte)(85)))));
             this.lblPassword.Location = new System.Drawing.Point(53, 225);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(85, 19);
+            this.lblPassword.Size = new System.Drawing.Size(84, 19);
             this.lblPassword.TabIndex = 4;
             this.lblPassword.Text = "Contraseña";
             // 
             // txtPassword
             // 
-            this.txtPassword.BackColor = System.Drawing.Color.FromArgb(241, 245, 249);
+            this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
+            this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
             this.txtPassword.Location = new System.Drawing.Point(55, 250);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(310, 27);
@@ -187,7 +187,7 @@ namespace Clean_Go.BusinessLogic
             // 
             this.chkRemember.AutoSize = true;
             this.chkRemember.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.chkRemember.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.chkRemember.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
             this.chkRemember.Location = new System.Drawing.Point(57, 295);
             this.chkRemember.Name = "chkRemember";
             this.chkRemember.Size = new System.Drawing.Size(90, 19);
@@ -199,10 +199,10 @@ namespace Clean_Go.BusinessLogic
             // 
             this.chkShowPassword.AutoSize = true;
             this.chkShowPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.chkShowPassword.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.chkShowPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
             this.chkShowPassword.Location = new System.Drawing.Point(235, 295);
             this.chkShowPassword.Name = "chkShowPassword";
-            this.chkShowPassword.Size = new System.Drawing.Size(130, 19);
+            this.chkShowPassword.Size = new System.Drawing.Size(128, 19);
             this.chkShowPassword.TabIndex = 3;
             this.chkShowPassword.Text = "Mostrar contraseña";
             this.chkShowPassword.UseVisualStyleBackColor = true;
@@ -210,11 +210,11 @@ namespace Clean_Go.BusinessLogic
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(8, 145, 178);
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(145)))), ((int)(((byte)(178)))));
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.FlatAppearance.BorderSize = 0;
-            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(14, 116, 144);
-            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(6, 95, 115);
+            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(95)))), ((int)(((byte)(115)))));
+            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(116)))), ((int)(((byte)(144)))));
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
@@ -230,7 +230,7 @@ namespace Clean_Go.BusinessLogic
             // 
             this.lblForgotPassword.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblForgotPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblForgotPassword.ForeColor = System.Drawing.Color.FromArgb(8, 145, 178);
+            this.lblForgotPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(145)))), ((int)(((byte)(178)))));
             this.lblForgotPassword.Location = new System.Drawing.Point(55, 400);
             this.lblForgotPassword.Name = "lblForgotPassword";
             this.lblForgotPassword.Size = new System.Drawing.Size(310, 20);
@@ -249,6 +249,7 @@ namespace Clean_Go.BusinessLogic
             this.Controls.Add(this.panelRight);
             this.Controls.Add(this.panelLeft);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -259,6 +260,7 @@ namespace Clean_Go.BusinessLogic
             this.panelRight.ResumeLayout(false);
             this.panelRight.PerformLayout();
             this.ResumeLayout(false);
+
         }
 
         #endregion

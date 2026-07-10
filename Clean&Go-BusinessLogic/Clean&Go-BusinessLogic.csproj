@@ -41,9 +41,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Clientes\ClientesBLL.cs" />
+    <Compile Include="Service\Roles\RolesBLL.cs" />
     <Compile Include="Service\Usuarios\UsuariosBLL.cs" />
+    <Compile Include="Validator\IValidadorBase.cs" />
+    <Compile Include="Validator\IValidator.cs" />
+    <Compile Include="Validator\Clientes\ClienteValidator.cs" />
+    <Compile Include="Validator\Usuarios\UsuarioValidator.cs" />
+    <Compile Include="Validator\Ordenes\OrdenValidator.cs" />
+    <Compile Include="Validator\Ordenes\Estado\IEstadoOrden.cs" />
+    <Compile Include="Validator\Ordenes\Estado\EstadoRecibida.cs" />
+    <Compile Include="Validator\Ordenes\Estado\EstadoEnProceso.cs" />
+    <Compile Include="Validator\Ordenes\Estado\EstadoListaParaEntrega.cs" />
+    <Compile Include="Validator\Ordenes\Estado\EstadoEntregada.cs" />
+    <Compile Include="Validator\Ordenes\Estado\EstadoCancelada.cs" />
+    <Compile Include="Validator\Ordenes\Estado\EstadoOrdenHelper.cs" />
+    <Compile Include="Service\Servicios\ServiciosBLL.cs" />
+    <Compile Include="Service\Prendas\TiposPrendaBLL.cs" />
+    <Compile Include="Service\Ordenes\OrdenesBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Clean&amp;Go-DataAccess\Clean&amp;Go-DataAccess.csproj">
@@ -56,4 +72,5 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- Force Reload -->
 </Project>

@@ -35,7 +35,6 @@ namespace Clean_Go.BusinessLogic
 
                 if (usuario != null)
                 {
-                    // Guardar configuración de Recordarme
                     if (chkRemember.Checked)
                     {
                         Properties.Settings.Default.Usuario = txtUsuario.Text.Trim();
@@ -50,14 +49,24 @@ namespace Clean_Go.BusinessLogic
 
                     MessageBox.Show($"Bienvenido {usuario.Nombre} {usuario.Apellido}", "Clean&Go", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
-                    FormPrincial principal = new FormPrincial();
+                    FormPrincial principal = new FormPrincial(usuario);
                     principal.FormClosed += (s, args) => this.Close();
                     principal.Show();
                     this.Hide();
                 }
                 else
                 {
-                    MessageBox.Show("Usuario o contraseña incorrectos.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    var todos = usuarioBLL.ObtenerTodos();
+                    var usuarioExistente = todos.Find(u => string.Equals(u.NombreUsuario, txtUsuario.Text.Trim(), StringComparison.OrdinalIgnoreCase));
+                    
+                    if (usuarioExistente != null && !usuarioExistente.Estado)
+                    {
+                        MessageBox.Show("El usuario no puede iniciar sesión porque está inactivo.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario o contraseña incorrectos.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     txtPassword.Clear();
                     txtPassword.Focus();
                 }
@@ -70,7 +79,6 @@ namespace Clean_Go.BusinessLogic
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            // Cargar configuración de Recordarme
             if (Properties.Settings.Default.Recordarme)
             {
                 txtUsuario.Text = Properties.Settings.Default.Usuario;

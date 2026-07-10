@@ -42,9 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConexionBD\ConexionDB.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Repositories\Roles\RolDAL.cs" />
+    <Compile Include="Singleton\ConexionDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Usuarios\UsuarioDAL.cs" />
+    <Compile Include="Repositories\Clientes\ClienteDAL.cs" />
+    <Compile Include="Repositories\Servicios\ServicioDAL.cs" />
+    <Compile Include="Repositories\Prendas\TipoPrendaDAL.cs" />
+    <Compile Include="Repositories\Ordenes\OrdenDAL.cs" />
+    <Compile Include="Repositories\Ordenes\HistorialEstadoDAL.cs" />
+    <Compile Include="Repositories\Notificaciones\ColaNotificacionDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Clean&amp;Go-Entities\Clean&amp;Go-Entities.csproj">
@@ -53,4 +61,5 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- Force Reload -->
 </Project>

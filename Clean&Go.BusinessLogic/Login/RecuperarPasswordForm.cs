@@ -52,5 +52,10 @@ namespace Clean_Go.BusinessLogic
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void RecuperarPasswordForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

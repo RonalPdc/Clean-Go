@@ -12,5 +12,6 @@ namespace Clean_Go_Entities.Usuarios
         public int RolId { get; set; }
         public string Rol { get; set; }
         public string PasswordHash { get; set; }
+        public bool Estado { get; set; }
     }
 }
