@@ -68,19 +68,34 @@ namespace Clean_Go.BusinessLogic.Reportes
                 {
                     string sql = "SELECT o.OrdenId, o.NumeroOrden, c.Nombre + ' ' + c.Apellido AS Cliente, e.Nombre AS Estado, o.FechaRecepcion, o.FechaEntregaEstimada, o.Total FROM Ordenes o INNER JOIN Clientes c ON o.ClienteId = c.ClienteId INNER JOIN EstadosOrden e ON o.EstadoId = e.EstadoId WHERE 1=1";
 
-                    if (dtpDesde.Checked)
-                        sql += " AND o.FechaRecepcion >= '" + dtpDesde.Value.ToString("yyyy-MM-dd") + "'";
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+                        cmd.Connection = cn;
 
-                    if (dtpHasta.Checked)
-                        sql += " AND o.FechaRecepcion <= '" + dtpHasta.Value.ToString("yyyy-MM-dd") + " 23:59:59'";
+                        if (dtpDesde.Checked)
+                        {
+                            sql += " AND o.FechaRecepcion >= @Desde";
+                            cmd.Parameters.Add("@Desde", SqlDbType.DateTime).Value = dtpDesde.Value.Date;
+                        }
 
-                    if (cmbEstado.SelectedIndex > 0)
-                        sql += " AND e.Nombre = '" + cmbEstado.SelectedItem.ToString() + "'";
+                        if (dtpHasta.Checked)
+                        {
+                            sql += " AND o.FechaRecepcion <= @Hasta";
+                            cmd.Parameters.Add("@Hasta", SqlDbType.DateTime).Value = dtpHasta.Value.Date.AddDays(1).AddTicks(-1); // Fin del día
+                        }
 
-                    sql += " ORDER BY o.FechaRecepcion DESC";
+                        if (cmbEstado.SelectedIndex > 0)
+                        {
+                            sql += " AND e.Nombre = @Estado";
+                            cmd.Parameters.Add("@Estado", SqlDbType.VarChar).Value = cmbEstado.SelectedItem.ToString();
+                        }
 
-                    SqlDataAdapter adapter = new SqlDataAdapter(sql, cn);
-                    adapter.Fill(tabla);
+                        sql += " ORDER BY o.FechaRecepcion DESC";
+                        cmd.CommandText = sql;
+
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        adapter.Fill(tabla);
+                    }
                 }
 
                 dgvOrdenes.DataSource = tabla;
@@ -88,17 +103,17 @@ namespace Clean_Go.BusinessLogic.Reportes
                 if (dgvOrdenes.Columns.Contains("OrdenId"))
                     dgvOrdenes.Columns["OrdenId"].HeaderText = "ID";
                 if (dgvOrdenes.Columns.Contains("NumeroOrden"))
-                    dgvOrdenes.Columns["NumeroOrden"].HeaderText = "N\u00famero Orden";
+                    dgvOrdenes.Columns["NumeroOrden"].HeaderText = "Número Orden";
                 if (dgvOrdenes.Columns.Contains("FechaRecepcion"))
-                    dgvOrdenes.Columns["FechaRecepcion"].HeaderText = "Fecha Recepci\u00f3n";
+                    dgvOrdenes.Columns["FechaRecepcion"].HeaderText = "Fecha Recepción";
                 if (dgvOrdenes.Columns.Contains("FechaEntregaEstimada"))
                     dgvOrdenes.Columns["FechaEntregaEstimada"].HeaderText = "Entrega Estimada";
 
-                lblTotalOrdenes.Text = "Total de \u00f3rdenes: " + tabla.Rows.Count.ToString();
+                lblTotalOrdenes.Text = "Total de órdenes: " + tabla.Rows.Count.ToString();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar \u00f3rdenes:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al cargar órdenes:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
