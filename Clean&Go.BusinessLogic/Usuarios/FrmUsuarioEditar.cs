@@ -12,6 +12,7 @@ namespace Clean_Go.BusinessLogic.Usuarios
         private readonly UsuariosBLL _usuariosBLL = new UsuariosBLL();
         private readonly RolDAL _rolDAL = new RolDAL();
         private readonly Usuario _usuarioToEdit = null;
+        private CheckBox _chkMostrarPassword = null;
 
         public FrmUsuarioEditar()
         {
@@ -41,6 +42,22 @@ namespace Clean_Go.BusinessLogic.Usuarios
             txtUsuario.MaxLength = 50;
             txtCorreo.MaxLength = 100;
             txtPassword.MaxLength = 100;
+
+            // Inyectar programáticamente el CheckBox para Mostrar Contraseña
+            _chkMostrarPassword = new CheckBox();
+            _chkMostrarPassword.Text = "Mostrar contraseña";
+            _chkMostrarPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
+            _chkMostrarPassword.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
+            _chkMostrarPassword.Location = new System.Drawing.Point(25, 258);
+            _chkMostrarPassword.Size = new System.Drawing.Size(150, 20);
+            _chkMostrarPassword.AutoSize = true;
+            
+            // Evento para alternar visualización
+            _chkMostrarPassword.CheckedChanged += (s, ev) => {
+                txtPassword.UseSystemPasswordChar = !_chkMostrarPassword.Checked;
+            };
+
+            this.Controls.Add(_chkMostrarPassword);
 
             CargarRoles();
             
@@ -204,6 +221,10 @@ namespace Clean_Go.BusinessLogic.Usuarios
             txtPassword.Enabled = habilitar;
             cmbRol.Enabled = habilitar;
             chkEstado.Enabled = habilitar;
+            if (_chkMostrarPassword != null)
+            {
+                _chkMostrarPassword.Enabled = habilitar;
+            }
             btnGuardar.Enabled = habilitar;
             btnCancelar.Enabled = habilitar;
             this.Cursor = habilitar ? Cursors.Default : Cursors.WaitCursor;
