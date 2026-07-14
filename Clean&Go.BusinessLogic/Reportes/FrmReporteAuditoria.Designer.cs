@@ -7,8 +7,6 @@ namespace Clean_Go.BusinessLogic.Reportes
     {
         private System.ComponentModel.IContainer components = null;
 
-        private Panel panelSuperior;
-        private Label lblTitulo;
         private Label lblBuscar;
         private TextBox txtBuscar;
         private Label lblDesde;
@@ -31,8 +29,6 @@ namespace Clean_Go.BusinessLogic.Reportes
 
         private void InitializeComponent()
         {
-            this.panelSuperior = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
             this.lblBuscar = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.lblDesde = new System.Windows.Forms.Label();
@@ -43,47 +39,32 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.dgvAuditoria = new System.Windows.Forms.DataGridView();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.panelSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuditoria)).BeginInit();
             this.SuspendLayout();
-
-            this.panelSuperior.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.panelSuperior.Controls.Add(this.lblTitulo);
-            this.panelSuperior.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSuperior.Location = new System.Drawing.Point(0, 0);
-            this.panelSuperior.Name = "panelSuperior";
-            this.panelSuperior.Size = new System.Drawing.Size(900, 50);
-
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(15, 12);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Text = "Registro de Auditoria";
 
             this.lblBuscar.AutoSize = true;
             this.lblBuscar.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lblBuscar.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-            this.lblBuscar.Location = new System.Drawing.Point(15, 65);
+            this.lblBuscar.Location = new System.Drawing.Point(15, 20);
             this.lblBuscar.Name = "lblBuscar";
             this.lblBuscar.Text = "Buscar:";
 
             this.txtBuscar.BackColor = System.Drawing.Color.FromArgb(241, 245, 249);
             this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.txtBuscar.Location = new System.Drawing.Point(70, 62);
+            this.txtBuscar.Location = new System.Drawing.Point(70, 17);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(160, 24);
 
             this.lblDesde.AutoSize = true;
             this.lblDesde.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lblDesde.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-            this.lblDesde.Location = new System.Drawing.Point(245, 65);
+            this.lblDesde.Location = new System.Drawing.Point(245, 20);
             this.lblDesde.Name = "lblDesde";
             this.lblDesde.Text = "Desde:";
 
             this.dtpDesde.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.dtpDesde.Location = new System.Drawing.Point(295, 62);
+            this.dtpDesde.Location = new System.Drawing.Point(295, 17);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.ShowCheckBox = true;
             this.dtpDesde.Checked = false;
@@ -92,12 +73,12 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.lblHasta.AutoSize = true;
             this.lblHasta.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lblHasta.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-            this.lblHasta.Location = new System.Drawing.Point(460, 65);
+            this.lblHasta.Location = new System.Drawing.Point(460, 20);
             this.lblHasta.Name = "lblHasta";
             this.lblHasta.Text = "Hasta:";
 
             this.dtpHasta.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.dtpHasta.Location = new System.Drawing.Point(505, 62);
+            this.dtpHasta.Location = new System.Drawing.Point(505, 17);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.ShowCheckBox = true;
             this.dtpHasta.Checked = false;
@@ -109,7 +90,7 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFiltrar.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.btnFiltrar.ForeColor = System.Drawing.Color.White;
-            this.btnFiltrar.Location = new System.Drawing.Point(675, 60);
+            this.btnFiltrar.Location = new System.Drawing.Point(675, 15);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(90, 30);
             this.btnFiltrar.Text = "Filtrar";
@@ -122,7 +103,7 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Location = new System.Drawing.Point(775, 60);
+            this.btnLimpiar.Location = new System.Drawing.Point(775, 15);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(90, 30);
             this.btnLimpiar.Text = "Limpiar";
@@ -139,13 +120,13 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.dgvAuditoria.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.dgvAuditoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAuditoria.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dgvAuditoria.Location = new System.Drawing.Point(15, 105);
+            this.dgvAuditoria.Location = new System.Drawing.Point(15, 60);
             this.dgvAuditoria.MultiSelect = false;
             this.dgvAuditoria.Name = "dgvAuditoria";
             this.dgvAuditoria.ReadOnly = true;
             this.dgvAuditoria.RowHeadersVisible = false;
             this.dgvAuditoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAuditoria.Size = new System.Drawing.Size(870, 350);
+            this.dgvAuditoria.Size = new System.Drawing.Size(870, 395);
 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
@@ -168,13 +149,10 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.Controls.Add(this.lblDesde);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.lblBuscar);
-            this.Controls.Add(this.panelSuperior);
             this.Load += new System.EventHandler(this.FrmReporteAuditoria_Load);
             this.Name = "FrmReporteAuditoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Auditoria del Sistema";
-            this.panelSuperior.ResumeLayout(false);
-            this.panelSuperior.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuditoria)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

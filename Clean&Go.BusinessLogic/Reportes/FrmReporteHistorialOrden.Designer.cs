@@ -7,8 +7,6 @@ namespace Clean_Go.BusinessLogic.Reportes
     {
         private System.ComponentModel.IContainer components = null;
 
-        private Panel panelSuperior;
-        private Label lblTitulo;
         private Label lblNumero;
         private TextBox txtNumeroOrden;
         private Button btnBuscar;
@@ -29,8 +27,6 @@ namespace Clean_Go.BusinessLogic.Reportes
 
         private void InitializeComponent()
         {
-            this.panelSuperior = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
             this.lblNumero = new System.Windows.Forms.Label();
             this.txtNumeroOrden = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -39,36 +35,21 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.dgvHistorial = new System.Windows.Forms.DataGridView();
             this.lblDetalleTitulo = new System.Windows.Forms.Label();
             this.dgvDetalle = new System.Windows.Forms.DataGridView();
-            this.panelSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.SuspendLayout();
 
-            this.panelSuperior.BackColor = System.Drawing.Color.FromArgb(14, 116, 144);
-            this.panelSuperior.Controls.Add(this.lblTitulo);
-            this.panelSuperior.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSuperior.Location = new System.Drawing.Point(0, 0);
-            this.panelSuperior.Name = "panelSuperior";
-            this.panelSuperior.Size = new System.Drawing.Size(900, 50);
-
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(15, 12);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Text = "Historial de Orden";
-
             this.lblNumero.AutoSize = true;
             this.lblNumero.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lblNumero.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-            this.lblNumero.Location = new System.Drawing.Point(15, 65);
+            this.lblNumero.Location = new System.Drawing.Point(15, 20);
             this.lblNumero.Name = "lblNumero";
             this.lblNumero.Text = "N\u00famero de Orden:";
 
             this.txtNumeroOrden.BackColor = System.Drawing.Color.FromArgb(241, 245, 249);
             this.txtNumeroOrden.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNumeroOrden.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.txtNumeroOrden.Location = new System.Drawing.Point(135, 62);
+            this.txtNumeroOrden.Location = new System.Drawing.Point(135, 17);
             this.txtNumeroOrden.Name = "txtNumeroOrden";
             this.txtNumeroOrden.Size = new System.Drawing.Size(180, 24);
             this.txtNumeroOrden.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNumeroOrden_KeyDown);
@@ -79,7 +60,7 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(325, 60);
+            this.btnBuscar.Location = new System.Drawing.Point(325, 15);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(100, 30);
             this.btnBuscar.Text = "Buscar";
@@ -89,7 +70,7 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.lblOrdenInfo.AutoSize = false;
             this.lblOrdenInfo.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
             this.lblOrdenInfo.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.lblOrdenInfo.Location = new System.Drawing.Point(15, 100);
+            this.lblOrdenInfo.Location = new System.Drawing.Point(15, 55);
             this.lblOrdenInfo.Name = "lblOrdenInfo";
             this.lblOrdenInfo.Size = new System.Drawing.Size(870, 20);
             this.lblOrdenInfo.Text = "";
@@ -97,7 +78,7 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.lblDetalleTitulo.AutoSize = true;
             this.lblDetalleTitulo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblDetalleTitulo.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.lblDetalleTitulo.Location = new System.Drawing.Point(15, 125);
+            this.lblDetalleTitulo.Location = new System.Drawing.Point(15, 80);
             this.lblDetalleTitulo.Name = "lblDetalleTitulo";
             this.lblDetalleTitulo.Text = "Detalle de la Orden:";
 
@@ -111,18 +92,18 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.dgvDetalle.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.dgvDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetalle.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dgvDetalle.Location = new System.Drawing.Point(15, 145);
+            this.dgvDetalle.Location = new System.Drawing.Point(15, 100);
             this.dgvDetalle.MultiSelect = false;
             this.dgvDetalle.Name = "dgvDetalle";
             this.dgvDetalle.ReadOnly = true;
             this.dgvDetalle.RowHeadersVisible = false;
             this.dgvDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalle.Size = new System.Drawing.Size(870, 150);
+            this.dgvDetalle.Size = new System.Drawing.Size(870, 175);
 
             this.lblHistorialTitulo.AutoSize = true;
             this.lblHistorialTitulo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblHistorialTitulo.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.lblHistorialTitulo.Location = new System.Drawing.Point(15, 310);
+            this.lblHistorialTitulo.Location = new System.Drawing.Point(15, 290);
             this.lblHistorialTitulo.Name = "lblHistorialTitulo";
             this.lblHistorialTitulo.Text = "Historial de Cambios de Estado:";
 
@@ -136,13 +117,13 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.dgvHistorial.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.dgvHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHistorial.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dgvHistorial.Location = new System.Drawing.Point(15, 330);
+            this.dgvHistorial.Location = new System.Drawing.Point(15, 310);
             this.dgvHistorial.MultiSelect = false;
             this.dgvHistorial.Name = "dgvHistorial";
             this.dgvHistorial.ReadOnly = true;
             this.dgvHistorial.RowHeadersVisible = false;
             this.dgvHistorial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHistorial.Size = new System.Drawing.Size(870, 180);
+            this.dgvHistorial.Size = new System.Drawing.Size(870, 200);
 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -156,13 +137,10 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtNumeroOrden);
             this.Controls.Add(this.lblNumero);
-            this.Controls.Add(this.panelSuperior);
             this.Load += new System.EventHandler(this.FrmReporteHistorialOrden_Load);
             this.Name = "FrmReporteHistorialOrden";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Historial de Orden";
-            this.panelSuperior.ResumeLayout(false);
-            this.panelSuperior.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorial)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).EndInit();
             this.ResumeLayout(false);

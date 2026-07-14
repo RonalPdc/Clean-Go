@@ -45,8 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CleanGoService.cs" />
-    <Compile Include="ProjectInstaller.cs" />
+    <Compile Include="CleanGoService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProjectInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="TelegramBotProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
