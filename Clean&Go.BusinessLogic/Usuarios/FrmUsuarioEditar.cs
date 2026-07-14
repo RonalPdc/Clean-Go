@@ -190,6 +190,8 @@ namespace Clean_Go.BusinessLogic.Usuarios
                     resultado = _usuariosBLL.Actualizar(usuario);
                     if (resultado)
                     {
+                        // Forzar actualización de contraseña en base de datos ya que el store procedure 'Usuario_Update' no incluye esta columna
+                        new Clean_Go_DataAccess.Repositories.Usuarios.UsuarioDAL().ActualizarPassword(usuario.UsuarioId, usuario.PasswordHash);
                         MessageBox.Show("Usuario actualizado con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }

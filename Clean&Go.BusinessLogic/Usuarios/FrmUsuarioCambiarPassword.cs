@@ -63,31 +63,16 @@ namespace Clean_Go.BusinessLogic.Usuarios
 
             try
             {
-                // Obtener el usuario completo actualizado de la base de datos
-                var usuarioDB = _usuariosBLL.ObtenerPorId(_usuarioLogueado.UsuarioId);
-                if (usuarioDB == null)
-                {
-                    MessageBox.Show("No se encontró el usuario en la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                // Verificar contraseña actual
-                if (usuarioDB.PasswordHash != txtPasswordActual.Text)
-                {
-                    MessageBox.Show("La contraseña actual ingresada es incorrecta.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtPasswordActual.Focus();
-                    return;
-                }
-
-                // Asignar nueva contraseña
-                usuarioDB.PasswordHash = txtPasswordNueva.Text;
-
-                // Actualizar en base de datos
-                bool exito = _usuariosBLL.Actualizar(usuarioDB);
+                // Actualizar la contraseña utilizando el método dedicado de la BLL
+                bool exito = _usuariosBLL.ActualizarPassword(_usuarioLogueado.UsuarioId, txtPasswordActual.Text, txtPasswordNueva.Text);
 
                 if (exito)
                 {
                     MessageBox.Show("Contraseña actualizada con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                    // Sincronizar en memoria
+                    _usuarioLogueado.PasswordHash = txtPasswordNueva.Text;
+
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
@@ -98,7 +83,7 @@ namespace Clean_Go.BusinessLogic.Usuarios
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cambiar contraseña:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
