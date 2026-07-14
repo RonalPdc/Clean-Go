@@ -59,6 +59,7 @@ namespace Clean_Go.BusinessLogic
             TableLayoutPanel tblKpis = new TableLayoutPanel();
             tblKpis.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tblKpis.Height = 95;
+            tblKpis.Width = pnlDashboard.Width - 30; // Evitar el tamaño mínimo inicial de Windows Forms
             tblKpis.Location = new Point(15, 20);
             tblKpis.ColumnCount = 4;
             tblKpis.RowCount = 1;
