@@ -55,6 +55,40 @@ namespace Clean_Go.BusinessLogic
             timerClock.Start();
             ActualizarHora();
 
+            // Configurar distribución fluida y responsiva para las tarjetas KPI
+            TableLayoutPanel tblKpis = new TableLayoutPanel();
+            tblKpis.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tblKpis.Height = 95;
+            tblKpis.Location = new Point(15, 20);
+            tblKpis.ColumnCount = 4;
+            tblKpis.RowCount = 1;
+            tblKpis.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tblKpis.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tblKpis.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tblKpis.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tblKpis.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+
+            pnlDashboard.Controls.Remove(pnlKpiPendientes);
+            pnlDashboard.Controls.Remove(pnlKpiProceso);
+            pnlDashboard.Controls.Remove(pnlKpiListo);
+            pnlDashboard.Controls.Remove(pnlKpiEntregado);
+
+            pnlKpiPendientes.Dock = DockStyle.Fill;
+            pnlKpiPendientes.Margin = new Padding(5, 0, 5, 0);
+            pnlKpiProceso.Dock = DockStyle.Fill;
+            pnlKpiProceso.Margin = new Padding(5, 0, 5, 0);
+            pnlKpiListo.Dock = DockStyle.Fill;
+            pnlKpiListo.Margin = new Padding(5, 0, 5, 0);
+            pnlKpiEntregado.Dock = DockStyle.Fill;
+            pnlKpiEntregado.Margin = new Padding(5, 0, 5, 0);
+
+            tblKpis.Controls.Add(pnlKpiPendientes, 0, 0);
+            tblKpis.Controls.Add(pnlKpiProceso, 1, 0);
+            tblKpis.Controls.Add(pnlKpiListo, 2, 0);
+            tblKpis.Controls.Add(pnlKpiEntregado, 3, 0);
+
+            pnlDashboard.Controls.Add(tblKpis);
+
             // Estilo del Grid de entregas
             DisenoHelper.StyleGrid(dgvEntregasHoy);
 

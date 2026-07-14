@@ -80,6 +80,7 @@ namespace Clean_Go.BusinessLogic
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.Color.White;
+            this.pnlSidebar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlSidebar.Controls.Add(this.lblSidebarTitle);
             this.pnlSidebar.Controls.Add(this.pictureBox1);
             this.pnlSidebar.Controls.Add(this.btnMenuDashboard);
@@ -229,9 +230,9 @@ namespace Clean_Go.BusinessLogic
             this.btnMenuSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuSalir.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnMenuSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
-            this.btnMenuSalir.Location = new System.Drawing.Point(0, 655);
+            this.btnMenuSalir.Location = new System.Drawing.Point(0, 653);
             this.btnMenuSalir.Name = "btnMenuSalir";
-            this.btnMenuSalir.Size = new System.Drawing.Size(220, 38);
+            this.btnMenuSalir.Size = new System.Drawing.Size(218, 38);
             this.btnMenuSalir.TabIndex = 7;
             this.btnMenuSalir.Text = "🚪 Cerrar Sesión";
             this.btnMenuSalir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -246,9 +247,9 @@ namespace Clean_Go.BusinessLogic
             this.btnSalirApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalirApp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnSalirApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.btnSalirApp.Location = new System.Drawing.Point(0, 693);
+            this.btnSalirApp.Location = new System.Drawing.Point(0, 691);
             this.btnSalirApp.Name = "btnSalirApp";
-            this.btnSalirApp.Size = new System.Drawing.Size(220, 38);
+            this.btnSalirApp.Size = new System.Drawing.Size(218, 38);
             this.btnSalirApp.TabIndex = 8;
             this.btnSalirApp.Text = "❌ Salir del Sistema";
             this.btnSalirApp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -577,6 +578,7 @@ namespace Clean_Go.BusinessLogic
             this.Controls.Add(this.statusStripBottom);
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.pnlSidebar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormPrincial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clean&&Go Pro - Sistema de Gestión de Lavandería";
