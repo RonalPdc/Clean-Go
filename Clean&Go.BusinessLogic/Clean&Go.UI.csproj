@@ -145,12 +145,6 @@
     <Compile Include="Reportes\FrmReporteOrdenes.Designer.cs">
       <DependentUpon>FrmReporteOrdenes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\FrmReporteAuditoria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reportes\FrmReporteAuditoria.Designer.cs">
-      <DependentUpon>FrmReporteAuditoria.cs</DependentUpon>
-    </Compile>
     <Compile Include="Reportes\FrmReporteHistorialOrden.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +174,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reportes\FrmReporteHistorialOrden.resx">
+      <DependentUpon>FrmReporteHistorialOrden.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Usuarios\FrmUsuarioEditar.resx">
       <DependentUpon>FrmUsuarioEditar.cs</DependentUpon>
     </EmbeddedResource>

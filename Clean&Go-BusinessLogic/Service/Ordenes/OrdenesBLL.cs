@@ -71,6 +71,21 @@ namespace Clean_Go_BusinessLogic.Service.Ordenes
 
             if (estadoActualizado)
             {
+                try
+                {
+                    Cliente cliente = _clienteDAL.ObtenerPorId(orden.ClienteId);
+                    if (cliente != null)
+                    {
+                        IEstadoOrden estadoNuevo = EstadoOrdenHelper.ObtenerEstado(nuevoEstadoId);
+                        string mensajeNotificacion = $"Hola {cliente.Nombre}, el estado de su orden número {orden.NumeroOrden} ha cambiado a: {estadoNuevo.Nombre}.";
+                        _notificacionDAL.RegistrarNotificacion(ordenId, orden.ClienteId, mensajeNotificacion);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al encolar notificación: " + ex.Message);
+                }
+
                 AlCambiarOrdenes?.Invoke();
             }
 

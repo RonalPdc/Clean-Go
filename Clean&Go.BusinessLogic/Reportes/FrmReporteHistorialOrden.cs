@@ -22,21 +22,51 @@ namespace Clean_Go.BusinessLogic.Reportes
         {
             DisenoHelper.StyleGrid(dgvDetalle);
             DisenoHelper.StyleGrid(dgvHistorial);
-            txtNumeroOrden.Focus();
+            CargarComboOrdenes();
+        }
+
+        private void CargarComboOrdenes()
+        {
+            try
+            {
+                DataTable tablaCombo = new DataTable();
+                using (SqlConnection cn = ConexionDB.Instancia.ObtenerConexion())
+                {
+                    string sql = "SELECT o.NumeroOrden, o.NumeroOrden + ' - ' + c.Nombre + ' ' + c.Apellido + ' ($' + CAST(o.Total AS VARCHAR) + ')' AS DisplayLabel FROM Ordenes o INNER JOIN Clientes c ON o.ClienteId = c.ClienteId ORDER BY o.OrdenId DESC";
+                    SqlDataAdapter adapter = new SqlDataAdapter(sql, cn);
+                    adapter.Fill(tablaCombo);
+                }
+
+                txtNumeroOrden.DisplayMember = "DisplayLabel";
+                txtNumeroOrden.ValueMember = "NumeroOrden";
+                txtNumeroOrden.DataSource = tablaCombo;
+                txtNumeroOrden.SelectedIndex = -1; // Iniciar sin selección
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar listado de órdenes:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtNumeroOrden_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (txtNumeroOrden.SelectedValue != null && txtNumeroOrden.Focused)
+            {
+                string numeroOrden = txtNumeroOrden.SelectedValue.ToString();
+                CargarHistorial(numeroOrden);
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            string busqueda = txtNumeroOrden.Text.Trim();
-
-            if (string.IsNullOrEmpty(busqueda))
+            if (txtNumeroOrden.SelectedValue == null)
             {
-                MessageBox.Show("Ingrese el numero de orden.", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtNumeroOrden.Focus();
+                MessageBox.Show("Seleccione una orden de la lista para ver su historial.", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            CargarHistorial(busqueda);
+            string numeroOrden = txtNumeroOrden.SelectedValue.ToString();
+            CargarHistorial(numeroOrden);
         }
 
         private void CargarHistorial(string numeroOrden)
@@ -86,14 +116,6 @@ namespace Clean_Go.BusinessLogic.Reportes
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar historial:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void txtNumeroOrden_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
-        {
-            if (e.KeyCode == System.Windows.Forms.Keys.Enter)
-            {
-                btnBuscar_Click(sender, e);
             }
         }
     }
