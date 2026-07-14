@@ -31,6 +31,7 @@ namespace Clean_Go.BusinessLogic
             this.btnMenuOrdenes = new System.Windows.Forms.Button();
             this.btnMenuReportes = new System.Windows.Forms.Button();
             this.btnMenuUsuarios = new System.Windows.Forms.Button();
+            this.btnMenuPassword = new System.Windows.Forms.Button();
             this.btnMenuSalir = new System.Windows.Forms.Button();
             this.btnSalirApp = new System.Windows.Forms.Button();
             this.pnlHeader = new System.Windows.Forms.Panel();
@@ -90,6 +91,7 @@ namespace Clean_Go.BusinessLogic
             this.pnlSidebar.Controls.Add(this.btnMenuOrdenes);
             this.pnlSidebar.Controls.Add(this.btnMenuReportes);
             this.pnlSidebar.Controls.Add(this.btnMenuUsuarios);
+            this.pnlSidebar.Controls.Add(this.btnMenuPassword);
             this.pnlSidebar.Controls.Add(this.btnMenuSalir);
             this.pnlSidebar.Controls.Add(this.btnSalirApp);
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
@@ -220,6 +222,22 @@ namespace Clean_Go.BusinessLogic
             this.btnMenuUsuarios.Text = "🔒 Usuarios / Seguridad";
             this.btnMenuUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuUsuarios.UseVisualStyleBackColor = false;
+            // 
+            // btnMenuPassword
+            // 
+            this.btnMenuPassword.BackColor = System.Drawing.Color.White;
+            this.btnMenuPassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuPassword.FlatAppearance.BorderSize = 0;
+            this.btnMenuPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuPassword.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnMenuPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
+            this.btnMenuPassword.Location = new System.Drawing.Point(15, 385);
+            this.btnMenuPassword.Name = "btnMenuPassword";
+            this.btnMenuPassword.Size = new System.Drawing.Size(190, 38);
+            this.btnMenuPassword.TabIndex = 9;
+            this.btnMenuPassword.Text = "🔑 Cambiar Contraseña";
+            this.btnMenuPassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuPassword.UseVisualStyleBackColor = false;
             // 
             // btnMenuSalir
             // 
@@ -613,6 +631,7 @@ namespace Clean_Go.BusinessLogic
         private Button btnMenuOrdenes;
         private Button btnMenuReportes;
         private Button btnMenuUsuarios;
+        private Button btnMenuPassword;
         private Button btnMenuSalir;
         private Button btnSalirApp;
         private Panel pnlHeader;
