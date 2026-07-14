@@ -121,6 +121,9 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.dgvOrdenes.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.dgvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrdenes.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dgvOrdenes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvOrdenes.Location = new System.Drawing.Point(15, 60);
             this.dgvOrdenes.MultiSelect = false;
             this.dgvOrdenes.Name = "dgvOrdenes";
@@ -129,6 +132,7 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.dgvOrdenes.Size = new System.Drawing.Size(870, 395);
             this.dgvOrdenes.RowHeadersVisible = false;
 
+            this.lblTotalOrdenes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTotalOrdenes.AutoSize = true;
             this.lblTotalOrdenes.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblTotalOrdenes.ForeColor = System.Drawing.Color.FromArgb(8, 145, 178);

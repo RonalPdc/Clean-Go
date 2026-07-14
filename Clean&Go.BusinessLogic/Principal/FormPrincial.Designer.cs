@@ -500,6 +500,9 @@ namespace Clean_Go.BusinessLogic
             // 
             // pnlTablaContenedor
             // 
+            this.pnlTablaContenedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlTablaContenedor.BackColor = System.Drawing.Color.White;
             this.pnlTablaContenedor.Controls.Add(this.lblTablaTitulo);
             this.pnlTablaContenedor.Controls.Add(this.dgvEntregasHoy);
@@ -525,6 +528,9 @@ namespace Clean_Go.BusinessLogic
             // 
             this.dgvEntregasHoy.AllowUserToAddRows = false;
             this.dgvEntregasHoy.AllowUserToDeleteRows = false;
+            this.dgvEntregasHoy.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEntregasHoy.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEntregasHoy.BackgroundColor = System.Drawing.Color.White;
             this.dgvEntregasHoy.BorderStyle = System.Windows.Forms.BorderStyle.None;
