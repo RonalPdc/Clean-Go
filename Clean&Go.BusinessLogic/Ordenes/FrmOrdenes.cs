@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using Clean_Go_BusinessLogic.Service.Ordenes;
 using Clean_Go_Entities.Ordenes;
 using Clean_Go_Entities.Usuarios;
+using Clean_Go.BusinessLogic;
 
 namespace Clean_Go.BusinessLogic.Ordenes
 {
@@ -17,6 +19,11 @@ namespace Clean_Go.BusinessLogic.Ordenes
             InitializeComponent();
             _usuarioLogueado = usuarioLogueado;
             ConfigurarEventos();
+
+            // Estilos Premium
+            DisenoHelper.StyleButton(btnNuevo, Color.FromArgb(8, 145, 178), Color.White);
+            DisenoHelper.StyleButton(btnCambiarEstado, Color.FromArgb(8, 145, 178), Color.White);
+            DisenoHelper.StyleButton(btnBuscar, Color.FromArgb(71, 85, 105), Color.White);
         }
 
         private void ConfigurarEventos()
@@ -33,6 +40,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
 
         private void FrmOrdenes_Load(object sender, EventArgs e)
         {
+            DisenoHelper.StyleGrid(dgvOrdenes);
             CargarOrdenes();
         }
 

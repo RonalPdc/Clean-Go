@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using Clean_Go_BusinessLogic.Service.Clientes;
 using Clean_Go_Entities.Clientes;
+using Clean_Go.BusinessLogic;
 
 namespace Clean_Go.BusinessLogic.Clientes
 {
@@ -14,6 +16,12 @@ namespace Clean_Go.BusinessLogic.Clientes
         {
             InitializeComponent();
             ConfigurarEventos();
+
+            // Estilos Premium
+            DisenoHelper.StyleButton(btnNuevo, Color.FromArgb(8, 145, 178), Color.White);
+            DisenoHelper.StyleButton(btnEditar, Color.FromArgb(8, 145, 178), Color.White);
+            DisenoHelper.StyleButton(btnEliminar, Color.FromArgb(239, 68, 68), Color.White);
+            DisenoHelper.StyleButton(btnBuscar, Color.FromArgb(71, 85, 105), Color.White);
         }
 
         private void ConfigurarEventos()
@@ -28,6 +36,7 @@ namespace Clean_Go.BusinessLogic.Clientes
 
         private void FrmClientes_Load(object sender, EventArgs e)
         {
+            DisenoHelper.StyleGrid(dgvClientes);
             CargarClientes();
         }
 

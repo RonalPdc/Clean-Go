@@ -1,8 +1,10 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 using Clean_Go_DataAccess.ConexionBD;
+using Clean_Go.BusinessLogic;
 
 namespace Clean_Go.BusinessLogic.Reportes
 {
@@ -11,10 +13,15 @@ namespace Clean_Go.BusinessLogic.Reportes
         public FrmReporteHistorialOrden()
         {
             InitializeComponent();
+
+            // Estilos Premium
+            DisenoHelper.StyleButton(btnBuscar, Color.FromArgb(8, 145, 178), Color.White);
         }
 
         private void FrmReporteHistorialOrden_Load(object sender, EventArgs e)
         {
+            DisenoHelper.StyleGrid(dgvDetalle);
+            DisenoHelper.StyleGrid(dgvHistorial);
             txtNumeroOrden.Focus();
         }
 

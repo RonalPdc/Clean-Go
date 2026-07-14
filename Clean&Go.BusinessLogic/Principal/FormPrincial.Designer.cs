@@ -89,19 +89,17 @@ namespace Clean_Go.BusinessLogic
             this.pnlSidebar.Controls.Add(this.btnSalirApp);
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
-            this.pnlSidebar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Size = new System.Drawing.Size(293, 900);
+            this.pnlSidebar.Size = new System.Drawing.Size(220, 731);
             this.pnlSidebar.TabIndex = 0;
             // 
             // lblSidebarTitle
             // 
             this.lblSidebarTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.lblSidebarTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(145)))), ((int)(((byte)(178)))));
-            this.lblSidebarTitle.Location = new System.Drawing.Point(20, 18);
-            this.lblSidebarTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSidebarTitle.Location = new System.Drawing.Point(15, 15);
             this.lblSidebarTitle.Name = "lblSidebarTitle";
-            this.lblSidebarTitle.Size = new System.Drawing.Size(253, 49);
+            this.lblSidebarTitle.Size = new System.Drawing.Size(190, 40);
             this.lblSidebarTitle.TabIndex = 0;
             this.lblSidebarTitle.Text = "🧺 Clean&Go";
             this.lblSidebarTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -114,10 +112,9 @@ namespace Clean_Go.BusinessLogic
             this.btnMenuDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuDashboard.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnMenuDashboard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
-            this.btnMenuDashboard.Location = new System.Drawing.Point(20, 86);
-            this.btnMenuDashboard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenuDashboard.Location = new System.Drawing.Point(15, 70);
             this.btnMenuDashboard.Name = "btnMenuDashboard";
-            this.btnMenuDashboard.Size = new System.Drawing.Size(253, 47);
+            this.btnMenuDashboard.Size = new System.Drawing.Size(190, 38);
             this.btnMenuDashboard.TabIndex = 0;
             this.btnMenuDashboard.Text = "📊 Panel de Control";
             this.btnMenuDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -131,10 +128,9 @@ namespace Clean_Go.BusinessLogic
             this.btnMenuClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuClientes.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnMenuClientes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
-            this.btnMenuClientes.Location = new System.Drawing.Point(20, 142);
-            this.btnMenuClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenuClientes.Location = new System.Drawing.Point(15, 115);
             this.btnMenuClientes.Name = "btnMenuClientes";
-            this.btnMenuClientes.Size = new System.Drawing.Size(253, 47);
+            this.btnMenuClientes.Size = new System.Drawing.Size(190, 38);
             this.btnMenuClientes.TabIndex = 1;
             this.btnMenuClientes.Text = "👥 Clientes";
             this.btnMenuClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -148,10 +144,9 @@ namespace Clean_Go.BusinessLogic
             this.btnMenuServicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuServicios.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnMenuServicios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
-            this.btnMenuServicios.Location = new System.Drawing.Point(20, 197);
-            this.btnMenuServicios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenuServicios.Location = new System.Drawing.Point(15, 160);
             this.btnMenuServicios.Name = "btnMenuServicios";
-            this.btnMenuServicios.Size = new System.Drawing.Size(253, 47);
+            this.btnMenuServicios.Size = new System.Drawing.Size(190, 38);
             this.btnMenuServicios.TabIndex = 2;
             this.btnMenuServicios.Text = "💼 Servicios";
             this.btnMenuServicios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -165,10 +160,9 @@ namespace Clean_Go.BusinessLogic
             this.btnMenuPrendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuPrendas.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnMenuPrendas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
-            this.btnMenuPrendas.Location = new System.Drawing.Point(20, 252);
-            this.btnMenuPrendas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenuPrendas.Location = new System.Drawing.Point(15, 205);
             this.btnMenuPrendas.Name = "btnMenuPrendas";
-            this.btnMenuPrendas.Size = new System.Drawing.Size(253, 47);
+            this.btnMenuPrendas.Size = new System.Drawing.Size(190, 38);
             this.btnMenuPrendas.TabIndex = 3;
             this.btnMenuPrendas.Text = "👕 Tipos de Prenda";
             this.btnMenuPrendas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -182,10 +176,9 @@ namespace Clean_Go.BusinessLogic
             this.btnMenuOrdenes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuOrdenes.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnMenuOrdenes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
-            this.btnMenuOrdenes.Location = new System.Drawing.Point(20, 308);
-            this.btnMenuOrdenes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenuOrdenes.Location = new System.Drawing.Point(15, 250);
             this.btnMenuOrdenes.Name = "btnMenuOrdenes";
-            this.btnMenuOrdenes.Size = new System.Drawing.Size(253, 47);
+            this.btnMenuOrdenes.Size = new System.Drawing.Size(190, 38);
             this.btnMenuOrdenes.TabIndex = 4;
             this.btnMenuOrdenes.Text = "🧺 Órdenes";
             this.btnMenuOrdenes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -199,10 +192,9 @@ namespace Clean_Go.BusinessLogic
             this.btnMenuReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuReportes.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnMenuReportes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
-            this.btnMenuReportes.Location = new System.Drawing.Point(20, 363);
-            this.btnMenuReportes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenuReportes.Location = new System.Drawing.Point(15, 295);
             this.btnMenuReportes.Name = "btnMenuReportes";
-            this.btnMenuReportes.Size = new System.Drawing.Size(253, 47);
+            this.btnMenuReportes.Size = new System.Drawing.Size(190, 38);
             this.btnMenuReportes.TabIndex = 5;
             this.btnMenuReportes.Text = "📈 Reportes";
             this.btnMenuReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -216,10 +208,9 @@ namespace Clean_Go.BusinessLogic
             this.btnMenuUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuUsuarios.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnMenuUsuarios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
-            this.btnMenuUsuarios.Location = new System.Drawing.Point(20, 418);
-            this.btnMenuUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenuUsuarios.Location = new System.Drawing.Point(15, 340);
             this.btnMenuUsuarios.Name = "btnMenuUsuarios";
-            this.btnMenuUsuarios.Size = new System.Drawing.Size(253, 47);
+            this.btnMenuUsuarios.Size = new System.Drawing.Size(190, 38);
             this.btnMenuUsuarios.TabIndex = 6;
             this.btnMenuUsuarios.Text = "🔒 Usuarios / Seguridad";
             this.btnMenuUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -229,14 +220,14 @@ namespace Clean_Go.BusinessLogic
             // 
             this.btnMenuSalir.BackColor = System.Drawing.Color.White;
             this.btnMenuSalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuSalir.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnMenuSalir.FlatAppearance.BorderSize = 0;
             this.btnMenuSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuSalir.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnMenuSalir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
-            this.btnMenuSalir.Location = new System.Drawing.Point(20, 474);
-            this.btnMenuSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMenuSalir.Location = new System.Drawing.Point(0, 655);
             this.btnMenuSalir.Name = "btnMenuSalir";
-            this.btnMenuSalir.Size = new System.Drawing.Size(253, 47);
+            this.btnMenuSalir.Size = new System.Drawing.Size(220, 38);
             this.btnMenuSalir.TabIndex = 7;
             this.btnMenuSalir.Text = "🚪 Cerrar Sesión";
             this.btnMenuSalir.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -246,14 +237,14 @@ namespace Clean_Go.BusinessLogic
             // 
             this.btnSalirApp.BackColor = System.Drawing.Color.White;
             this.btnSalirApp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalirApp.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnSalirApp.FlatAppearance.BorderSize = 0;
             this.btnSalirApp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalirApp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnSalirApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
-            this.btnSalirApp.Location = new System.Drawing.Point(20, 845);
-            this.btnSalirApp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalirApp.Location = new System.Drawing.Point(0, 693);
             this.btnSalirApp.Name = "btnSalirApp";
-            this.btnSalirApp.Size = new System.Drawing.Size(253, 47);
+            this.btnSalirApp.Size = new System.Drawing.Size(220, 38);
             this.btnSalirApp.TabIndex = 8;
             this.btnSalirApp.Text = "❌ Salir del Sistema";
             this.btnSalirApp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -265,10 +256,9 @@ namespace Clean_Go.BusinessLogic
             this.pnlHeader.Controls.Add(this.lblHeaderTitle);
             this.pnlHeader.Controls.Add(this.lblUserStatus);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(293, 0);
-            this.pnlHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlHeader.Location = new System.Drawing.Point(220, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1051, 68);
+            this.pnlHeader.Size = new System.Drawing.Size(788, 55);
             this.pnlHeader.TabIndex = 1;
             // 
             // lblHeaderTitle
@@ -276,10 +266,9 @@ namespace Clean_Go.BusinessLogic
             this.lblHeaderTitle.AutoSize = true;
             this.lblHeaderTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.lblHeaderTitle.ForeColor = System.Drawing.Color.White;
-            this.lblHeaderTitle.Location = new System.Drawing.Point(20, 18);
-            this.lblHeaderTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHeaderTitle.Location = new System.Drawing.Point(15, 15);
             this.lblHeaderTitle.Name = "lblHeaderTitle";
-            this.lblHeaderTitle.Size = new System.Drawing.Size(204, 32);
+            this.lblHeaderTitle.Size = new System.Drawing.Size(161, 25);
             this.lblHeaderTitle.TabIndex = 0;
             this.lblHeaderTitle.Text = "Panel de Control";
             // 
@@ -288,10 +277,9 @@ namespace Clean_Go.BusinessLogic
             this.lblUserStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUserStatus.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblUserStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(213)))), ((int)(((byte)(225)))));
-            this.lblUserStatus.Location = new System.Drawing.Point(507, 18);
-            this.lblUserStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserStatus.Location = new System.Drawing.Point(380, 15);
             this.lblUserStatus.Name = "lblUserStatus";
-            this.lblUserStatus.Size = new System.Drawing.Size(524, 31);
+            this.lblUserStatus.Size = new System.Drawing.Size(393, 25);
             this.lblUserStatus.TabIndex = 1;
             this.lblUserStatus.Text = "Usuario: Admin";
             this.lblUserStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -301,10 +289,9 @@ namespace Clean_Go.BusinessLogic
             this.pnlContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.pnlContent.Controls.Add(this.pnlDashboard);
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContent.Location = new System.Drawing.Point(293, 68);
-            this.pnlContent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlContent.Location = new System.Drawing.Point(220, 55);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(1051, 805);
+            this.pnlContent.Size = new System.Drawing.Size(788, 654);
             this.pnlContent.TabIndex = 2;
             // 
             // pnlDashboard
@@ -317,9 +304,8 @@ namespace Clean_Go.BusinessLogic
             this.pnlDashboard.Controls.Add(this.pnlTablaContenedor);
             this.pnlDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDashboard.Location = new System.Drawing.Point(0, 0);
-            this.pnlDashboard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlDashboard.Name = "pnlDashboard";
-            this.pnlDashboard.Size = new System.Drawing.Size(1051, 805);
+            this.pnlDashboard.Size = new System.Drawing.Size(788, 654);
             this.pnlDashboard.TabIndex = 0;
             // 
             // pnlKpiPendientes
@@ -328,10 +314,9 @@ namespace Clean_Go.BusinessLogic
             this.pnlKpiPendientes.Controls.Add(this.pnlKpiPendientesBorde);
             this.pnlKpiPendientes.Controls.Add(this.lblKpiPendientesValor);
             this.pnlKpiPendientes.Controls.Add(this.lblKpiPendientesTitulo);
-            this.pnlKpiPendientes.Location = new System.Drawing.Point(27, 25);
-            this.pnlKpiPendientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlKpiPendientes.Location = new System.Drawing.Point(20, 20);
             this.pnlKpiPendientes.Name = "pnlKpiPendientes";
-            this.pnlKpiPendientes.Size = new System.Drawing.Size(227, 111);
+            this.pnlKpiPendientes.Size = new System.Drawing.Size(170, 90);
             this.pnlKpiPendientes.TabIndex = 0;
             // 
             // pnlKpiPendientesBorde
@@ -339,19 +324,17 @@ namespace Clean_Go.BusinessLogic
             this.pnlKpiPendientesBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(145)))), ((int)(((byte)(178)))));
             this.pnlKpiPendientesBorde.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlKpiPendientesBorde.Location = new System.Drawing.Point(0, 0);
-            this.pnlKpiPendientesBorde.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlKpiPendientesBorde.Name = "pnlKpiPendientesBorde";
-            this.pnlKpiPendientesBorde.Size = new System.Drawing.Size(227, 5);
+            this.pnlKpiPendientesBorde.Size = new System.Drawing.Size(170, 4);
             this.pnlKpiPendientesBorde.TabIndex = 0;
             // 
             // lblKpiPendientesValor
             // 
             this.lblKpiPendientesValor.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.lblKpiPendientesValor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(23)))), ((int)(((byte)(42)))));
-            this.lblKpiPendientesValor.Location = new System.Drawing.Point(13, 49);
-            this.lblKpiPendientesValor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblKpiPendientesValor.Location = new System.Drawing.Point(10, 40);
             this.lblKpiPendientesValor.Name = "lblKpiPendientesValor";
-            this.lblKpiPendientesValor.Size = new System.Drawing.Size(200, 43);
+            this.lblKpiPendientesValor.Size = new System.Drawing.Size(150, 35);
             this.lblKpiPendientesValor.TabIndex = 1;
             this.lblKpiPendientesValor.Text = "0";
             // 
@@ -359,10 +342,9 @@ namespace Clean_Go.BusinessLogic
             // 
             this.lblKpiPendientesTitulo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblKpiPendientesTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblKpiPendientesTitulo.Location = new System.Drawing.Point(13, 18);
-            this.lblKpiPendientesTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblKpiPendientesTitulo.Location = new System.Drawing.Point(10, 15);
             this.lblKpiPendientesTitulo.Name = "lblKpiPendientesTitulo";
-            this.lblKpiPendientesTitulo.Size = new System.Drawing.Size(200, 25);
+            this.lblKpiPendientesTitulo.Size = new System.Drawing.Size(150, 20);
             this.lblKpiPendientesTitulo.TabIndex = 2;
             this.lblKpiPendientesTitulo.Text = "LAVADOS PENDIENTES";
             // 
@@ -372,10 +354,9 @@ namespace Clean_Go.BusinessLogic
             this.pnlKpiProceso.Controls.Add(this.pnlKpiProcesoBorde);
             this.pnlKpiProceso.Controls.Add(this.lblKpiProcesoValor);
             this.pnlKpiProceso.Controls.Add(this.lblKpiProcesoTitulo);
-            this.pnlKpiProceso.Location = new System.Drawing.Point(280, 25);
-            this.pnlKpiProceso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlKpiProceso.Location = new System.Drawing.Point(210, 20);
             this.pnlKpiProceso.Name = "pnlKpiProceso";
-            this.pnlKpiProceso.Size = new System.Drawing.Size(227, 111);
+            this.pnlKpiProceso.Size = new System.Drawing.Size(170, 90);
             this.pnlKpiProceso.TabIndex = 1;
             // 
             // pnlKpiProcesoBorde
@@ -383,19 +364,17 @@ namespace Clean_Go.BusinessLogic
             this.pnlKpiProcesoBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(158)))), ((int)(((byte)(11)))));
             this.pnlKpiProcesoBorde.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlKpiProcesoBorde.Location = new System.Drawing.Point(0, 0);
-            this.pnlKpiProcesoBorde.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlKpiProcesoBorde.Name = "pnlKpiProcesoBorde";
-            this.pnlKpiProcesoBorde.Size = new System.Drawing.Size(227, 5);
+            this.pnlKpiProcesoBorde.Size = new System.Drawing.Size(170, 4);
             this.pnlKpiProcesoBorde.TabIndex = 0;
             // 
             // lblKpiProcesoValor
             // 
             this.lblKpiProcesoValor.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.lblKpiProcesoValor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(23)))), ((int)(((byte)(42)))));
-            this.lblKpiProcesoValor.Location = new System.Drawing.Point(13, 49);
-            this.lblKpiProcesoValor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblKpiProcesoValor.Location = new System.Drawing.Point(10, 40);
             this.lblKpiProcesoValor.Name = "lblKpiProcesoValor";
-            this.lblKpiProcesoValor.Size = new System.Drawing.Size(200, 43);
+            this.lblKpiProcesoValor.Size = new System.Drawing.Size(150, 35);
             this.lblKpiProcesoValor.TabIndex = 1;
             this.lblKpiProcesoValor.Text = "0";
             // 
@@ -403,10 +382,9 @@ namespace Clean_Go.BusinessLogic
             // 
             this.lblKpiProcesoTitulo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblKpiProcesoTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblKpiProcesoTitulo.Location = new System.Drawing.Point(13, 18);
-            this.lblKpiProcesoTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblKpiProcesoTitulo.Location = new System.Drawing.Point(10, 15);
             this.lblKpiProcesoTitulo.Name = "lblKpiProcesoTitulo";
-            this.lblKpiProcesoTitulo.Size = new System.Drawing.Size(200, 25);
+            this.lblKpiProcesoTitulo.Size = new System.Drawing.Size(150, 20);
             this.lblKpiProcesoTitulo.TabIndex = 2;
             this.lblKpiProcesoTitulo.Text = "LAVANDO (PROCESO)";
             // 
@@ -416,10 +394,9 @@ namespace Clean_Go.BusinessLogic
             this.pnlKpiListo.Controls.Add(this.pnlKpiListoBorde);
             this.pnlKpiListo.Controls.Add(this.lblKpiListoValor);
             this.pnlKpiListo.Controls.Add(this.lblKpiListoTitulo);
-            this.pnlKpiListo.Location = new System.Drawing.Point(533, 25);
-            this.pnlKpiListo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlKpiListo.Location = new System.Drawing.Point(400, 20);
             this.pnlKpiListo.Name = "pnlKpiListo";
-            this.pnlKpiListo.Size = new System.Drawing.Size(227, 111);
+            this.pnlKpiListo.Size = new System.Drawing.Size(170, 90);
             this.pnlKpiListo.TabIndex = 2;
             // 
             // pnlKpiListoBorde
@@ -427,19 +404,17 @@ namespace Clean_Go.BusinessLogic
             this.pnlKpiListoBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(185)))), ((int)(((byte)(129)))));
             this.pnlKpiListoBorde.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlKpiListoBorde.Location = new System.Drawing.Point(0, 0);
-            this.pnlKpiListoBorde.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlKpiListoBorde.Name = "pnlKpiListoBorde";
-            this.pnlKpiListoBorde.Size = new System.Drawing.Size(227, 5);
+            this.pnlKpiListoBorde.Size = new System.Drawing.Size(170, 4);
             this.pnlKpiListoBorde.TabIndex = 0;
             // 
             // lblKpiListoValor
             // 
             this.lblKpiListoValor.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.lblKpiListoValor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(23)))), ((int)(((byte)(42)))));
-            this.lblKpiListoValor.Location = new System.Drawing.Point(13, 49);
-            this.lblKpiListoValor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblKpiListoValor.Location = new System.Drawing.Point(10, 40);
             this.lblKpiListoValor.Name = "lblKpiListoValor";
-            this.lblKpiListoValor.Size = new System.Drawing.Size(200, 43);
+            this.lblKpiListoValor.Size = new System.Drawing.Size(150, 35);
             this.lblKpiListoValor.TabIndex = 1;
             this.lblKpiListoValor.Text = "0";
             // 
@@ -447,10 +422,9 @@ namespace Clean_Go.BusinessLogic
             // 
             this.lblKpiListoTitulo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblKpiListoTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblKpiListoTitulo.Location = new System.Drawing.Point(13, 18);
-            this.lblKpiListoTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblKpiListoTitulo.Location = new System.Drawing.Point(10, 15);
             this.lblKpiListoTitulo.Name = "lblKpiListoTitulo";
-            this.lblKpiListoTitulo.Size = new System.Drawing.Size(200, 25);
+            this.lblKpiListoTitulo.Size = new System.Drawing.Size(150, 20);
             this.lblKpiListoTitulo.TabIndex = 2;
             this.lblKpiListoTitulo.Text = "LISTAS PARA ENTREGA";
             // 
@@ -460,10 +434,9 @@ namespace Clean_Go.BusinessLogic
             this.pnlKpiEntregado.Controls.Add(this.pnlKpiEntregadoBorde);
             this.pnlKpiEntregado.Controls.Add(this.lblKpiEntregadoValor);
             this.pnlKpiEntregado.Controls.Add(this.lblKpiEntregadoTitulo);
-            this.pnlKpiEntregado.Location = new System.Drawing.Point(787, 25);
-            this.pnlKpiEntregado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlKpiEntregado.Location = new System.Drawing.Point(590, 20);
             this.pnlKpiEntregado.Name = "pnlKpiEntregado";
-            this.pnlKpiEntregado.Size = new System.Drawing.Size(227, 111);
+            this.pnlKpiEntregado.Size = new System.Drawing.Size(170, 90);
             this.pnlKpiEntregado.TabIndex = 3;
             // 
             // pnlKpiEntregadoBorde
@@ -471,19 +444,17 @@ namespace Clean_Go.BusinessLogic
             this.pnlKpiEntregadoBorde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
             this.pnlKpiEntregadoBorde.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlKpiEntregadoBorde.Location = new System.Drawing.Point(0, 0);
-            this.pnlKpiEntregadoBorde.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlKpiEntregadoBorde.Name = "pnlKpiEntregadoBorde";
-            this.pnlKpiEntregadoBorde.Size = new System.Drawing.Size(227, 5);
+            this.pnlKpiEntregadoBorde.Size = new System.Drawing.Size(170, 4);
             this.pnlKpiEntregadoBorde.TabIndex = 0;
             // 
             // lblKpiEntregadoValor
             // 
             this.lblKpiEntregadoValor.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.lblKpiEntregadoValor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(23)))), ((int)(((byte)(42)))));
-            this.lblKpiEntregadoValor.Location = new System.Drawing.Point(13, 49);
-            this.lblKpiEntregadoValor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblKpiEntregadoValor.Location = new System.Drawing.Point(10, 40);
             this.lblKpiEntregadoValor.Name = "lblKpiEntregadoValor";
-            this.lblKpiEntregadoValor.Size = new System.Drawing.Size(200, 43);
+            this.lblKpiEntregadoValor.Size = new System.Drawing.Size(150, 35);
             this.lblKpiEntregadoValor.TabIndex = 1;
             this.lblKpiEntregadoValor.Text = "0";
             // 
@@ -491,10 +462,9 @@ namespace Clean_Go.BusinessLogic
             // 
             this.lblKpiEntregadoTitulo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblKpiEntregadoTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
-            this.lblKpiEntregadoTitulo.Location = new System.Drawing.Point(13, 18);
-            this.lblKpiEntregadoTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblKpiEntregadoTitulo.Location = new System.Drawing.Point(10, 15);
             this.lblKpiEntregadoTitulo.Name = "lblKpiEntregadoTitulo";
-            this.lblKpiEntregadoTitulo.Size = new System.Drawing.Size(200, 25);
+            this.lblKpiEntregadoTitulo.Size = new System.Drawing.Size(150, 20);
             this.lblKpiEntregadoTitulo.TabIndex = 2;
             this.lblKpiEntregadoTitulo.Text = "ENTREGADAS";
             // 
@@ -506,10 +476,9 @@ namespace Clean_Go.BusinessLogic
             this.pnlTablaContenedor.BackColor = System.Drawing.Color.White;
             this.pnlTablaContenedor.Controls.Add(this.lblTablaTitulo);
             this.pnlTablaContenedor.Controls.Add(this.dgvEntregasHoy);
-            this.pnlTablaContenedor.Location = new System.Drawing.Point(27, 160);
-            this.pnlTablaContenedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlTablaContenedor.Location = new System.Drawing.Point(20, 130);
             this.pnlTablaContenedor.Name = "pnlTablaContenedor";
-            this.pnlTablaContenedor.Size = new System.Drawing.Size(987, 603);
+            this.pnlTablaContenedor.Size = new System.Drawing.Size(740, 490);
             this.pnlTablaContenedor.TabIndex = 4;
             // 
             // lblTablaTitulo
@@ -517,10 +486,9 @@ namespace Clean_Go.BusinessLogic
             this.lblTablaTitulo.AutoSize = true;
             this.lblTablaTitulo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.lblTablaTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(23)))), ((int)(((byte)(42)))));
-            this.lblTablaTitulo.Location = new System.Drawing.Point(20, 18);
-            this.lblTablaTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTablaTitulo.Location = new System.Drawing.Point(15, 15);
             this.lblTablaTitulo.Name = "lblTablaTitulo";
-            this.lblTablaTitulo.Size = new System.Drawing.Size(254, 28);
+            this.lblTablaTitulo.Size = new System.Drawing.Size(203, 21);
             this.lblTablaTitulo.TabIndex = 0;
             this.lblTablaTitulo.Text = "Entrega de hoy / Órdenes";
             // 
@@ -535,14 +503,13 @@ namespace Clean_Go.BusinessLogic
             this.dgvEntregasHoy.BackgroundColor = System.Drawing.Color.White;
             this.dgvEntregasHoy.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvEntregasHoy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEntregasHoy.Location = new System.Drawing.Point(20, 62);
-            this.dgvEntregasHoy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvEntregasHoy.Location = new System.Drawing.Point(15, 50);
             this.dgvEntregasHoy.MultiSelect = false;
             this.dgvEntregasHoy.Name = "dgvEntregasHoy";
             this.dgvEntregasHoy.ReadOnly = true;
             this.dgvEntregasHoy.RowHeadersWidth = 51;
             this.dgvEntregasHoy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEntregasHoy.Size = new System.Drawing.Size(947, 517);
+            this.dgvEntregasHoy.Size = new System.Drawing.Size(710, 420);
             this.dgvEntregasHoy.TabIndex = 0;
             // 
             // statusStripBottom
@@ -554,10 +521,9 @@ namespace Clean_Go.BusinessLogic
             this.statusLblEstado,
             this.statusLblSpring,
             this.statusLblTime});
-            this.statusStripBottom.Location = new System.Drawing.Point(293, 873);
+            this.statusStripBottom.Location = new System.Drawing.Point(220, 709);
             this.statusStripBottom.Name = "statusStripBottom";
-            this.statusStripBottom.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStripBottom.Size = new System.Drawing.Size(1051, 27);
+            this.statusStripBottom.Size = new System.Drawing.Size(788, 22);
             this.statusStripBottom.TabIndex = 3;
             this.statusStripBottom.Text = "statusStripBottom";
             // 
@@ -565,21 +531,21 @@ namespace Clean_Go.BusinessLogic
             // 
             this.statusLblEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(222)))), ((int)(((byte)(128)))));
             this.statusLblEstado.Name = "statusLblEstado";
-            this.statusLblEstado.Size = new System.Drawing.Size(137, 21);
+            this.statusLblEstado.Size = new System.Drawing.Size(118, 17);
             this.statusLblEstado.Text = "Estado: Conectado";
             // 
             // statusLblSpring
             // 
             this.statusLblSpring.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(145)))), ((int)(((byte)(178)))));
             this.statusLblSpring.Name = "statusLblSpring";
-            this.statusLblSpring.Size = new System.Drawing.Size(817, 21);
+            this.statusLblSpring.Size = new System.Drawing.Size(592, 17);
             this.statusLblSpring.Spring = true;
             // 
             // statusLblTime
             // 
             this.statusLblTime.ForeColor = System.Drawing.Color.White;
             this.statusLblTime.Name = "statusLblTime";
-            this.statusLblTime.Size = new System.Drawing.Size(77, 21);
+            this.statusLblTime.Size = new System.Drawing.Size(63, 17);
             this.statusLblTime.Text = "00:00 AM";
             // 
             // timerClock
@@ -589,15 +555,14 @@ namespace Clean_Go.BusinessLogic
             // 
             // FormPrincial
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.ClientSize = new System.Drawing.Size(1344, 900);
+            this.ClientSize = new System.Drawing.Size(1008, 731);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.statusStripBottom);
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.pnlSidebar);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormPrincial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clean&&Go Pro - Sistema de Gestión de Lavandería";

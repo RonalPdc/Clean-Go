@@ -79,6 +79,7 @@ namespace Clean_Go_DataAccess.Repositories.Prendas
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Nombre", prenda.Nombre);
+                    cmd.Parameters.AddWithValue("@Descripcion", string.IsNullOrEmpty(prenda.Descripcion) ? (object)DBNull.Value : prenda.Descripcion);
 
                     cn.Open();
 
@@ -98,6 +99,7 @@ namespace Clean_Go_DataAccess.Repositories.Prendas
 
                     cmd.Parameters.AddWithValue("@TipoPrendaId", prenda.TipoPrendaId);
                     cmd.Parameters.AddWithValue("@Nombre", prenda.Nombre);
+                    cmd.Parameters.AddWithValue("@Descripcion", string.IsNullOrEmpty(prenda.Descripcion) ? (object)DBNull.Value : prenda.Descripcion);
                     cmd.Parameters.AddWithValue("@Estado", prenda.Estado);
 
                     cn.Open();

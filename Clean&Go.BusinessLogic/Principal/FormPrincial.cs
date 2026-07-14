@@ -26,6 +26,9 @@ namespace Clean_Go.BusinessLogic
         {
             _usuarioLogueado = usuario;
             ConfigurarEventos();
+
+            // Estilos Premium del Menú Principal
+            DisenoHelper.StyleButton(btnSalirApp, Color.FromArgb(239, 68, 68), Color.White); // Botón de apagado en rojo sutil
         }
 
         private void ConfigurarEventos()
@@ -51,6 +54,9 @@ namespace Clean_Go.BusinessLogic
         {
             timerClock.Start();
             ActualizarHora();
+
+            // Estilo del Grid de entregas
+            DisenoHelper.StyleGrid(dgvEntregasHoy);
 
             if (_usuarioLogueado != null)
             {
@@ -236,6 +242,88 @@ namespace Clean_Go.BusinessLogic
             {
                 Application.Exit();
             }
+        }
+    }
+
+    public static class DisenoHelper
+    {
+        public static void StyleGrid(DataGridView dgv)
+        {
+            if (dgv == null) return;
+
+            // Habilitar doble búfer para evitar parpadeos en el grid
+            var dgvType = dgv.GetType();
+            var pi = dgvType.GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+            pi?.SetValue(dgv, true, null);
+
+            // Fondo y Bordes generales
+            dgv.BackgroundColor = Color.FromArgb(248, 250, 252); // Slate 50
+            dgv.BorderStyle = BorderStyle.None;
+            dgv.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgv.GridColor = Color.FromArgb(226, 232, 240); // Slate 200
+
+            // Cabeceras
+            dgv.EnableHeadersVisualStyles = false;
+            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(8, 145, 178); // Azul Corporativo #0891B2
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dgv.ColumnHeadersHeight = 38;
+
+            // Filas y Celdas
+            dgv.DefaultCellStyle.BackColor = Color.White;
+            dgv.DefaultCellStyle.ForeColor = Color.FromArgb(51, 65, 85); // Slate 700
+            dgv.DefaultCellStyle.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular);
+            dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(224, 242, 254); // Cyan 100 #E0F2FE
+            dgv.DefaultCellStyle.SelectionForeColor = Color.FromArgb(15, 23, 42); // Slate 900
+            dgv.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+
+            // Filas Alternadas
+            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(248, 250, 252); // Slate 50
+            dgv.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.FromArgb(224, 242, 254);
+            dgv.AlternatingRowsDefaultCellStyle.SelectionForeColor = Color.FromArgb(15, 23, 42);
+
+            // Alto de filas
+            dgv.RowTemplate.Height = 35;
+            dgv.RowHeadersVisible = false;
+            
+            // Selección y comportamiento
+            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv.MultiSelect = false;
+            dgv.AllowUserToAddRows = false;
+            dgv.AllowUserToDeleteRows = false;
+            dgv.AllowUserToResizeRows = false;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv.ReadOnly = true;
+        }
+
+        public static void StyleButton(Button btn, Color backColor, Color foreColor)
+        {
+            if (btn == null) return;
+
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderSize = 0;
+            btn.BackColor = backColor;
+            btn.ForeColor = foreColor;
+            btn.Cursor = Cursors.Hand;
+            btn.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            btn.UseVisualStyleBackColor = false;
+
+            // Efecto Hover (sutil cambio de color)
+            btn.MouseEnter += (s, e) =>
+            {
+                btn.BackColor = Color.FromArgb(
+                    Math.Max(0, backColor.R - 20),
+                    Math.Max(0, backColor.G - 20),
+                    Math.Max(0, backColor.B - 20)
+                );
+            };
+
+            btn.MouseLeave += (s, e) =>
+            {
+                btn.BackColor = backColor;
+            };
         }
     }
 }

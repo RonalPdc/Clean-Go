@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 using Clean_Go_DataAccess.ConexionBD;
+using Clean_Go.BusinessLogic;
 
 namespace Clean_Go.BusinessLogic.Reportes
 {
@@ -12,10 +14,15 @@ namespace Clean_Go.BusinessLogic.Reportes
         public FrmReporteOrdenes()
         {
             InitializeComponent();
+
+            // Estilos Premium
+            DisenoHelper.StyleButton(btnFiltrar, Color.FromArgb(8, 145, 178), Color.White);
+            DisenoHelper.StyleButton(btnLimpiar, Color.FromArgb(71, 85, 105), Color.White);
         }
 
         private void FrmReporteOrdenes_Load(object sender, EventArgs e)
         {
+            DisenoHelper.StyleGrid(dgvOrdenes);
             CargarEstados();
             CargarOrdenes();
         }

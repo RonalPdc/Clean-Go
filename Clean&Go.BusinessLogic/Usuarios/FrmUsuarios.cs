@@ -1,7 +1,9 @@
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Clean_Go_BusinessLogic.Service.Usuarios;
 using Clean_Go_Entities.Usuarios;
+using Clean_Go.BusinessLogic;
 
 namespace Clean_Go.BusinessLogic.Usuarios
 {
@@ -13,6 +15,11 @@ namespace Clean_Go.BusinessLogic.Usuarios
         {
             InitializeComponent();
             ConfigurarEventos();
+
+            // Estilos Premium
+            DisenoHelper.StyleButton(btnNuevo, Color.FromArgb(8, 145, 178), Color.White);
+            DisenoHelper.StyleButton(btnEditar, Color.FromArgb(8, 145, 178), Color.White);
+            DisenoHelper.StyleButton(btnBuscar, Color.FromArgb(71, 85, 105), Color.White);
         }
 
         private void ConfigurarEventos()
@@ -28,6 +35,7 @@ namespace Clean_Go.BusinessLogic.Usuarios
 
         private void FrmUsuarios_Load(object sender, EventArgs e)
         {
+            DisenoHelper.StyleGrid(dgvUsuarios);
             CargarUsuarios();
         }
 
