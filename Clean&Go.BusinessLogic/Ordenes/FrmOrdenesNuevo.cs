@@ -47,12 +47,17 @@ namespace Clean_Go.BusinessLogic.Ordenes
             btnQuitarDetalle.Click += BtnQuitarDetalle_Click;
             btnGuardar.Click += BtnGuardar_Click;
             cmbServicio.SelectedIndexChanged += CmbServicio_SelectedIndexChanged;
+            txtCantidad.KeyPress += TxtCantidad_KeyPress;
         }
 
         private void FrmOrdenesNuevo_Load(object sender, EventArgs e)
         {
             try
             {
+                txtObservacionesCabecera.MaxLength = 200;
+                txtObservacionesDetalle.MaxLength = 100;
+                txtCantidad.MaxLength = 3;
+
                 CargarCombos();
                 txtNumeroOrden.Text = "ORD-" + DateTime.Now.ToString("yyMMddHHmmss");
                 ActualizarGrid();
@@ -280,6 +285,14 @@ namespace Clean_Go.BusinessLogic.Ordenes
             catch 
             {
                 MessageBox.Show($"Error crítico:\n{ex.Message}", "Error de Diagnóstico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void TxtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
             }
         }
     }

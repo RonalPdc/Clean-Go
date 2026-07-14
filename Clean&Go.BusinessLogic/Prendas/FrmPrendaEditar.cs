@@ -26,6 +26,8 @@ namespace Clean_Go.BusinessLogic.Prendas
 
         private void FrmPrendaEditar_Load(object sender, EventArgs e)
         {
+            txtNombre.MaxLength = 50;
+
             if (_prendaToEdit != null)
             {
                 txtNombre.Text = _prendaToEdit.Nombre;

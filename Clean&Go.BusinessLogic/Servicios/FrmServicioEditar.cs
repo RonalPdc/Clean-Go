@@ -17,6 +17,7 @@ namespace Clean_Go.BusinessLogic.Servicios
             this.Load += FrmServicioEditar_Load;
             btnCancelar.Click += (s, e) => this.Close();
             btnGuardar.Click += BtnGuardar_Click;
+            txtPrecio.KeyPress += TxtPrecio_KeyPress;
         }
 
         public FrmServicioEditar(Servicio servicio) : this()
@@ -26,6 +27,10 @@ namespace Clean_Go.BusinessLogic.Servicios
 
         private void FrmServicioEditar_Load(object sender, EventArgs e)
         {
+            txtNombre.MaxLength = 50;
+            txtDescripcion.MaxLength = 200;
+            txtPrecio.MaxLength = 10;
+
             if (_servicioToEdit != null)
             {
                 txtNombre.Text = _servicioToEdit.Nombre;
@@ -107,6 +112,21 @@ namespace Clean_Go.BusinessLogic.Servicios
             btnGuardar.Enabled = habilitar;
             btnCancelar.Enabled = habilitar;
             this.Cursor = habilitar ? Cursors.Default : Cursors.WaitCursor;
+        }
+
+        private void TxtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char decimalSeparator = System.Globalization.CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator[0];
+
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != decimalSeparator)
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == decimalSeparator && ((TextBox)sender).Text.Contains(decimalSeparator.ToString()))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

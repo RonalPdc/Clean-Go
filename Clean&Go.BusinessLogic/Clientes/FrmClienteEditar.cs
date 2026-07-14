@@ -17,6 +17,13 @@ namespace Clean_Go.BusinessLogic.Clientes
             this.Load += FrmClienteEditar_Load;
             btnCancelar.Click += (s, e) => this.Close();
             btnGuardar.Click += BtnGuardar_Click;
+
+            // Registrar validadores y formateadores dinámicos
+            txtTelefono.TextChanged += TxtTelefono_TextChanged;
+            txtTelefono.KeyPress += SoloNumerosYFormato_KeyPress;
+            txtCedula.TextChanged += TxtCedula_TextChanged;
+            txtCedula.KeyPress += SoloNumerosYFormato_KeyPress;
+            txtTelegramChatId.KeyPress += SoloNumeros_KeyPress;
         }
 
         public FrmClienteEditar(Cliente cliente) : this()
@@ -26,6 +33,15 @@ namespace Clean_Go.BusinessLogic.Clientes
 
         private void FrmClienteEditar_Load(object sender, EventArgs e)
         {
+            // Configurar límites máximos de caracteres
+            txtNombre.MaxLength = 50;
+            txtApellido.MaxLength = 50;
+            txtCedula.MaxLength = 13;       // 000-0000000-0 (13 caracteres)
+            txtTelefono.MaxLength = 14;     // (000) 000-0000 (14 caracteres)
+            txtCorreo.MaxLength = 100;
+            txtTelegramChatId.MaxLength = 20;
+            txtDireccion.MaxLength = 250;
+
             if (_clienteToEdit != null)
             {
                 txtNombre.Text = _clienteToEdit.Nombre;
@@ -53,17 +69,32 @@ namespace Clean_Go.BusinessLogic.Clientes
                 txtApellido.Focus();
                 return;
             }
-            if (string.IsNullOrWhiteSpace(txtCedula.Text))
+            
+            string cedulaLimpia = ObtenerSoloNumeros(txtCedula.Text);
+            if (cedulaLimpia.Length != 11)
             {
-                MessageBox.Show("La Cedula es obligatoria.", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("La Cedula debe contener exactamente 11 digitos.", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtCedula.Focus();
                 return;
             }
-            if (string.IsNullOrWhiteSpace(txtTelefono.Text))
+
+            string telefonoLimpio = ObtenerSoloNumeros(txtTelefono.Text);
+            if (telefonoLimpio.Length != 10)
             {
-                MessageBox.Show("El Telefono es obligatorio.", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("El Telefono debe contener exactamente 10 digitos.", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtTelefono.Focus();
                 return;
+            }
+
+            if (!string.IsNullOrWhiteSpace(txtCorreo.Text))
+            {
+                string email = txtCorreo.Text.Trim();
+                if (!email.Contains("@") || !email.Contains("."))
+                {
+                    MessageBox.Show("Ingrese una direccion de correo electronico valida (ejemplo@dominio.com).", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtCorreo.Focus();
+                    return;
+                }
             }
 
             try
@@ -113,6 +144,71 @@ namespace Clean_Go.BusinessLogic.Clientes
             {
                 MessageBox.Show("Error al guardar:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 BloquearControles(true);
+            }
+        }
+
+        private void TxtTelefono_TextChanged(object sender, EventArgs e)
+        {
+            txtTelefono.TextChanged -= TxtTelefono_TextChanged;
+            string soloNumeros = ObtenerSoloNumeros(txtTelefono.Text);
+            if (soloNumeros.Length > 10) soloNumeros = soloNumeros.Substring(0, 10);
+
+            if (soloNumeros.Length == 10)
+            {
+                txtTelefono.Text = $"({soloNumeros.Substring(0, 3)}) {soloNumeros.Substring(3, 3)}-{soloNumeros.Substring(6, 4)}";
+            }
+            else
+            {
+                txtTelefono.Text = soloNumeros;
+            }
+            txtTelefono.SelectionStart = txtTelefono.Text.Length;
+            txtTelefono.TextChanged += TxtTelefono_TextChanged;
+        }
+
+        private void TxtCedula_TextChanged(object sender, EventArgs e)
+        {
+            txtCedula.TextChanged -= TxtCedula_TextChanged;
+            string soloNumeros = ObtenerSoloNumeros(txtCedula.Text);
+            if (soloNumeros.Length > 11) soloNumeros = soloNumeros.Substring(0, 11);
+
+            if (soloNumeros.Length == 11)
+            {
+                txtCedula.Text = $"{soloNumeros.Substring(0, 3)}-{soloNumeros.Substring(3, 7)}-{soloNumeros.Substring(10, 1)}";
+            }
+            else
+            {
+                txtCedula.Text = soloNumeros;
+            }
+            txtCedula.SelectionStart = txtCedula.Text.Length;
+            txtCedula.TextChanged += TxtCedula_TextChanged;
+        }
+
+        private string ObtenerSoloNumeros(string texto)
+        {
+            string resultado = "";
+            foreach (char c in texto)
+            {
+                if (char.IsDigit(c))
+                {
+                    resultado += c;
+                }
+            }
+            return resultado;
+        }
+
+        private void SoloNumerosYFormato_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != '-' && e.KeyChar != '(' && e.KeyChar != ')' && e.KeyChar != ' ')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void SoloNumeros_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
             }
         }
 

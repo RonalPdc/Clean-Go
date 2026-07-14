@@ -35,6 +35,13 @@ namespace Clean_Go.BusinessLogic.Usuarios
 
         private void FrmUsuarioEditar_Load(object sender, EventArgs e)
         {
+            // Limitar longitud de campos
+            txtNombre.MaxLength = 50;
+            txtApellido.MaxLength = 50;
+            txtUsuario.MaxLength = 50;
+            txtCorreo.MaxLength = 100;
+            txtPassword.MaxLength = 100;
+
             CargarRoles();
             
             if (_usuarioToEdit != null)
@@ -117,6 +124,15 @@ namespace Clean_Go.BusinessLogic.Usuarios
                 txtCorreo.Focus();
                 return;
             }
+
+            string email = txtCorreo.Text.Trim();
+            if (!email.Contains("@") || !email.Contains("."))
+            {
+                MessageBox.Show("Ingrese una dirección de correo electrónico válida (ejemplo@dominio.com).", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCorreo.Focus();
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(txtPassword.Text))
             {
                 MessageBox.Show("La Contraseña es obligatoria.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
