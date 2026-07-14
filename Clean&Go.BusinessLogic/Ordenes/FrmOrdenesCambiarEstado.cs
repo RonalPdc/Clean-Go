@@ -55,9 +55,9 @@ namespace Clean_Go.BusinessLogic.Ordenes
             }
             else
             {
-                cmbNuevoEstado.DataSource = transiciones;
                 cmbNuevoEstado.DisplayMember = "Nombre";
                 cmbNuevoEstado.ValueMember = "EstadoId";
+                cmbNuevoEstado.DataSource = transiciones;
             }
         }
 

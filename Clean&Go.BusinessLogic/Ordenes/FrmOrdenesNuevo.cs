@@ -54,21 +54,21 @@ namespace Clean_Go.BusinessLogic.Ordenes
             {
                 var clientes = _clientesBLL.ObtenerTodos();
                 var clientesActivos = clientes.FindAll(c => c.Estado);
-                cmbCliente.DataSource = clientesActivos;
                 cmbCliente.DisplayMember = "Nombre";
                 cmbCliente.ValueMember = "ClienteId";
+                cmbCliente.DataSource = clientesActivos;
 
                 var prendas = _prendaBLL.ObtenerTodos();
                 var prendasActivas = prendas.FindAll(p => p.Estado);
-                cmbPrenda.DataSource = prendasActivas;
                 cmbPrenda.DisplayMember = "Nombre";
                 cmbPrenda.ValueMember = "TipoPrendaId";
+                cmbPrenda.DataSource = prendasActivas;
 
                 var servicios = _serviciosBLL.ObtenerTodos();
                 var serviciosActivos = servicios.FindAll(s => s.Estado);
-                cmbServicio.DataSource = serviciosActivos;
                 cmbServicio.DisplayMember = "Nombre";
                 cmbServicio.ValueMember = "ServicioId";
+                cmbServicio.DataSource = serviciosActivos;
             }
             catch (Exception ex)
             {
