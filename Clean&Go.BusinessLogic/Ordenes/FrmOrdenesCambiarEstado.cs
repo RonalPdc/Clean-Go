@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using Clean_Go_BusinessLogic.Service.Ordenes;
 using Clean_Go_BusinessLogic.Validator.Ordenes.Estado;
 using Clean_Go_Entities.Ordenes;
 using Clean_Go_Entities.Usuarios;
+using Clean_Go.BusinessLogic;
 
 namespace Clean_Go.BusinessLogic.Ordenes
 {
@@ -22,6 +24,10 @@ namespace Clean_Go.BusinessLogic.Ordenes
             this.Load += FrmOrdenesCambiarEstado_Load;
             btnCancelar.Click += (s, e) => this.Close();
             btnGuardar.Click += BtnGuardar_Click;
+
+            // Estilos Premium
+            DisenoHelper.StyleButton(btnGuardar, Color.FromArgb(8, 145, 178), Color.White);
+            DisenoHelper.StyleButton(btnCancelar, Color.FromArgb(148, 163, 184), Color.White);
         }
 
         private void FrmOrdenesCambiarEstado_Load(object sender, EventArgs e)
@@ -69,17 +75,11 @@ namespace Clean_Go.BusinessLogic.Ordenes
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txtComentario.Text))
-            {
-                MessageBox.Show("El comentario de auditoria es obligatorio.", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtComentario.Focus();
-                return;
-            }
-
             try
             {
                 int nuevoEstadoId = (int)cmbNuevoEstado.SelectedValue;
-                string comentario = txtComentario.Text.Trim();
+                // Si el comentario está vacío, enviar texto por defecto
+                string comentario = string.IsNullOrWhiteSpace(txtComentario.Text) ? "Cambio de estado" : txtComentario.Text.Trim();
 
                 bool resultado = _ordenesBLL.CambiarEstado(_orden.OrdenId, nuevoEstadoId, _usuarioLogueado.UsuarioId, comentario);
 
