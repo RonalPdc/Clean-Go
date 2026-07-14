@@ -26,10 +26,18 @@ namespace Clean_Go.BusinessLogic.Ordenes
 
         public FrmOrdenesNuevo(Usuario usuarioLogueado)
         {
-            InitializeComponent();
-            _usuarioLogueado = usuarioLogueado;
-            this.Load += FrmOrdenesNuevo_Load;
-            ConfigurarEventos();
+            try
+            {
+                InitializeComponent();
+                _usuarioLogueado = usuarioLogueado;
+                this.Load += FrmOrdenesNuevo_Load;
+                ConfigurarEventos();
+            }
+            catch (Exception ex)
+            {
+                RegistrarError(ex, "Constructor");
+                throw;
+            }
         }
 
         private void ConfigurarEventos()
@@ -43,9 +51,17 @@ namespace Clean_Go.BusinessLogic.Ordenes
 
         private void FrmOrdenesNuevo_Load(object sender, EventArgs e)
         {
-            CargarCombos();
-            txtNumeroOrden.Text = "ORD-" + DateTime.Now.ToString("yyMMddHHmmss");
-            ActualizarGrid();
+            try
+            {
+                CargarCombos();
+                txtNumeroOrden.Text = "ORD-" + DateTime.Now.ToString("yyMMddHHmmss");
+                ActualizarGrid();
+            }
+            catch (Exception ex)
+            {
+                RegistrarError(ex, "Load");
+                throw;
+            }
         }
 
         private void CargarCombos()
@@ -234,6 +250,29 @@ namespace Clean_Go.BusinessLogic.Ordenes
         private void cmbCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void RegistrarError(Exception ex, string origen)
+        {
+            try
+            {
+                string rutaLog = @"C:\Users\Ronal\source\repos\Clean&Go\error_nueva_orden.txt";
+                string contenido = $"=== ERROR EN {origen.ToUpper()} ===\r\n" +
+                                   $"Fecha: {DateTime.Now}\r\n" +
+                                   $"Mensaje: {ex.Message}\r\n" +
+                                   $"StackTrace:\r\n{ex.StackTrace}\r\n" +
+                                   $"InnerException: {ex.InnerException?.Message}\r\n\r\n";
+                System.IO.File.AppendAllText(rutaLog, contenido);
+                
+                MessageBox.Show($"Ocurrió un error en {origen}:\n{ex.Message}\n\nDetalle:\n{ex.StackTrace}", 
+                                "Error de Diagnóstico", 
+                                MessageBoxButtons.OK, 
+                                MessageBoxIcon.Error);
+            }
+            catch 
+            {
+                MessageBox.Show($"Error crítico:\n{ex.Message}", "Error de Diagnóstico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
