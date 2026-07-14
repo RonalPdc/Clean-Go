@@ -16,6 +16,7 @@ namespace Clean_Go.BusinessLogic
         private readonly Usuario _usuarioLogueado;
         private readonly OrdenesBLL _ordenesBLL = new OrdenesBLL();
         private Button _botonActivo = null;
+        private Button btnMenuPassword = null;
 
         public FormPrincial()
         {
@@ -115,6 +116,23 @@ namespace Clean_Go.BusinessLogic
             // Activar botón Dashboard por defecto al iniciar
             SeleccionarBoton(btnMenuDashboard);
             ActualizarDashboard();
+
+            // Inyectar programáticamente el botón para Cambiar Contraseña del usuario activo
+            btnMenuPassword = new Button();
+            btnMenuPassword.BackColor = Color.White;
+            btnMenuPassword.Cursor = Cursors.Hand;
+            btnMenuPassword.FlatAppearance.BorderSize = 0;
+            btnMenuPassword.FlatStyle = FlatStyle.Flat;
+            btnMenuPassword.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnMenuPassword.ForeColor = Color.FromArgb(71, 85, 105);
+            btnMenuPassword.Location = new Point(15, 385);
+            btnMenuPassword.Name = "btnMenuPassword";
+            btnMenuPassword.Size = new Size(190, 38);
+            btnMenuPassword.Text = "🔑 Cambiar Contraseña";
+            btnMenuPassword.TextAlign = ContentAlignment.MiddleLeft;
+            btnMenuPassword.UseVisualStyleBackColor = false;
+            btnMenuPassword.Click += BtnMenuPassword_Click;
+            pnlSidebar.Controls.Add(btnMenuPassword);
         }
 
         private void timerClock_Tick(object sender, EventArgs e)
@@ -280,6 +298,20 @@ namespace Clean_Go.BusinessLogic
             if (result == DialogResult.Yes)
             {
                 Application.Exit();
+            }
+        }
+
+        private void BtnMenuPassword_Click(object sender, EventArgs e)
+        {
+            if (_usuarioLogueado == null)
+            {
+                MessageBox.Show("No hay un usuario activo registrado en la sesión.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            using (FrmUsuarioCambiarPassword frm = new FrmUsuarioCambiarPassword(_usuarioLogueado))
+            {
+                frm.ShowDialog();
             }
         }
     }

@@ -73,6 +73,12 @@
     <Compile Include="Login\FrmCambiarPassword.Designer.cs">
       <DependentUpon>FrmCambiarPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="Usuarios\FrmUsuarioCambiarPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios\FrmUsuarioCambiarPassword.Designer.cs">
+      <DependentUpon>FrmUsuarioCambiarPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Usuarios\FrmUsuarioEditar.cs">
       <SubType>Form</SubType>
     </Compile>
