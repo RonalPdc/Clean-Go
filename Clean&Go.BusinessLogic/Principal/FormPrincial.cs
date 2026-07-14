@@ -206,13 +206,11 @@ namespace Clean_Go.BusinessLogic
             ContextMenuStrip menuReportes = new ContextMenuStrip();
             ToolStripMenuItem item1 = new ToolStripMenuItem("Reporte de Órdenes");
             ToolStripMenuItem item2 = new ToolStripMenuItem("Historial de Orden");
-            ToolStripMenuItem item3 = new ToolStripMenuItem("Auditoría del Sistema");
 
             item1.Click += (s, ev) => AbrirFormularioHijo(new FrmReporteOrdenes(), "Reporte de Órdenes");
             item2.Click += (s, ev) => AbrirFormularioHijo(new FrmReporteHistorialOrden(), "Historial de Orden");
-            item3.Click += (s, ev) => AbrirFormularioHijo(new FrmReporteAuditoria(), "Auditoría de Acciones");
 
-            menuReportes.Items.AddRange(new ToolStripItem[] { item1, item2, item3 });
+            menuReportes.Items.AddRange(new ToolStripItem[] { item1, item2 });
             menuReportes.Show(btnMenuReportes, new Point(btnMenuReportes.Width, 0));
         }
 
