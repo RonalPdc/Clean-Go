@@ -62,10 +62,14 @@ namespace Clean_Go.BusinessLogic
             tblKpis.Location = new Point(15, 20);
             tblKpis.ColumnCount = 4;
             tblKpis.RowCount = 1;
+            
+            tblKpis.ColumnStyles.Clear();
             tblKpis.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tblKpis.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tblKpis.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tblKpis.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            
+            tblKpis.RowStyles.Clear();
             tblKpis.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
 
             pnlDashboard.Controls.Remove(pnlKpiPendientes);
