@@ -156,5 +156,33 @@ namespace Clean_Go_DataAccess.Repositories.Ordenes
                 }
             }
         }
+
+        public Dictionary<int, int> ObtenerConteosPorEstado()
+        {
+            Dictionary<int, int> dic = new Dictionary<int, int>();
+            dic[1] = 0; // Recibida
+            dic[2] = 0; // En Proceso
+            dic[3] = 0; // Lista Para Entrega
+            dic[4] = 0; // Entregada
+
+            using (SqlConnection cn = ConexionDB.Instancia.ObtenerConexion())
+            {
+                string sql = "SELECT EstadoId, COUNT(*) AS Cantidad FROM Ordenes GROUP BY EstadoId";
+                using (SqlCommand cmd = new SqlCommand(sql, cn))
+                {
+                    cn.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            int estadoId = Convert.ToInt32(dr["EstadoId"]);
+                            int cantidad = Convert.ToInt32(dr["Cantidad"]);
+                            dic[estadoId] = cantidad;
+                        }
+                    }
+                }
+            }
+            return dic;
+        }
     }
 }

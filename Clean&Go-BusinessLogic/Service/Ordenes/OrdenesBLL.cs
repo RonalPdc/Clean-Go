@@ -76,5 +76,10 @@ namespace Clean_Go_BusinessLogic.Service.Ordenes
 
             return estadoActualizado;
         }
+
+        public Dictionary<int, int> ObtenerConteosPorEstado()
+        {
+            return _ordenDAL.ObtenerConteosPorEstado();
+        }
     }
 }
