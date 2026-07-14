@@ -171,15 +171,49 @@ namespace Clean_Go.BusinessLogic.Ordenes
                 return;
             }
 
-            dgvDetalles.DataSource = null;
-            dgvDetalles.DataSource = _detalles;
+            // Mapear IDs a nombres legibles usando los ComboBox precargados
+            var dictPrendas = new Dictionary<int, string>();
+            if (cmbPrenda.DataSource is List<Clean_Go_Entities.Prendas.TipoPrenda> prendas)
+            {
+                foreach (var p in prendas)
+                {
+                    dictPrendas[p.TipoPrendaId] = p.Nombre;
+                }
+            }
 
-            if (dgvDetalles.Columns.Contains("DetalleId")) dgvDetalles.Columns["DetalleId"].Visible = false;
-            if (dgvDetalles.Columns.Contains("OrdenId")) dgvDetalles.Columns["OrdenId"].Visible = false;
-            if (dgvDetalles.Columns.Contains("TipoPrendaId")) dgvDetalles.Columns["TipoPrendaId"].HeaderText = "Prenda ID";
-            if (dgvDetalles.Columns.Contains("ServicioId")) dgvDetalles.Columns["ServicioId"].HeaderText = "Servicio ID";
+            var dictServicios = new Dictionary<int, string>();
+            if (cmbServicio.DataSource is List<Clean_Go_Entities.Servicios.Servicio> servicios)
+            {
+                foreach (var s in servicios)
+                {
+                    dictServicios[s.ServicioId] = s.Nombre;
+                }
+            }
+
+            // Proyectar lista para visualización
+            var listaLegible = new List<object>();
+            foreach (var item in _detalles)
+            {
+                string prendaNombre = dictPrendas.ContainsKey(item.TipoPrendaId) ? dictPrendas[item.TipoPrendaId] : "Desconocido (" + item.TipoPrendaId + ")";
+                string servicioNombre = dictServicios.ContainsKey(item.ServicioId) ? dictServicios[item.ServicioId] : "Desconocido (" + item.ServicioId + ")";
+
+                listaLegible.Add(new
+                {
+                    Prenda = prendaNombre,
+                    Servicio = servicioNombre,
+                    Cantidad = item.Cantidad,
+                    PrecioUnitario = "$" + item.Precio.ToString("0.00"),
+                    Observaciones = item.Observaciones
+                });
+            }
+
+            dgvDetalles.DataSource = null;
+            dgvDetalles.DataSource = listaLegible;
+
+            if (dgvDetalles.Columns.Contains("Prenda")) dgvDetalles.Columns["Prenda"].HeaderText = "Prenda";
+            if (dgvDetalles.Columns.Contains("Servicio")) dgvDetalles.Columns["Servicio"].HeaderText = "Servicio";
             if (dgvDetalles.Columns.Contains("Cantidad")) dgvDetalles.Columns["Cantidad"].HeaderText = "Cantidad";
-            if (dgvDetalles.Columns.Contains("Precio")) dgvDetalles.Columns["Precio"].HeaderText = "Precio Unit.";
+            if (dgvDetalles.Columns.Contains("PrecioUnitario")) dgvDetalles.Columns["PrecioUnitario"].HeaderText = "Precio Unit.";
             if (dgvDetalles.Columns.Contains("Observaciones")) dgvDetalles.Columns["Observaciones"].HeaderText = "Observaciones";
 
             _totalAcumulado = 0;

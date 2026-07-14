@@ -60,17 +60,63 @@ namespace Clean_Go.BusinessLogic.Ordenes
                     );
                 }
 
-                dgvOrdenes.DataSource = ordenes;
+                // Cargar clientes en memoria para mapear a nombres
+                var clientesBLL = new Clean_Go_BusinessLogic.Service.Clientes.ClientesBLL();
+                var clientesList = clientesBLL.ObtenerTodos();
+                var dictClientes = new Dictionary<int, string>();
+                foreach (var c in clientesList)
+                {
+                    dictClientes[c.ClienteId] = $"{c.Nombre} {c.Apellido}";
+                }
 
-                if (dgvOrdenes.Columns.Contains("OrdenId")) dgvOrdenes.Columns["OrdenId"].HeaderText = "ID";
-                if (dgvOrdenes.Columns.Contains("NumeroOrden")) dgvOrdenes.Columns["NumeroOrden"].HeaderText = "Numero Orden";
-                if (dgvOrdenes.Columns.Contains("ClienteId")) dgvOrdenes.Columns["ClienteId"].HeaderText = "Cliente ID";
-                if (dgvOrdenes.Columns.Contains("FechaRecepcion")) dgvOrdenes.Columns["FechaRecepcion"].HeaderText = "Fecha Recepcion";
+                // Cargar usuarios en memoria para mapear a nombres de usuario
+                var usuariosBLL = new Clean_Go_BusinessLogic.Service.Usuarios.UsuariosBLL();
+                var usuariosList = usuariosBLL.ObtenerTodos();
+                var dictUsuarios = new Dictionary<int, string>();
+                foreach (var u in usuariosList)
+                {
+                    dictUsuarios[u.UsuarioId] = u.NombreUsuario;
+                }
+
+                // Proyectar lista legible para el Grid
+                var listaLegible = new List<object>();
+                foreach (var o in ordenes)
+                {
+                    string clienteNombre = dictClientes.ContainsKey(o.ClienteId) ? dictClientes[o.ClienteId] : "Desconocido (" + o.ClienteId + ")";
+                    string usuarioNombre = dictUsuarios.ContainsKey(o.UsuarioRegistroId) ? dictUsuarios[o.UsuarioRegistroId] : "Sistema (" + o.UsuarioRegistroId + ")";
+
+                    string estadoStr = "Pendiente";
+                    if (o.EstadoId == 2) estadoStr = "En Proceso";
+                    else if (o.EstadoId == 3) estadoStr = "Lista para Entrega";
+                    else if (o.EstadoId == 4) estadoStr = "Entregada";
+                    else if (o.EstadoId == 5) estadoStr = "Cancelada";
+
+                    listaLegible.Add(new
+                    {
+                        ID = o.OrdenId,
+                        NumeroOrden = o.NumeroOrden,
+                        Cliente = clienteNombre,
+                        FechaRecepcion = o.FechaRecepcion.ToString("dd/MM/yyyy hh:mm tt"),
+                        FechaEntregaEstimada = o.FechaEntregaEstimada.ToString("dd/MM/yyyy"),
+                        Observaciones = o.Observaciones,
+                        Total = "$" + o.Total.ToString("0.00"),
+                        Estado = estadoStr,
+                        RegistradoPor = usuarioNombre
+                    });
+                }
+
+                dgvOrdenes.DataSource = null;
+                dgvOrdenes.DataSource = listaLegible;
+
+                if (dgvOrdenes.Columns.Contains("ID")) dgvOrdenes.Columns["ID"].HeaderText = "ID";
+                if (dgvOrdenes.Columns.Contains("NumeroOrden")) dgvOrdenes.Columns["NumeroOrden"].HeaderText = "Número Orden";
+                if (dgvOrdenes.Columns.Contains("Cliente")) dgvOrdenes.Columns["Cliente"].HeaderText = "Cliente";
+                if (dgvOrdenes.Columns.Contains("FechaRecepcion")) dgvOrdenes.Columns["FechaRecepcion"].HeaderText = "Fecha Recepción";
                 if (dgvOrdenes.Columns.Contains("FechaEntregaEstimada")) dgvOrdenes.Columns["FechaEntregaEstimada"].HeaderText = "Entrega Estimada";
-                if (dgvOrdenes.Columns.Contains("Total")) dgvOrdenes.Columns["Total"].HeaderText = "Total ($)";
-                if (dgvOrdenes.Columns.Contains("EstadoId")) dgvOrdenes.Columns["EstadoId"].HeaderText = "Estado ID";
+                if (dgvOrdenes.Columns.Contains("Total")) dgvOrdenes.Columns["Total"].HeaderText = "Total";
+                if (dgvOrdenes.Columns.Contains("Estado")) dgvOrdenes.Columns["Estado"].HeaderText = "Estado";
                 if (dgvOrdenes.Columns.Contains("Observaciones")) dgvOrdenes.Columns["Observaciones"].HeaderText = "Observaciones";
-                if (dgvOrdenes.Columns.Contains("UsuarioRegistroId")) dgvOrdenes.Columns["UsuarioRegistroId"].HeaderText = "Registrado Por (ID)";
+                if (dgvOrdenes.Columns.Contains("RegistradoPor")) dgvOrdenes.Columns["RegistradoPor"].HeaderText = "Registrado Por";
             }
             catch (Exception ex)
             {
@@ -109,10 +155,26 @@ namespace Clean_Go.BusinessLogic.Ordenes
                 return;
             }
 
-            Orden ordenSeleccionada = (Orden)dgvOrdenes.CurrentRow.DataBoundItem;
-            using (FrmOrdenesCambiarEstado frm = new FrmOrdenesCambiarEstado(ordenSeleccionada, _usuarioLogueado))
+            int ordenId = 0;
+            if (dgvOrdenes.CurrentRow.Cells["ID"].Value != null)
             {
-                frm.ShowDialog();
+                ordenId = Convert.ToInt32(dgvOrdenes.CurrentRow.Cells["ID"].Value);
+            }
+
+            if (ordenId > 0)
+            {
+                Orden ordenSeleccionada = _ordenesBLL.ObtenerPorId(ordenId);
+                if (ordenSeleccionada != null)
+                {
+                    using (FrmOrdenesCambiarEstado frm = new FrmOrdenesCambiarEstado(ordenSeleccionada, _usuarioLogueado))
+                    {
+                        frm.ShowDialog();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo cargar el detalle de la orden seleccionada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }
