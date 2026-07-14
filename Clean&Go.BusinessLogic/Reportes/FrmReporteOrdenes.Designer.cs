@@ -59,10 +59,10 @@ namespace Clean_Go.BusinessLogic.Reportes
             // 
             this.dtpDesde.Checked = false;
             this.dtpDesde.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.dtpDesde.Location = new System.Drawing.Point(70, 17);
+            this.dtpDesde.Location = new System.Drawing.Point(65, 17);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.ShowCheckBox = true;
-            this.dtpDesde.Size = new System.Drawing.Size(160, 24);
+            this.dtpDesde.Size = new System.Drawing.Size(125, 24);
             this.dtpDesde.TabIndex = 8;
             // 
             // lblHasta
@@ -70,7 +70,7 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.lblHasta.AutoSize = true;
             this.lblHasta.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lblHasta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
-            this.lblHasta.Location = new System.Drawing.Point(245, 20);
+            this.lblHasta.Location = new System.Drawing.Point(205, 20);
             this.lblHasta.Name = "lblHasta";
             this.lblHasta.Size = new System.Drawing.Size(44, 17);
             this.lblHasta.TabIndex = 7;
@@ -80,10 +80,10 @@ namespace Clean_Go.BusinessLogic.Reportes
             // 
             this.dtpHasta.Checked = false;
             this.dtpHasta.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.dtpHasta.Location = new System.Drawing.Point(295, 17);
+            this.dtpHasta.Location = new System.Drawing.Point(255, 17);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.ShowCheckBox = true;
-            this.dtpHasta.Size = new System.Drawing.Size(160, 24);
+            this.dtpHasta.Size = new System.Drawing.Size(125, 24);
             this.dtpHasta.TabIndex = 6;
             // 
             // lblEstado
@@ -91,7 +91,7 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.lblEstado.AutoSize = true;
             this.lblEstado.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lblEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
-            this.lblEstado.Location = new System.Drawing.Point(470, 20);
+            this.lblEstado.Location = new System.Drawing.Point(395, 20);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(51, 17);
             this.lblEstado.TabIndex = 5;
@@ -103,13 +103,14 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cmbEstado.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.cmbEstado.Location = new System.Drawing.Point(525, 17);
+            this.cmbEstado.Location = new System.Drawing.Point(450, 17);
             this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(140, 25);
+            this.cmbEstado.Size = new System.Drawing.Size(115, 25);
             this.cmbEstado.TabIndex = 4;
             // 
             // btnFiltrar
             // 
+            this.btnFiltrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFiltrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(145)))), ((int)(((byte)(178)))));
             this.btnFiltrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFiltrar.FlatAppearance.BorderSize = 0;
@@ -126,6 +127,7 @@ namespace Clean_Go.BusinessLogic.Reportes
             // 
             // btnLimpiar
             // 
+            this.btnLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
             this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLimpiar.FlatAppearance.BorderSize = 0;
