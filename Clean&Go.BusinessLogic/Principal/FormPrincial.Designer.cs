@@ -21,6 +21,7 @@ namespace Clean_Go.BusinessLogic
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincial));
             this.pnlSidebar = new System.Windows.Forms.Panel();
             this.lblSidebarTitle = new System.Windows.Forms.Label();
             this.btnMenuDashboard = new System.Windows.Forms.Button();
@@ -61,6 +62,7 @@ namespace Clean_Go.BusinessLogic
             this.statusLblSpring = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLblTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerClock = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlSidebar.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             this.pnlContent.SuspendLayout();
@@ -72,12 +74,14 @@ namespace Clean_Go.BusinessLogic
             this.pnlTablaContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntregasHoy)).BeginInit();
             this.statusStripBottom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.Color.White;
             this.pnlSidebar.Controls.Add(this.lblSidebarTitle);
+            this.pnlSidebar.Controls.Add(this.pictureBox1);
             this.pnlSidebar.Controls.Add(this.btnMenuDashboard);
             this.pnlSidebar.Controls.Add(this.btnMenuClientes);
             this.pnlSidebar.Controls.Add(this.btnMenuServicios);
@@ -97,11 +101,11 @@ namespace Clean_Go.BusinessLogic
             // 
             this.lblSidebarTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.lblSidebarTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(145)))), ((int)(((byte)(178)))));
-            this.lblSidebarTitle.Location = new System.Drawing.Point(15, 15);
+            this.lblSidebarTitle.Location = new System.Drawing.Point(87, 12);
             this.lblSidebarTitle.Name = "lblSidebarTitle";
-            this.lblSidebarTitle.Size = new System.Drawing.Size(190, 40);
+            this.lblSidebarTitle.Size = new System.Drawing.Size(87, 40);
             this.lblSidebarTitle.TabIndex = 0;
-            this.lblSidebarTitle.Text = "🧺 Clean&Go";
+            this.lblSidebarTitle.Text = "Clean&Go";
             this.lblSidebarTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnMenuDashboard
@@ -553,6 +557,16 @@ namespace Clean_Go.BusinessLogic
             this.timerClock.Enabled = true;
             this.timerClock.Interval = 1000;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(-7, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(127, 62);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormPrincial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -580,6 +594,7 @@ namespace Clean_Go.BusinessLogic
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntregasHoy)).EndInit();
             this.statusStripBottom.ResumeLayout(false);
             this.statusStripBottom.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -627,5 +642,6 @@ namespace Clean_Go.BusinessLogic
         private ToolStripStatusLabel statusLblSpring;
         private ToolStripStatusLabel statusLblTime;
         private Timer timerClock;
+        private PictureBox pictureBox1;
     }
 }

@@ -126,17 +126,37 @@ namespace Clean_Go.BusinessLogic.Ordenes
                 int tipoPrendaId = (int)cmbPrenda.SelectedValue;
                 int servicioId = (int)cmbServicio.SelectedValue;
                 decimal precio = decimal.Parse(txtPrecio.Text);
+                string obs = string.IsNullOrWhiteSpace(txtObservacionesDetalle.Text) ? null : txtObservacionesDetalle.Text.Trim();
 
-                DetalleOrden item = new DetalleOrden
+                // Buscar si ya existe la misma combinación de prenda y servicio
+                DetalleOrden itemExistente = _detalles.Find(d => d.TipoPrendaId == tipoPrendaId && d.ServicioId == servicioId);
+
+                if (itemExistente != null)
                 {
-                    TipoPrendaId = tipoPrendaId,
-                    ServicioId = servicioId,
-                    Cantidad = cantidad,
-                    Precio = precio,
-                    Observaciones = string.IsNullOrWhiteSpace(txtObservacionesDetalle.Text) ? null : txtObservacionesDetalle.Text.Trim()
-                };
+                    itemExistente.Cantidad += cantidad;
+                    itemExistente.Precio = precio; // Actualizar con el precio seleccionado por si varió
 
-                _detalles.Add(item);
+                    if (!string.IsNullOrEmpty(obs))
+                    {
+                        if (string.IsNullOrEmpty(itemExistente.Observaciones))
+                            itemExistente.Observaciones = obs;
+                        else if (!itemExistente.Observaciones.Contains(obs))
+                            itemExistente.Observaciones += "; " + obs;
+                    }
+                }
+                else
+                {
+                    DetalleOrden item = new DetalleOrden
+                    {
+                        TipoPrendaId = tipoPrendaId,
+                        ServicioId = servicioId,
+                        Cantidad = cantidad,
+                        Precio = precio,
+                        Observaciones = obs
+                    };
+                    _detalles.Add(item);
+                }
+
                 ActualizarGrid();
 
                 txtCantidad.Text = "1";

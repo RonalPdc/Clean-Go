@@ -58,7 +58,7 @@ namespace Clean_Go.BusinessLogic.Reportes
             // 
             this.txtNumeroOrden.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.txtNumeroOrden.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtNumeroOrden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtNumeroOrden.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.txtNumeroOrden.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txtNumeroOrden.Location = new System.Drawing.Point(135, 17);
             this.txtNumeroOrden.Name = "txtNumeroOrden";

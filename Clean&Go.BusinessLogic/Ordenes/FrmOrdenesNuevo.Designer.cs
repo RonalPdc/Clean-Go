@@ -105,7 +105,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
             // 
             this.cmbCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.cmbCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbCliente.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cmbCliente.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.cmbCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
             this.cmbCliente.FormattingEnabled = true;
@@ -305,7 +305,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
             // 
             this.cmbServicio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.cmbServicio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbServicio.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cmbServicio.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.cmbServicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
             this.cmbServicio.FormattingEnabled = true;
@@ -329,7 +329,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
             // 
             this.cmbPrenda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.cmbPrenda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPrenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbPrenda.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cmbPrenda.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.cmbPrenda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
             this.cmbPrenda.FormattingEnabled = true;
@@ -370,7 +370,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
             this.lblTotalLabel.AutoSize = true;
             this.lblTotalLabel.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.lblTotalLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
-            this.lblTotalLabel.Location = new System.Drawing.Point(580, 480);
+            this.lblTotalLabel.Location = new System.Drawing.Point(564, 526);
             this.lblTotalLabel.Name = "lblTotalLabel";
             this.lblTotalLabel.Size = new System.Drawing.Size(48, 20);
             this.lblTotalLabel.TabIndex = 11;
@@ -381,7 +381,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(145)))), ((int)(((byte)(178)))));
-            this.lblTotal.Location = new System.Drawing.Point(645, 477);
+            this.lblTotal.Location = new System.Drawing.Point(629, 523);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(61, 25);
             this.lblTotal.TabIndex = 12;
