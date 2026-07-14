@@ -158,6 +158,14 @@ namespace Clean_Go.BusinessLogic.Ordenes
 
         private void ActualizarGrid()
         {
+            if (_detalles.Count == 0)
+            {
+                dgvDetalles.DataSource = null;
+                _totalAcumulado = 0;
+                lblTotal.Text = "$0.00";
+                return;
+            }
+
             dgvDetalles.DataSource = null;
             dgvDetalles.DataSource = _detalles;
 
