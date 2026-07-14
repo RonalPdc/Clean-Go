@@ -14,6 +14,7 @@ namespace Clean_Go.BusinessLogic.Prendas
         {
             InitializeComponent();
             _prendaToEdit = null;
+            this.Load += FrmPrendaEditar_Load;
             btnCancelar.Click += (s, e) => this.Close();
             btnGuardar.Click += BtnGuardar_Click;
         }

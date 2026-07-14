@@ -17,6 +17,7 @@ namespace Clean_Go.BusinessLogic.Usuarios
 
         private void ConfigurarEventos()
         {
+            this.Load += FrmUsuarios_Load;
             btnNuevo.Click += BtnNuevo_Click;
             btnEditar.Click += BtnEditar_Click;
             btnBuscar.Click += BtnBuscar_Click;

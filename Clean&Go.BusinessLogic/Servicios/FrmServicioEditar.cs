@@ -14,6 +14,7 @@ namespace Clean_Go.BusinessLogic.Servicios
         {
             InitializeComponent();
             _servicioToEdit = null;
+            this.Load += FrmServicioEditar_Load;
             btnCancelar.Click += (s, e) => this.Close();
             btnGuardar.Click += BtnGuardar_Click;
         }

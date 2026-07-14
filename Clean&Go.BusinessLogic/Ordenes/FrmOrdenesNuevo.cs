@@ -28,6 +28,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
         {
             InitializeComponent();
             _usuarioLogueado = usuarioLogueado;
+            this.Load += FrmOrdenesNuevo_Load;
             ConfigurarEventos();
         }
 
@@ -228,6 +229,11 @@ namespace Clean_Go.BusinessLogic.Ordenes
             btnGuardar.Enabled = habilitar;
             btnCancelar.Enabled = habilitar;
             this.Cursor = habilitar ? Cursors.Default : Cursors.WaitCursor;
+        }
+
+        private void cmbCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

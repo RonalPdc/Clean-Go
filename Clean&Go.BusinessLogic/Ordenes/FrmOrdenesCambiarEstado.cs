@@ -19,6 +19,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
             InitializeComponent();
             _orden = orden;
             _usuarioLogueado = usuarioLogueado;
+            this.Load += FrmOrdenesCambiarEstado_Load;
             btnCancelar.Click += (s, e) => this.Close();
             btnGuardar.Click += BtnGuardar_Click;
         }

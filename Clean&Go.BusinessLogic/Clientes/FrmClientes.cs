@@ -18,6 +18,7 @@ namespace Clean_Go.BusinessLogic.Clientes
 
         private void ConfigurarEventos()
         {
+            this.Load += FrmClientes_Load;
             btnNuevo.Click += BtnNuevo_Click;
             btnEditar.Click += BtnEditar_Click;
             btnEliminar.Click += BtnEliminar_Click;

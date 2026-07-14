@@ -85,12 +85,12 @@ namespace Clean_Go.BusinessLogic.Servicios
             this.txtBuscar.Size = new System.Drawing.Size(250, 25);
             this.txtBuscar.TabIndex = 0;
 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(226, 232, 240);
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(71, 85, 105);
             this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
+            this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.Location = new System.Drawing.Point(326, 50);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(85, 27);

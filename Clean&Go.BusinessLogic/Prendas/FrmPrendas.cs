@@ -18,6 +18,7 @@ namespace Clean_Go.BusinessLogic.Prendas
 
         private void ConfigurarEventos()
         {
+            this.Load += FrmPrendas_Load;
             btnNuevo.Click += BtnNuevo_Click;
             btnEditar.Click += BtnEditar_Click;
             btnEliminar.Click += BtnEliminar_Click;

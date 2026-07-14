@@ -21,6 +21,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
 
         private void ConfigurarEventos()
         {
+            this.Load += FrmOrdenes_Load;
             btnNuevo.Click += BtnNuevo_Click;
             btnCambiarEstado.Click += BtnCambiarEstado_Click;
             btnBuscar.Click += BtnBuscar_Click;
