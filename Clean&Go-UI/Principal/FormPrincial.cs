@@ -159,8 +159,13 @@ namespace Clean_Go.BusinessLogic
                 // 2. Cargar órdenes de hoy / recientes en la grilla
                 var listaOrdenes = _ordenesBLL.ObtenerTodos();
                 
-                // Mapeo simple a una estructura ligera para que se vea elegante en la tabla de control
-                var vistaSimplificada = new List<object>();
+                System.Data.DataTable tabla = new System.Data.DataTable();
+                tabla.Columns.Add("Orden");
+                tabla.Columns.Add("Fecha");
+                tabla.Columns.Add("Entrega");
+                tabla.Columns.Add("Total");
+                tabla.Columns.Add("Estado");
+
                 foreach (var o in listaOrdenes)
                 {
                     string estadoStr = "Recibida";
@@ -169,18 +174,17 @@ namespace Clean_Go.BusinessLogic
                     else if (o.EstadoId == 4) estadoStr = "Entregada";
                     else if (o.EstadoId == 5) estadoStr = "Cancelada";
 
-                    vistaSimplificada.Add(new
-                    {
-                        Orden = o.NumeroOrden,
-                        Fecha = o.FechaRecepcion.ToString("dd/MM/yyyy hh:mm tt"),
-                        Entrega = o.FechaEntregaEstimada.ToString("dd/MM/yyyy"),
-                        Total = "$" + o.Total.ToString("0.00"),
-                        Estado = estadoStr
-                    });
+                    tabla.Rows.Add(
+                        o.NumeroOrden,
+                        o.FechaRecepcion.ToString("dd/MM/yyyy hh:mm tt"),
+                        o.FechaEntregaEstimada.ToString("dd/MM/yyyy"),
+                        "$" + o.Total.ToString("0.00"),
+                        estadoStr
+                    );
                 }
 
                 dgvEntregasHoy.DataSource = null;
-                dgvEntregasHoy.DataSource = vistaSimplificada;
+                dgvEntregasHoy.DataSource = tabla;
 
                 // Estilizar la tabla del Dashboard
                 if (dgvEntregasHoy.Columns.Contains("Orden")) dgvEntregasHoy.Columns["Orden"].HeaderText = "N° Orden";

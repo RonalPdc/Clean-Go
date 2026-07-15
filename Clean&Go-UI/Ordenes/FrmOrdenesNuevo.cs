@@ -210,25 +210,29 @@ namespace Clean_Go.BusinessLogic.Ordenes
                 }
             }
 
-            // Proyectar lista para visualización
-            var listaLegible = new List<object>();
+            System.Data.DataTable tabla = new System.Data.DataTable();
+            tabla.Columns.Add("Prenda");
+            tabla.Columns.Add("Servicio");
+            tabla.Columns.Add("Cantidad", typeof(int));
+            tabla.Columns.Add("PrecioUnitario");
+            tabla.Columns.Add("Observaciones");
+
             foreach (var item in _detalles)
             {
                 string prendaNombre = dictPrendas.ContainsKey(item.TipoPrendaId) ? dictPrendas[item.TipoPrendaId] : "Desconocido (" + item.TipoPrendaId + ")";
                 string servicioNombre = dictServicios.ContainsKey(item.ServicioId) ? dictServicios[item.ServicioId] : "Desconocido (" + item.ServicioId + ")";
 
-                listaLegible.Add(new
-                {
-                    Prenda = prendaNombre,
-                    Servicio = servicioNombre,
-                    Cantidad = item.Cantidad,
-                    PrecioUnitario = "$" + item.Precio.ToString("0.00"),
-                    Observaciones = item.Observaciones
-                });
+                tabla.Rows.Add(
+                    prendaNombre,
+                    servicioNombre,
+                    item.Cantidad,
+                    "$" + item.Precio.ToString("0.00"),
+                    item.Observaciones
+                );
             }
 
             dgvDetalles.DataSource = null;
-            dgvDetalles.DataSource = listaLegible;
+            dgvDetalles.DataSource = tabla;
 
             if (dgvDetalles.Columns.Contains("Prenda")) dgvDetalles.Columns["Prenda"].HeaderText = "Prenda";
             if (dgvDetalles.Columns.Contains("Servicio")) dgvDetalles.Columns["Servicio"].HeaderText = "Servicio";

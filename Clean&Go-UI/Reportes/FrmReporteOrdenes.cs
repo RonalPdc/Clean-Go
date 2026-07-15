@@ -81,7 +81,7 @@ namespace Clean_Go.BusinessLogic.Reportes
                         if (dtpHasta.Checked)
                         {
                             sql += " AND o.FechaRecepcion <= @Hasta";
-                            cmd.Parameters.Add("@Hasta", SqlDbType.DateTime).Value = dtpHasta.Value.Date.AddDays(1).AddTicks(-1); // Fin del día
+                            cmd.Parameters.Add("@Hasta", SqlDbType.DateTime).Value = dtpHasta.Value.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
                         }
 
                         if (cmbEstado.SelectedIndex > 0)
