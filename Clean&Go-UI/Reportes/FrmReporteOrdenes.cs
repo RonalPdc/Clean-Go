@@ -25,34 +25,10 @@ namespace Clean_Go.BusinessLogic.Reportes
             DisenoHelper.StyleGrid(dgvOrdenes);
             CargarEstados();
 
-            dtpDesde.ShowCheckBox = false;
-            dtpHasta.ShowCheckBox = false;
             dtpDesde.Value = DateTime.Today.AddDays(-7);
             dtpHasta.Value = DateTime.Today;
 
             CargarOrdenes();
-
-            cmbEstado.Width = 90;
-
-            btnFiltrar.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            btnLimpiar.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-
-            Button btnImprimir = new Button();
-            btnImprimir.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            btnImprimir.BackColor = Color.FromArgb(8, 145, 178);
-            btnImprimir.Cursor = Cursors.Hand;
-            btnImprimir.FlatAppearance.BorderSize = 0;
-            btnImprimir.FlatStyle = FlatStyle.Flat;
-            btnImprimir.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-            btnImprimir.ForeColor = Color.White;
-            btnImprimir.Location = new Point(550, 15);
-            btnImprimir.Size = new Size(110, 30);
-            btnImprimir.Text = "Imprimir / PDF";
-            btnImprimir.UseVisualStyleBackColor = false;
-            btnImprimir.Click += btnImprimir_Click;
-
-            this.Controls.Add(btnImprimir);
-            btnImprimir.BringToFront();
         }
 
         private void CargarEstados()
