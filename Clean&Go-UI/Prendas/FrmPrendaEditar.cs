@@ -27,10 +27,12 @@ namespace Clean_Go.BusinessLogic.Prendas
         private void FrmPrendaEditar_Load(object sender, EventArgs e)
         {
             txtNombre.MaxLength = 50;
+            txtDescripcion.MaxLength = 100;
 
             if (_prendaToEdit != null)
             {
                 txtNombre.Text = _prendaToEdit.Nombre;
+                txtDescripcion.Text = _prendaToEdit.Descripcion;
                 chkEstado.Checked = _prendaToEdit.Estado;
             }
         }
@@ -50,6 +52,7 @@ namespace Clean_Go.BusinessLogic.Prendas
 
                 TipoPrenda prenda = _prendaToEdit ?? new TipoPrenda();
                 prenda.Nombre = txtNombre.Text.Trim();
+                prenda.Descripcion = txtDescripcion.Text.Trim();
                 prenda.Estado = chkEstado.Checked;
 
                 bool resultado;
@@ -91,6 +94,7 @@ namespace Clean_Go.BusinessLogic.Prendas
         private void BloquearControles(bool habilitar)
         {
             txtNombre.Enabled = habilitar;
+            txtDescripcion.Enabled = habilitar;
             chkEstado.Enabled = habilitar;
             btnGuardar.Enabled = habilitar;
             btnCancelar.Enabled = habilitar;

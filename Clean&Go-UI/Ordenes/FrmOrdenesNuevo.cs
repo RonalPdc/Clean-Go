@@ -58,6 +58,10 @@ namespace Clean_Go.BusinessLogic.Ordenes
                 txtObservacionesDetalle.MaxLength = 100;
                 txtCantidad.MaxLength = 3;
 
+                cmbCliente.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                cmbCliente.AutoCompleteSource = AutoCompleteSource.ListItems;
+                cmbCliente.DropDownStyle = ComboBoxStyle.DropDown;
+
                 CargarCombos();
                 txtNumeroOrden.Text = "ORD-" + DateTime.Now.ToString("yyMMddHHmmss");
                 ActualizarGrid();
