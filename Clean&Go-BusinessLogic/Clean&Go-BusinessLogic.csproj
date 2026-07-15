@@ -107,11 +107,11 @@
     <Compile Include="Service\Servicios\ServiciosBLL.cs" />
     <Compile Include="Service\Prendas\TiposPrendaBLL.cs" />
     <Compile Include="Service\Ordenes\OrdenesBLL.cs" />
-    <Compile Include="Service\Pagos\IManejadorPago.cs" />
-    <Compile Include="Service\Pagos\ManejadorPagoBase.cs" />
-    <Compile Include="Service\Pagos\PagoEfectivoHandler.cs" />
-    <Compile Include="Service\Pagos\PagoTarjetaHandler.cs" />
-    <Compile Include="Service\Pagos\PagoTransferenciaHandler.cs" />
+    <Compile Include="Chain of Responsibility\Pagos\IManejadorPago.cs" />
+    <Compile Include="Chain of Responsibility\Pagos\ManejadorPagoBase.cs" />
+    <Compile Include="Chain of Responsibility\Pagos\PagoEfectivoHandler.cs" />
+    <Compile Include="Chain of Responsibility\Pagos\PagoTarjetaHandler.cs" />
+    <Compile Include="Chain of Responsibility\Pagos\PagoTransferenciaHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Clean&amp;Go-DataAccess\Clean&amp;Go-DataAccess.csproj">
@@ -127,6 +127,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- Force Reload -->
 </Project>

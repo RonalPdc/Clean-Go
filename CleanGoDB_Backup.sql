@@ -851,7 +851,8 @@ BEGIN
         Observaciones,
         Total,
         EstadoId,
-        UsuarioRegistroId
+        UsuarioRegistroId,
+        MetodoPago
     FROM Ordenes
     ORDER BY OrdenId DESC;
 END
