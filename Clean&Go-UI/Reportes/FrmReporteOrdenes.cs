@@ -15,7 +15,6 @@ namespace Clean_Go.BusinessLogic.Reportes
         {
             InitializeComponent();
 
-            // Estilos Premium
             DisenoHelper.StyleButton(btnFiltrar, Color.FromArgb(8, 145, 178), Color.White);
             DisenoHelper.StyleButton(btnLimpiar, Color.FromArgb(71, 85, 105), Color.White);
         }

@@ -23,7 +23,12 @@ namespace Clean_Go_BusinessLogic.Service.Usuarios
 
             bool resultado = _usuarioDAL.Crear(usuario);
             if (resultado)
-                AlCambiarUsuarios?.Invoke();
+            {
+                if (AlCambiarUsuarios != null)
+                {
+                    AlCambiarUsuarios();
+                }
+            }
             return resultado;
         }
 
@@ -36,7 +41,12 @@ namespace Clean_Go_BusinessLogic.Service.Usuarios
 
             bool resultado = _usuarioDAL.Actualizar(usuario);
             if (resultado)
-                AlCambiarUsuarios?.Invoke();
+            {
+                if (AlCambiarUsuarios != null)
+                {
+                    AlCambiarUsuarios();
+                }
+            }
             return resultado;
         }
         public bool Eliminar(int usuarioId)
@@ -46,7 +56,12 @@ namespace Clean_Go_BusinessLogic.Service.Usuarios
 
             bool resultado = _usuarioDAL.Eliminar(usuarioId);
             if (resultado)
-                AlCambiarUsuarios?.Invoke();
+            {
+                if (AlCambiarUsuarios != null)
+                {
+                    AlCambiarUsuarios();
+                }
+            }
             return resultado;
         }
         public Usuario Login(string nombreUsuario, string contraseña)
@@ -119,7 +134,12 @@ namespace Clean_Go_BusinessLogic.Service.Usuarios
 
             bool resultado = _usuarioDAL.ActualizarPassword(usuarioId, nuevoPassword);
             if (resultado)
-                AlCambiarUsuarios?.Invoke();
+            {
+                if (AlCambiarUsuarios != null)
+                {
+                    AlCambiarUsuarios();
+                }
+            }
             return resultado;
         }
     }

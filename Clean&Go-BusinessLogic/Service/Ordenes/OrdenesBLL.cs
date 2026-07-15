@@ -50,7 +50,10 @@ namespace Clean_Go_BusinessLogic.Service.Ordenes
                 string mensajeNotificacion = $"Hola {cliente.Nombre}, su orden número {orden.NumeroOrden} ha sido recibida con éxito en Clean&Go.";
                 _notificacionDAL.RegistrarNotificacion(orden.OrdenId, orden.ClienteId, mensajeNotificacion);
 
-                AlCambiarOrdenes?.Invoke();
+                if (AlCambiarOrdenes != null)
+                {
+                    AlCambiarOrdenes();
+                }
             }
 
             return guardadoExitoso;
@@ -81,12 +84,14 @@ namespace Clean_Go_BusinessLogic.Service.Ordenes
                         _notificacionDAL.RegistrarNotificacion(ordenId, orden.ClienteId, mensajeNotificacion);
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    Console.WriteLine("Error al encolar notificación: " + ex.Message);
                 }
 
-                AlCambiarOrdenes?.Invoke();
+                if (AlCambiarOrdenes != null)
+                {
+                    AlCambiarOrdenes();
+                }
             }
 
             return estadoActualizado;
