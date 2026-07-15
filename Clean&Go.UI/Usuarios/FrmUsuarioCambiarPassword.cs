@@ -19,9 +19,21 @@ namespace Clean_Go.BusinessLogic.Usuarios
         private void chkMostrar_CheckedChanged(object sender, EventArgs e)
         {
             bool mostrar = chkMostrar.Checked;
-            txtPasswordActual.UseSystemPasswordChar = !mostrar;
-            txtPasswordNueva.UseSystemPasswordChar = !mostrar;
-            txtPasswordConfirmar.UseSystemPasswordChar = !mostrar;
+            if (mostrar)
+            {
+                txtPasswordActual.UseSystemPasswordChar = false;
+                txtPasswordActual.PasswordChar = '\0';
+                txtPasswordNueva.UseSystemPasswordChar = false;
+                txtPasswordNueva.PasswordChar = '\0';
+                txtPasswordConfirmar.UseSystemPasswordChar = false;
+                txtPasswordConfirmar.PasswordChar = '\0';
+            }
+            else
+            {
+                txtPasswordActual.UseSystemPasswordChar = true;
+                txtPasswordNueva.UseSystemPasswordChar = true;
+                txtPasswordConfirmar.UseSystemPasswordChar = true;
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

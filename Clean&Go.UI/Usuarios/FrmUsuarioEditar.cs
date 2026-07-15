@@ -54,7 +54,15 @@ namespace Clean_Go.BusinessLogic.Usuarios
             
             // Evento para alternar visualización
             _chkMostrarPassword.CheckedChanged += (s, ev) => {
-                txtPassword.UseSystemPasswordChar = !_chkMostrarPassword.Checked;
+                if (_chkMostrarPassword.Checked)
+                {
+                    txtPassword.UseSystemPasswordChar = false;
+                    txtPassword.PasswordChar = '\0';
+                }
+                else
+                {
+                    txtPassword.UseSystemPasswordChar = true;
+                }
             };
 
             this.Controls.Add(_chkMostrarPassword);
