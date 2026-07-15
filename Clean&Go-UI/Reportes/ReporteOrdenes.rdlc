@@ -646,7 +646,16 @@
                 </TablixRow>
               </TablixRows>
             </TablixBody>
-            <TablixHierarchy>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
               <TablixMembers>
                 <TablixMember>
                   <KeepWithGroup>After</KeepWithGroup>
@@ -658,7 +667,7 @@
                   <KeepWithGroup>Before</KeepWithGroup>
                 </TablixMember>
               </TablixMembers>
-            </TablixHierarchy>
+            </TablixRowHierarchy>
             <DataSetName>dsOrdenes</DataSetName>
             <Top>0.8in</Top>
             <Left>0.2in</Left>
