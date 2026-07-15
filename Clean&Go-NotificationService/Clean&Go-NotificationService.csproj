@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E4DF2379-9943-4CC2-9844-88787063D8FF}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>Clean_Go_NotificationService</RootNamespace>
     <AssemblyName>Clean&amp;Go-NotificationService</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
