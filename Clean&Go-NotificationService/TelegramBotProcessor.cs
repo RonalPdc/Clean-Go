@@ -36,7 +36,7 @@ namespace Clean_Go_NotificationService
                 DropPendingUpdates = true
             };
 
-            _botClient.StartReceiving(
+            _botClient.ReceiveAsync(
                 updateHandler: async (bot, update, ct) =>
                 {
                     if (update.Message != null && !string.IsNullOrWhiteSpace(update.Message.Text))
@@ -46,7 +46,7 @@ namespace Clean_Go_NotificationService
                         ResponderConsulta(chatId, text);
                     }
                 },
-                pollingErrorHandler: (bot, ex, ct) =>
+                errorHandler: (bot, ex, ct) =>
                 {
                     return System.Threading.Tasks.Task.CompletedTask;
                 },
