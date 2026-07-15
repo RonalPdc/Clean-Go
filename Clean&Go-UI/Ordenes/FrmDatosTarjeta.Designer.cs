@@ -9,11 +9,11 @@ namespace Clean_Go.BusinessLogic.Ordenes
 
         private Label lblTitulo;
         private Label lblNumeroTarjeta;
-        private TextBox txtNumeroTarjeta;
+        private MaskedTextBox txtNumeroTarjeta;
         private Label lblExpiracion;
-        private TextBox txtExpiracion;
+        private MaskedTextBox txtExpiracion;
         private Label lblCvv;
-        private TextBox txtCvv;
+        private MaskedTextBox txtCvv;
         private Button btnConfirmar;
         private Button btnCancelar;
 
@@ -30,11 +30,11 @@ namespace Clean_Go.BusinessLogic.Ordenes
         {
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblNumeroTarjeta = new System.Windows.Forms.Label();
-            this.txtNumeroTarjeta = new System.Windows.Forms.TextBox();
+            this.txtNumeroTarjeta = new System.Windows.Forms.MaskedTextBox();
             this.lblExpiracion = new System.Windows.Forms.Label();
-            this.txtExpiracion = new System.Windows.Forms.TextBox();
+            this.txtExpiracion = new System.Windows.Forms.MaskedTextBox();
             this.lblCvv = new System.Windows.Forms.Label();
-            this.txtCvv = new System.Windows.Forms.TextBox();
+            this.txtCvv = new System.Windows.Forms.MaskedTextBox();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -66,7 +66,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
             this.txtNumeroTarjeta.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txtNumeroTarjeta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
             this.txtNumeroTarjeta.Location = new System.Drawing.Point(20, 77);
-            this.txtNumeroTarjeta.MaxLength = 16;
+            this.txtNumeroTarjeta.Mask = "0000-0000-0000-0000";
             this.txtNumeroTarjeta.Name = "txtNumeroTarjeta";
             this.txtNumeroTarjeta.Size = new System.Drawing.Size(260, 24);
             // 
@@ -87,7 +87,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
             this.txtExpiracion.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txtExpiracion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
             this.txtExpiracion.Location = new System.Drawing.Point(20, 137);
-            this.txtExpiracion.MaxLength = 5;
+            this.txtExpiracion.Mask = "00/00";
             this.txtExpiracion.Name = "txtExpiracion";
             this.txtExpiracion.Size = new System.Drawing.Size(120, 24);
             // 
@@ -108,7 +108,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
             this.txtCvv.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txtCvv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
             this.txtCvv.Location = new System.Drawing.Point(160, 137);
-            this.txtCvv.MaxLength = 3;
+            this.txtCvv.Mask = "000";
             this.txtCvv.Name = "txtCvv";
             this.txtCvv.Size = new System.Drawing.Size(120, 24);
             this.txtCvv.UseSystemPasswordChar = true;

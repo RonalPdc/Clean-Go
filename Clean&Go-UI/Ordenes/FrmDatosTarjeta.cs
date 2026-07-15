@@ -33,9 +33,35 @@ namespace Clean_Go.BusinessLogic.Ordenes
 
         private void BtnConfirmar_Click(object sender, EventArgs e)
         {
-            string tarjeta = txtNumeroTarjeta.Text.Trim();
-            string exp = txtExpiracion.Text.Trim();
-            string cvv = txtCvv.Text.Trim();
+            string rawTarjeta = txtNumeroTarjeta.Text;
+            string tarjeta = "";
+            for (int i = 0; i < rawTarjeta.Length; i++)
+            {
+                if (char.IsDigit(rawTarjeta[i]))
+                {
+                    tarjeta = tarjeta + rawTarjeta[i];
+                }
+            }
+
+            string rawExp = txtExpiracion.Text;
+            string exp = "";
+            for (int i = 0; i < rawExp.Length; i++)
+            {
+                if (char.IsDigit(rawExp[i]))
+                {
+                    exp = exp + rawExp[i];
+                }
+            }
+
+            string rawCvv = txtCvv.Text;
+            string cvv = "";
+            for (int i = 0; i < rawCvv.Length; i++)
+            {
+                if (char.IsDigit(rawCvv[i]))
+                {
+                    cvv = cvv + rawCvv[i];
+                }
+            }
 
             if (tarjeta.Length != 16)
             {
@@ -44,9 +70,9 @@ namespace Clean_Go.BusinessLogic.Ordenes
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(exp) || !exp.Contains("/") || exp.Length != 5)
+            if (exp.Length != 4)
             {
-                MessageBox.Show("La fecha de expiracion debe tener el formato MM/AA (ej: 12/28).", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("La fecha de expiracion debe completarse (MM/AA).", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtExpiracion.Focus();
                 return;
             }
@@ -59,7 +85,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
             }
 
             NumeroTarjeta = tarjeta;
-            Expiracion = exp;
+            Expiracion = txtExpiracion.Text;
             Cvv = cvv;
 
             this.DialogResult = DialogResult.OK;
