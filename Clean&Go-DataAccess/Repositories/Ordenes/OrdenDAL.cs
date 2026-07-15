@@ -34,7 +34,8 @@ namespace Clean_Go_DataAccess.Repositories.Ordenes
                                 Observaciones = dr["Observaciones"].ToString(),
                                 Total = Convert.ToDecimal(dr["Total"]),
                                 EstadoId = Convert.ToInt32(dr["EstadoId"]),
-                                UsuarioRegistroId = Convert.ToInt32(dr["UsuarioRegistroId"])
+                                UsuarioRegistroId = Convert.ToInt32(dr["UsuarioRegistroId"]),
+                                MetodoPago = dr["MetodoPago"] == DBNull.Value ? null : dr["MetodoPago"].ToString()
                             });
                         }
                     }
@@ -70,7 +71,8 @@ namespace Clean_Go_DataAccess.Repositories.Ordenes
                                 Observaciones = dr["Observaciones"].ToString(),
                                 Total = Convert.ToDecimal(dr["Total"]),
                                 EstadoId = Convert.ToInt32(dr["EstadoId"]),
-                                UsuarioRegistroId = Convert.ToInt32(dr["UsuarioRegistroId"])
+                                UsuarioRegistroId = Convert.ToInt32(dr["UsuarioRegistroId"]),
+                                MetodoPago = dr["MetodoPago"] == DBNull.Value ? null : dr["MetodoPago"].ToString()
                             };
                         }
                     }
@@ -119,6 +121,7 @@ namespace Clean_Go_DataAccess.Repositories.Ordenes
                             cmdOrden.Parameters.AddWithValue("@FechaEntregaEstimada", orden.FechaEntregaEstimada);
                             cmdOrden.Parameters.AddWithValue("@Observaciones", (object)orden.Observaciones ?? DBNull.Value);
                             cmdOrden.Parameters.AddWithValue("@UsuarioRegistroId", orden.UsuarioRegistroId);
+                            cmdOrden.Parameters.AddWithValue("@MetodoPago", (object)orden.MetodoPago ?? DBNull.Value);
 
                             object res = cmdOrden.ExecuteScalar();
                             if (res == null || res == DBNull.Value)

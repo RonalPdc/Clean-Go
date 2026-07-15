@@ -23,6 +23,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
 
         private readonly List<DetalleOrden> _detalles = new List<DetalleOrden>();
         private decimal _totalAcumulado = 0;
+        private ComboBox cmbMetodoPago;
 
         public FrmOrdenesNuevo(Usuario usuarioLogueado)
         {
@@ -65,6 +66,28 @@ namespace Clean_Go.BusinessLogic.Ordenes
                 CargarCombos();
                 txtNumeroOrden.Text = "ORD-" + DateTime.Now.ToString("yyMMddHHmmss");
                 ActualizarGrid();
+
+                Label lblMetodoPago = new Label();
+                lblMetodoPago.AutoSize = true;
+                lblMetodoPago.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+                lblMetodoPago.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
+                lblMetodoPago.Location = new System.Drawing.Point(310, 527);
+                lblMetodoPago.Size = new System.Drawing.Size(62, 17);
+                lblMetodoPago.Text = "Pago con:";
+
+                cmbMetodoPago = new ComboBox();
+                cmbMetodoPago.BackColor = System.Drawing.Color.FromArgb(241, 245, 249);
+                cmbMetodoPago.DropDownStyle = ComboBoxStyle.DropDownList;
+                cmbMetodoPago.FlatStyle = FlatStyle.System;
+                cmbMetodoPago.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+                cmbMetodoPago.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
+                cmbMetodoPago.Location = new System.Drawing.Point(380, 523);
+                cmbMetodoPago.Size = new System.Drawing.Size(160, 25);
+                cmbMetodoPago.Items.AddRange(new object[] { "Efectivo", "Tarjeta de Crédito", "Transferencia Bancaria" });
+                cmbMetodoPago.SelectedIndex = 0;
+
+                this.Controls.Add(lblMetodoPago);
+                this.Controls.Add(cmbMetodoPago);
             }
             catch (Exception ex)
             {
@@ -274,6 +297,23 @@ namespace Clean_Go.BusinessLogic.Ordenes
 
             try
             {
+                string metodoSeleccionado = cmbMetodoPago.SelectedItem?.ToString() ?? "Efectivo";
+
+                Clean_Go_BusinessLogic.Service.Pagos.IManejadorPago efectivo = new Clean_Go_BusinessLogic.Service.Pagos.PagoEfectivoHandler();
+                Clean_Go_BusinessLogic.Service.Pagos.IManejadorPago tarjeta = new Clean_Go_BusinessLogic.Service.Pagos.PagoTarjetaHandler();
+                Clean_Go_BusinessLogic.Service.Pagos.IManejadorPago transferencia = new Clean_Go_BusinessLogic.Service.Pagos.PagoTransferenciaHandler();
+
+                efectivo.ConfigurarSiguiente(tarjeta);
+                tarjeta.ConfigurarSiguiente(transferencia);
+
+                bool pagoProcesado = efectivo.ProcesarPago(metodoSeleccionado, _totalAcumulado);
+
+                if (!pagoProcesado)
+                {
+                    MessageBox.Show("El metodo de pago seleccionado no pudo ser procesado.", "Error de Pago", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 BloquearControles(false);
 
                 Orden orden = new Orden
@@ -283,7 +323,8 @@ namespace Clean_Go.BusinessLogic.Ordenes
                     FechaEntregaEstimada = dtpFechaEntrega.Value,
                     Observaciones = string.IsNullOrWhiteSpace(txtObservacionesCabecera.Text) ? null : txtObservacionesCabecera.Text.Trim(),
                     UsuarioRegistroId = _usuarioLogueado.UsuarioId,
-                    Total = _totalAcumulado
+                    Total = _totalAcumulado,
+                    MetodoPago = metodoSeleccionado
                 };
 
                 bool creado = _ordenesBLL.CrearOrden(orden, _detalles);

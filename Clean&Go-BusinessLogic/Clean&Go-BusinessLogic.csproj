@@ -107,6 +107,11 @@
     <Compile Include="Service\Servicios\ServiciosBLL.cs" />
     <Compile Include="Service\Prendas\TiposPrendaBLL.cs" />
     <Compile Include="Service\Ordenes\OrdenesBLL.cs" />
+    <Compile Include="Service\Pagos\IManejadorPago.cs" />
+    <Compile Include="Service\Pagos\ManejadorPagoBase.cs" />
+    <Compile Include="Service\Pagos\PagoEfectivoHandler.cs" />
+    <Compile Include="Service\Pagos\PagoTarjetaHandler.cs" />
+    <Compile Include="Service\Pagos\PagoTransferenciaHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Clean&amp;Go-DataAccess\Clean&amp;Go-DataAccess.csproj">

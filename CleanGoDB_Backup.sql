@@ -77,7 +77,8 @@ CREATE TABLE Ordenes (
     FechaRecepcion DATETIME NOT NULL DEFAULT GETDATE(),
     FechaEntregaEstimada DATETIME NULL,
     Total DECIMAL(10,2) NOT NULL DEFAULT 0.00,
-    Observaciones VARCHAR(200) NULL
+    Observaciones VARCHAR(200) NULL,
+    MetodoPago VARCHAR(50) NULL
 );
 
 CREATE TABLE DetalleOrden (
@@ -746,7 +747,8 @@ CREATE   PROCEDURE Orden_Create
     @ClienteId INT,
     @FechaEntregaEstimada DATETIME,
     @Observaciones VARCHAR(300),
-    @UsuarioRegistroId INT
+    @UsuarioRegistroId INT,
+    @MetodoPago VARCHAR(50)
 )
 AS
 BEGIN
@@ -764,7 +766,8 @@ BEGIN
             FechaEntregaEstimada,
             Observaciones,
             Total,
-            UsuarioRegistroId
+            UsuarioRegistroId,
+            MetodoPago
         )
         VALUES
         (
@@ -775,7 +778,8 @@ BEGIN
             @FechaEntregaEstimada,
             @Observaciones,
             0,
-            @UsuarioRegistroId
+            @UsuarioRegistroId,
+            @MetodoPago
         );
 
         DECLARE @OrdenId INT = SCOPE_IDENTITY();

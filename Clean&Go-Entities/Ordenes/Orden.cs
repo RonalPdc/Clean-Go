@@ -13,5 +13,6 @@ namespace Clean_Go_Entities.Ordenes
         public decimal Total { get; set; }
         public int EstadoId { get; set; }
         public int UsuarioRegistroId { get; set; }
+        public string MetodoPago { get; set; }
     }
 }
