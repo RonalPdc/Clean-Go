@@ -187,32 +187,13 @@ namespace Clean_Go_DataAccess.Repositories.Ordenes
 
             using (SqlConnection cn = ConexionDB.Instancia.ObtenerConexion())
             {
-                string sql = "SELECT o.OrdenId, o.NumeroOrden, c.Nombre + ' ' + c.Apellido AS Cliente, e.Nombre AS Estado, o.FechaRecepcion, o.FechaEntregaEstimada, o.Total FROM Ordenes o INNER JOIN Clientes c ON o.ClienteId = c.ClienteId INNER JOIN EstadosOrden e ON o.EstadoId = e.EstadoId WHERE 1=1";
-
-                using (SqlCommand cmd = new SqlCommand())
+                using (SqlCommand cmd = new SqlCommand("Orden_GetReporte", cn))
                 {
-                    cmd.Connection = cn;
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                    if (desde.HasValue)
-                    {
-                        sql += " AND o.FechaRecepcion >= @Desde";
-                        cmd.Parameters.Add("@Desde", SqlDbType.DateTime).Value = desde.Value;
-                    }
-
-                    if (hasta.HasValue)
-                    {
-                        sql += " AND o.FechaRecepcion <= @Hasta";
-                        cmd.Parameters.Add("@Hasta", SqlDbType.DateTime).Value = hasta.Value;
-                    }
-
-                    if (!string.IsNullOrWhiteSpace(estado) && estado != "Todos")
-                    {
-                        sql += " AND e.Nombre = @Estado";
-                        cmd.Parameters.Add("@Estado", SqlDbType.VarChar).Value = estado;
-                    }
-
-                    sql += " ORDER BY o.FechaRecepcion DESC";
-                    cmd.CommandText = sql;
+                    cmd.Parameters.AddWithValue("@Desde", (object)desde ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Hasta", (object)hasta ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Estado", string.IsNullOrWhiteSpace(estado) ? "Todos" : estado);
 
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     adapter.Fill(tabla);
