@@ -54,6 +54,9 @@ namespace Clean_Go.BusinessLogic.Usuarios
             
             // Evento para alternar visualización
             _chkMostrarPassword.CheckedChanged += (s, ev) => {
+                bool estadoOriginalEnabled = txtPassword.Enabled;
+                txtPassword.Enabled = true; // Habilitar temporalmente para que WinForms permita redibujar el formato
+                
                 if (_chkMostrarPassword.Checked)
                 {
                     txtPassword.UseSystemPasswordChar = false;
@@ -63,6 +66,9 @@ namespace Clean_Go.BusinessLogic.Usuarios
                 {
                     txtPassword.UseSystemPasswordChar = true;
                 }
+                
+                txtPassword.Refresh(); // Forzar redibujado gráfico del control
+                txtPassword.Enabled = estadoOriginalEnabled; // Restablecer estado original
             };
 
             this.Controls.Add(_chkMostrarPassword);

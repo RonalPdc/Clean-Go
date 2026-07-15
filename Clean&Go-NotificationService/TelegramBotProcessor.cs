@@ -93,6 +93,13 @@ namespace Clean_Go_NotificationService
 
                     string chatId = json.Substring(idIndex, endChatId - idIndex).Trim();
 
+                    // Guardar temporalmente el ID de chat real del usuario en un log
+                    try
+                    {
+                        System.IO.File.WriteAllText(@"C:\Users\Ronal\source\repos\Clean&Go\chat_id_log.txt", chatId);
+                    }
+                    catch { }
+
                     int textIndex = json.IndexOf("\"text\":\"", idIndex);
                     if (textIndex == -1) continue;
 
