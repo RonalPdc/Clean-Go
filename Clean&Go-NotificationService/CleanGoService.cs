@@ -24,20 +24,28 @@ namespace Clean_Go_NotificationService
 
         protected override void OnStart(string[] args)
         {
-            _ejecutando = true;
-            _processor = new TelegramBotProcessor();
-            _cts = new CancellationTokenSource();
+            try
+            {
+                _ejecutando = true;
+                _processor = new TelegramBotProcessor();
+                _cts = new CancellationTokenSource();
 
-            _processor.IniciarChatBot(_cts.Token);
+                _processor.IniciarChatBot(_cts.Token);
 
-            string intervaloNotifStr = ConfigurationManager.AppSettings["IntervaloNotificacionesMs"];
+                string intervaloNotifStr = ConfigurationManager.AppSettings["IntervaloNotificacionesMs"];
 
-            if (!int.TryParse(intervaloNotifStr, out _intervaloNotificaciones))
-                _intervaloNotificaciones = 200;
+                if (!int.TryParse(intervaloNotifStr, out _intervaloNotificaciones))
+                    _intervaloNotificaciones = 200;
 
-            _hiloTrabajo = new Thread(EjecutarCiclo);
-            _hiloTrabajo.IsBackground = true;
-            _hiloTrabajo.Start();
+                _hiloTrabajo = new Thread(EjecutarCiclo);
+                _hiloTrabajo.IsBackground = true;
+                _hiloTrabajo.Start();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.EventLog.WriteEntry("CleanGoService", "Error OnStart: " + ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
+                throw;
+            }
         }
 
         protected override void OnStop()

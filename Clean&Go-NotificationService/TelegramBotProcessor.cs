@@ -24,12 +24,23 @@ namespace Clean_Go_NotificationService
 
         public TelegramBotProcessor()
         {
-            string botToken = ConfigurationManager.AppSettings["TelegramBotToken"];
-            _botClient = new TelegramBotClient(botToken);
+            try
+            {
+                string botToken = ConfigurationManager.AppSettings["TelegramBotToken"];
+                if (!string.IsNullOrWhiteSpace(botToken))
+                {
+                    _botClient = new TelegramBotClient(botToken);
+                }
+            }
+            catch
+            {
+            }
         }
 
         public void IniciarChatBot(CancellationToken cancellationToken)
         {
+            if (_botClient == null) return;
+
             var receiverOptions = new Telegram.Bot.Polling.ReceiverOptions
             {
                 AllowedUpdates = Array.Empty<Telegram.Bot.Types.Enums.UpdateType>(),
