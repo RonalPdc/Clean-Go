@@ -44,7 +44,6 @@ namespace Clean_Go.BusinessLogic.Usuarios
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            // Validaciones
             if (string.IsNullOrWhiteSpace(txtPasswordActual.Text))
             {
                 MessageBox.Show("Debe ingresar su contraseña actual.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -75,14 +74,12 @@ namespace Clean_Go.BusinessLogic.Usuarios
 
             try
             {
-                // Actualizar la contraseña utilizando el método dedicado de la BLL
                 bool exito = _usuariosBLL.ActualizarPassword(_usuarioLogueado.UsuarioId, txtPasswordActual.Text, txtPasswordNueva.Text);
 
                 if (exito)
                 {
                     MessageBox.Show("Contraseña actualizada con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
-                    // Sincronizar en memoria
                     _usuarioLogueado.PasswordHash = txtPasswordNueva.Text;
 
                     this.DialogResult = DialogResult.OK;

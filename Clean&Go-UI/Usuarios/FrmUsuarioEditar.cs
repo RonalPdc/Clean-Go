@@ -2,6 +2,7 @@ using System;
 using System.Windows.Forms;
 using Clean_Go_BusinessLogic.Service.Usuarios;
 using Clean_Go_DataAccess.Repositories.Roles;
+using Clean_Go_DataAccess.Repositories.Usuarios;
 using Clean_Go_Entities.Usuarios;
 using Clean_Go_Entities.Roles;
 
@@ -11,6 +12,7 @@ namespace Clean_Go.BusinessLogic.Usuarios
     {
         private readonly UsuariosBLL _usuariosBLL = new UsuariosBLL();
         private readonly RolDAL _rolDAL = new RolDAL();
+        private readonly UsuarioDAL _usuarioDAL = new UsuarioDAL();
         private readonly Usuario _usuarioToEdit = null;
 
         public FrmUsuarioEditar()
@@ -42,10 +44,9 @@ namespace Clean_Go.BusinessLogic.Usuarios
             txtCorreo.MaxLength = 100;
             txtPassword.MaxLength = 100;
 
-            // Evento para alternar visualización
             chkMostrarPassword.CheckedChanged += (s, ev) => {
                 bool estadoOriginalEnabled = txtPassword.Enabled;
-                txtPassword.Enabled = true; // Habilitar temporalmente para que WinForms permita redibujar el formato
+                txtPassword.Enabled = true;
                 
                 if (chkMostrarPassword.Checked)
                 {
@@ -57,8 +58,8 @@ namespace Clean_Go.BusinessLogic.Usuarios
                     txtPassword.UseSystemPasswordChar = true;
                 }
                 
-                txtPassword.Refresh(); // Forzar redibujado gráfico del control
-                txtPassword.Enabled = estadoOriginalEnabled; // Restablecer estado original
+                txtPassword.Refresh();
+                txtPassword.Enabled = estadoOriginalEnabled;
             };
 
             CargarRoles();
@@ -192,8 +193,7 @@ namespace Clean_Go.BusinessLogic.Usuarios
                     resultado = _usuariosBLL.Actualizar(usuario);
                     if (resultado)
                     {
-                        // Forzar actualización de contraseña en base de datos ya que el store procedure 'Usuario_Update' no incluye esta columna
-                        new Clean_Go_DataAccess.Repositories.Usuarios.UsuarioDAL().ActualizarPassword(usuario.UsuarioId, usuario.PasswordHash);
+                        _usuarioDAL.ActualizarPassword(usuario.UsuarioId, usuario.PasswordHash);
                         MessageBox.Show("Usuario actualizado con éxito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }

@@ -113,11 +113,9 @@ namespace Clean_Go.BusinessLogic
                 lblUserStatus.Text = "Usuario: Admin (Desarrollo)";
             }
 
-            // Activar botón Dashboard por defecto al iniciar
             SeleccionarBoton(btnMenuDashboard);
             ActualizarDashboard();
 
-            // Estilizar el botón nativo de Cambiar Contraseña del menú lateral
             DisenoHelper.StyleButton(btnMenuPassword, Color.White, Color.FromArgb(71, 85, 105));
         }
 
