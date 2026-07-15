@@ -32,7 +32,8 @@ namespace Clean_Go_NotificationService
         {
             var receiverOptions = new Telegram.Bot.Polling.ReceiverOptions
             {
-                AllowedUpdates = Array.Empty<Telegram.Bot.Types.Enums.UpdateType>()
+                AllowedUpdates = Array.Empty<Telegram.Bot.Types.Enums.UpdateType>(),
+                DropPendingUpdates = true
             };
 
             _botClient.StartReceiving(
