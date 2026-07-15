@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="dsReportes"
+                  targetNamespace="http://tempuri.org/dsReportes.xsd"
+                  elementFormDefault="qualified"
+                  attributeFormDefault="qualified"
+                  xmlns="http://tempuri.org/dsReportes.xsd"
+                  xmlns:mstns="http://tempuri.org/dsReportes.xsd"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+                  xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+  <xs:element name="dsReportes" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsReportes" msprop:Generator_DataSetName="dsReportes">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtOrdenes" msprop:Generator_TableClassName="dtOrdenesDataTable" msprop:Generator_TableVarName="tabledtOrdenes" msprop:Generator_TablePropName="dtOrdenes" msprop:Generator_RowClassName="dtOrdenesRow" msprop:Generator_RowEvHandlerName="dtOrdenesRowChangeEventHandler" msprop:Generator_RowDeletedName="dtOrdenesRowDeleted" msprop:Generator_RowDeletingName="dtOrdenesRowDeleting" msprop:Generator_RowChangedName="dtOrdenesRowChanged" msprop:Generator_RowChangingName="dtOrdenesRowChanging">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="OrdenId" type="xs:int" minOccurs="0" />
+              <xs:element name="NumeroOrden" type="xs:string" minOccurs="0" />
+              <xs:element name="Cliente" type="xs:string" minOccurs="0" />
+              <xs:element name="FechaRecepcion" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FechaEntregaEstimada" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Total" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Estado" type="xs:string" minOccurs="0" />
+              <xs:element name="MetodoPago" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -25,6 +25,22 @@ namespace Clean_Go.BusinessLogic.Reportes
             DisenoHelper.StyleGrid(dgvOrdenes);
             CargarEstados();
             CargarOrdenes();
+
+            Button btnImprimir = new Button();
+            btnImprimir.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnImprimir.BackColor = Color.FromArgb(8, 145, 178);
+            btnImprimir.Cursor = Cursors.Hand;
+            btnImprimir.FlatAppearance.BorderSize = 0;
+            btnImprimir.FlatStyle = FlatStyle.Flat;
+            btnImprimir.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+            btnImprimir.ForeColor = Color.White;
+            btnImprimir.Location = new Point(540, 15);
+            btnImprimir.Size = new Size(130, 30);
+            btnImprimir.Text = "Imprimir / PDF";
+            btnImprimir.UseVisualStyleBackColor = false;
+            btnImprimir.Click += btnImprimir_Click;
+
+            this.Controls.Add(btnImprimir);
         }
 
         private void CargarEstados()
@@ -87,6 +103,19 @@ namespace Clean_Go.BusinessLogic.Reportes
             dtpHasta.Checked = false;
             cmbEstado.SelectedIndex = 0;
             CargarOrdenes();
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            DataTable tabla = dgvOrdenes.DataSource as DataTable;
+            if (tabla == null || tabla.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay datos para exportar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            FrmVisualizadorReporte frm = new FrmVisualizadorReporte(tabla);
+            frm.ShowDialog();
         }
     }
 }
