@@ -10,9 +10,9 @@ namespace Clean_Go_NotificationService
         private Thread _hiloTrabajo;
         private bool _ejecutando = false;
         private TelegramBotProcessor _processor;
+        private CancellationTokenSource _cts;
 
         private int _intervaloNotificaciones;
-        private int _intervaloChatBot;
 
         public CleanGoService()
         {
@@ -26,15 +26,14 @@ namespace Clean_Go_NotificationService
         {
             _ejecutando = true;
             _processor = new TelegramBotProcessor();
+            _cts = new CancellationTokenSource();
+
+            _processor.IniciarChatBot(_cts.Token);
 
             string intervaloNotifStr = ConfigurationManager.AppSettings["IntervaloNotificacionesMs"];
-            string intervaloChatStr = ConfigurationManager.AppSettings["IntervaloChatBotMs"];
 
             if (!int.TryParse(intervaloNotifStr, out _intervaloNotificaciones))
                 _intervaloNotificaciones = 10000;
-
-            if (!int.TryParse(intervaloChatStr, out _intervaloChatBot))
-                _intervaloChatBot = 5000;
 
             _hiloTrabajo = new Thread(EjecutarCiclo);
             _hiloTrabajo.IsBackground = true;
@@ -44,6 +43,12 @@ namespace Clean_Go_NotificationService
         protected override void OnStop()
         {
             _ejecutando = false;
+
+            if (_cts != null)
+            {
+                _cts.Cancel();
+            }
+
             if (_hiloTrabajo != null && _hiloTrabajo.IsAlive)
             {
                 _hiloTrabajo.Join(3000);
@@ -68,18 +73,6 @@ namespace Clean_Go_NotificationService
                     catch (Exception ex)
                     {
                         System.Diagnostics.EventLog.WriteEntry("CleanGoService", "Error notificaciones: " + ex.Message, System.Diagnostics.EventLogEntryType.Warning);
-                    }
-                }
-
-                if (contadorMs % _intervaloChatBot == 0)
-                {
-                    try
-                    {
-                        _processor.ProcesarConsultasChatBot();
-                    }
-                    catch (Exception ex)
-                    {
-                        System.Diagnostics.EventLog.WriteEntry("CleanGoService", "Error chatbot: " + ex.Message, System.Diagnostics.EventLogEntryType.Warning);
                     }
                 }
 

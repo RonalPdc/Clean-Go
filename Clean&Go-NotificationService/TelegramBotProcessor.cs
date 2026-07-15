@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Threading;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Clean_Go_DataAccess.Repositories.Notificaciones;
@@ -25,6 +26,32 @@ namespace Clean_Go_NotificationService
         {
             string botToken = ConfigurationManager.AppSettings["TelegramBotToken"];
             _botClient = new TelegramBotClient(botToken);
+        }
+
+        public void IniciarChatBot(CancellationToken cancellationToken)
+        {
+            var receiverOptions = new Telegram.Bot.Polling.ReceiverOptions
+            {
+                AllowedUpdates = Array.Empty<Telegram.Bot.Types.Enums.UpdateType>()
+            };
+
+            _botClient.StartReceiving(
+                updateHandler: async (bot, update, ct) =>
+                {
+                    if (update.Message != null && !string.IsNullOrWhiteSpace(update.Message.Text))
+                    {
+                        string chatId = update.Message.Chat.Id.ToString();
+                        string text = update.Message.Text;
+                        ResponderConsulta(chatId, text);
+                    }
+                },
+                pollingErrorHandler: (bot, ex, ct) =>
+                {
+                    return System.Threading.Tasks.Task.CompletedTask;
+                },
+                receiverOptions: receiverOptions,
+                cancellationToken: cancellationToken
+            );
         }
 
         public void ProcesarNotificacionesPendientes()
