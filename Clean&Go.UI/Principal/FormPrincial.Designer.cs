@@ -24,6 +24,7 @@ namespace Clean_Go.BusinessLogic
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincial));
             this.pnlSidebar = new System.Windows.Forms.Panel();
             this.lblSidebarTitle = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnMenuDashboard = new System.Windows.Forms.Button();
             this.btnMenuClientes = new System.Windows.Forms.Button();
             this.btnMenuServicios = new System.Windows.Forms.Button();
@@ -63,8 +64,8 @@ namespace Clean_Go.BusinessLogic
             this.statusLblSpring = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLblTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.timerClock = new System.Windows.Forms.Timer(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlSidebar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlHeader.SuspendLayout();
             this.pnlContent.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
@@ -75,7 +76,6 @@ namespace Clean_Go.BusinessLogic
             this.pnlTablaContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntregasHoy)).BeginInit();
             this.statusStripBottom.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSidebar
@@ -110,6 +110,16 @@ namespace Clean_Go.BusinessLogic
             this.lblSidebarTitle.TabIndex = 0;
             this.lblSidebarTitle.Text = "Clean&Go";
             this.lblSidebarTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(-7, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(127, 62);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // btnMenuDashboard
             // 
@@ -211,13 +221,14 @@ namespace Clean_Go.BusinessLogic
             // 
             this.btnMenuUsuarios.BackColor = System.Drawing.Color.White;
             this.btnMenuUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuUsuarios.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnMenuUsuarios.FlatAppearance.BorderSize = 0;
             this.btnMenuUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuUsuarios.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnMenuUsuarios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
-            this.btnMenuUsuarios.Location = new System.Drawing.Point(15, 340);
+            this.btnMenuUsuarios.Location = new System.Drawing.Point(0, 577);
             this.btnMenuUsuarios.Name = "btnMenuUsuarios";
-            this.btnMenuUsuarios.Size = new System.Drawing.Size(190, 38);
+            this.btnMenuUsuarios.Size = new System.Drawing.Size(218, 38);
             this.btnMenuUsuarios.TabIndex = 6;
             this.btnMenuUsuarios.Text = "🔒 Usuarios / Seguridad";
             this.btnMenuUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -227,13 +238,14 @@ namespace Clean_Go.BusinessLogic
             // 
             this.btnMenuPassword.BackColor = System.Drawing.Color.White;
             this.btnMenuPassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuPassword.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnMenuPassword.FlatAppearance.BorderSize = 0;
             this.btnMenuPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuPassword.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnMenuPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
-            this.btnMenuPassword.Location = new System.Drawing.Point(15, 385);
+            this.btnMenuPassword.Location = new System.Drawing.Point(0, 615);
             this.btnMenuPassword.Name = "btnMenuPassword";
-            this.btnMenuPassword.Size = new System.Drawing.Size(190, 38);
+            this.btnMenuPassword.Size = new System.Drawing.Size(218, 38);
             this.btnMenuPassword.TabIndex = 9;
             this.btnMenuPassword.Text = "🔑 Cambiar Contraseña";
             this.btnMenuPassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -576,16 +588,6 @@ namespace Clean_Go.BusinessLogic
             this.timerClock.Enabled = true;
             this.timerClock.Interval = 1000;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-7, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(127, 62);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // FormPrincial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -601,6 +603,7 @@ namespace Clean_Go.BusinessLogic
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clean&&Go Pro - Sistema de Gestión de Lavandería";
             this.pnlSidebar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
             this.pnlContent.ResumeLayout(false);
@@ -614,7 +617,6 @@ namespace Clean_Go.BusinessLogic
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntregasHoy)).EndInit();
             this.statusStripBottom.ResumeLayout(false);
             this.statusStripBottom.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
