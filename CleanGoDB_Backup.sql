@@ -648,7 +648,7 @@ BEGIN
     INNER JOIN Clientes c
         ON n.ClienteId = c.ClienteId
 
-    WHERE n.Estado = 'Pendiente'
+    WHERE n.Estado = 'Pendiente' AND n.Intentos < 3
 
     ORDER BY n.FechaCreacion;
 END
