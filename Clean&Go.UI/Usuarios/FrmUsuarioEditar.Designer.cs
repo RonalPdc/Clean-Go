@@ -44,6 +44,7 @@ namespace Clean_Go.BusinessLogic.Usuarios
             this.lblRol = new System.Windows.Forms.Label();
             this.cmbRol = new System.Windows.Forms.ComboBox();
             this.chkEstado = new System.Windows.Forms.CheckBox();
+            this.chkMostrarPassword = new System.Windows.Forms.CheckBox();
             this.panelSeparatorFooter = new System.Windows.Forms.Panel();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -228,6 +229,18 @@ namespace Clean_Go.BusinessLogic.Usuarios
             this.chkEstado.Text = "Activo";
             this.chkEstado.UseVisualStyleBackColor = true;
             // 
+            // chkMostrarPassword
+            // 
+            this.chkMostrarPassword.AutoSize = true;
+            this.chkMostrarPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.chkMostrarPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
+            this.chkMostrarPassword.Location = new System.Drawing.Point(25, 258);
+            this.chkMostrarPassword.Name = "chkMostrarPassword";
+            this.chkMostrarPassword.Size = new System.Drawing.Size(127, 19);
+            this.chkMostrarPassword.TabIndex = 19;
+            this.chkMostrarPassword.Text = "Mostrar contraseña";
+            this.chkMostrarPassword.UseVisualStyleBackColor = true;
+            // 
             // panelSeparatorFooter
             // 
             this.panelSeparatorFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(232)))), ((int)(((byte)(240)))));
@@ -276,6 +289,7 @@ namespace Clean_Go.BusinessLogic.Usuarios
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.panelSeparatorFooter);
             this.Controls.Add(this.chkEstado);
+            this.Controls.Add(this.chkMostrarPassword);
             this.Controls.Add(this.cmbRol);
             this.Controls.Add(this.lblRol);
             this.Controls.Add(this.txtPassword);
@@ -321,6 +335,7 @@ namespace Clean_Go.BusinessLogic.Usuarios
         private System.Windows.Forms.Label lblRol;
         private System.Windows.Forms.ComboBox cmbRol;
         private System.Windows.Forms.CheckBox chkEstado;
+        private System.Windows.Forms.CheckBox chkMostrarPassword;
         private System.Windows.Forms.Panel panelSeparatorFooter;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
