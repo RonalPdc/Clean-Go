@@ -17,8 +17,7 @@ namespace Clean_Go.BusinessLogic.Clientes
             InitializeComponent();
             ConfigurarEventos();
 
-            // Estilos Premium
-            DisenoHelper.StyleButton(btnNuevo, Color.FromArgb(8, 145, 178), Color.White);
+                        DisenoHelper.StyleButton(btnNuevo, Color.FromArgb(8, 145, 178), Color.White);
             DisenoHelper.StyleButton(btnEditar, Color.FromArgb(8, 145, 178), Color.White);
             DisenoHelper.StyleButton(btnEliminar, Color.FromArgb(239, 68, 68), Color.White);
             DisenoHelper.StyleButton(btnBuscar, Color.FromArgb(71, 85, 105), Color.White);

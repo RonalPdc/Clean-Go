@@ -128,14 +128,12 @@ namespace Clean_Go.BusinessLogic.Ordenes
                 decimal precio = decimal.Parse(txtPrecio.Text);
                 string obs = string.IsNullOrWhiteSpace(txtObservacionesDetalle.Text) ? null : txtObservacionesDetalle.Text.Trim();
 
-                // Buscar si ya existe la misma combinación de prenda y servicio
-                DetalleOrden itemExistente = _detalles.Find(d => d.TipoPrendaId == tipoPrendaId && d.ServicioId == servicioId);
+                                DetalleOrden itemExistente = _detalles.Find(d => d.TipoPrendaId == tipoPrendaId && d.ServicioId == servicioId);
 
                 if (itemExistente != null)
                 {
                     itemExistente.Cantidad += cantidad;
-                    itemExistente.Precio = precio; // Actualizar con el precio seleccionado por si varió
-
+                    itemExistente.Precio = precio; 
                     if (!string.IsNullOrEmpty(obs))
                     {
                         if (string.IsNullOrEmpty(itemExistente.Observaciones))
@@ -191,8 +189,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
                 return;
             }
 
-            // Mapear IDs a nombres legibles usando los ComboBox precargados
-            var dictPrendas = new Dictionary<int, string>();
+                        var dictPrendas = new Dictionary<int, string>();
             if (cmbPrenda.DataSource is List<Clean_Go_Entities.Prendas.TipoPrenda> prendas)
             {
                 foreach (var p in prendas)

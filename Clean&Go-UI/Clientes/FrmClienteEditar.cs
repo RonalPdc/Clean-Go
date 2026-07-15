@@ -18,8 +18,7 @@ namespace Clean_Go.BusinessLogic.Clientes
             btnCancelar.Click += (s, e) => this.Close();
             btnGuardar.Click += BtnGuardar_Click;
 
-            // Registrar validadores y formateadores dinámicos
-            txtTelefono.TextChanged += TxtTelefono_TextChanged;
+                        txtTelefono.TextChanged += TxtTelefono_TextChanged;
             txtTelefono.KeyPress += SoloNumerosYFormato_KeyPress;
             txtCedula.TextChanged += TxtCedula_TextChanged;
             txtCedula.KeyPress += SoloNumerosYFormato_KeyPress;
@@ -33,12 +32,9 @@ namespace Clean_Go.BusinessLogic.Clientes
 
         private void FrmClienteEditar_Load(object sender, EventArgs e)
         {
-            // Configurar límites máximos de caracteres
-            txtNombre.MaxLength = 50;
+                        txtNombre.MaxLength = 50;
             txtApellido.MaxLength = 50;
-            txtCedula.MaxLength = 13;       // 000-0000000-0 (13 caracteres)
-            txtTelefono.MaxLength = 14;     // (000) 000-0000 (14 caracteres)
-            txtCorreo.MaxLength = 100;
+            txtCedula.MaxLength = 13;                   txtTelefono.MaxLength = 14;                 txtCorreo.MaxLength = 100;
             txtTelegramChatId.MaxLength = 20;
             txtDireccion.MaxLength = 250;
 

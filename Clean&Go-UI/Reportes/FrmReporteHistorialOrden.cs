@@ -14,8 +14,7 @@ namespace Clean_Go.BusinessLogic.Reportes
         {
             InitializeComponent();
 
-            // Estilos Premium
-            DisenoHelper.StyleButton(btnBuscar, Color.FromArgb(8, 145, 178), Color.White);
+                        DisenoHelper.StyleButton(btnBuscar, Color.FromArgb(8, 145, 178), Color.White);
         }
 
         private void FrmReporteHistorialOrden_Load(object sender, EventArgs e)
@@ -40,8 +39,7 @@ namespace Clean_Go.BusinessLogic.Reportes
                 txtNumeroOrden.DisplayMember = "DisplayLabel";
                 txtNumeroOrden.ValueMember = "NumeroOrden";
                 txtNumeroOrden.DataSource = tablaCombo;
-                txtNumeroOrden.SelectedIndex = -1; // Iniciar sin selección
-            }
+                txtNumeroOrden.SelectedIndex = -1;             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar listado de órdenes:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

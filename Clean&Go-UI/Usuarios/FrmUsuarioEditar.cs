@@ -37,8 +37,7 @@ namespace Clean_Go.BusinessLogic.Usuarios
 
         private void FrmUsuarioEditar_Load(object sender, EventArgs e)
         {
-            // Limitar longitud de campos
-            txtNombre.MaxLength = 50;
+                        txtNombre.MaxLength = 50;
             txtApellido.MaxLength = 50;
             txtUsuario.MaxLength = 50;
             txtCorreo.MaxLength = 100;

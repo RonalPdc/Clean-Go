@@ -27,9 +27,7 @@ namespace Clean_Go.BusinessLogic
             _usuarioLogueado = usuario;
             ConfigurarEventos();
 
-            // Estilos Premium del Menú Principal
-            DisenoHelper.StyleButton(btnSalirApp, Color.FromArgb(239, 68, 68), Color.White); // Botón de apagado en rojo sutil
-        }
+                        DisenoHelper.StyleButton(btnSalirApp, Color.FromArgb(239, 68, 68), Color.White);         }
 
         private void ConfigurarEventos()
         {
@@ -47,8 +45,7 @@ namespace Clean_Go.BusinessLogic
             btnMenuSalir.Click += BtnMenuSalir_Click;
             btnSalirApp.Click += BtnSalirApp_Click;
 
-            // Lógica de sincronización si cambian las órdenes en el sistema
-            OrdenesBLL.AlCambiarOrdenes += ActualizarDashboard;
+                        OrdenesBLL.AlCambiarOrdenes += ActualizarDashboard;
         }
 
         private void FormPrincial_Load(object sender, EventArgs e)
@@ -56,12 +53,10 @@ namespace Clean_Go.BusinessLogic
             timerClock.Start();
             ActualizarHora();
 
-            // Configurar distribución fluida y responsiva para las tarjetas KPI
-            TableLayoutPanel tblKpis = new TableLayoutPanel();
+                        TableLayoutPanel tblKpis = new TableLayoutPanel();
             tblKpis.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             tblKpis.Height = 95;
-            tblKpis.Width = pnlDashboard.Width - 30; // Evitar el tamaño mínimo inicial de Windows Forms
-            tblKpis.Location = new Point(15, 20);
+            tblKpis.Width = pnlDashboard.Width - 30;             tblKpis.Location = new Point(15, 20);
             tblKpis.ColumnCount = 4;
             tblKpis.RowCount = 1;
             
@@ -95,15 +90,13 @@ namespace Clean_Go.BusinessLogic
 
             pnlDashboard.Controls.Add(tblKpis);
 
-            // Estilo del Grid de entregas
-            DisenoHelper.StyleGrid(dgvEntregasHoy);
+                        DisenoHelper.StyleGrid(dgvEntregasHoy);
 
             if (_usuarioLogueado != null)
             {
                 lblUserStatus.Text = $"Usuario: {_usuarioLogueado.Nombre} {_usuarioLogueado.Apellido} ({_usuarioLogueado.Rol})";
                 
-                // Restricción básica por rol
-                if (_usuarioLogueado.Rol.ToLower() != "administrador")
+                                if (_usuarioLogueado.Rol.ToLower() != "administrador")
                 {
                     btnMenuUsuarios.Visible = false;
                 }
@@ -131,15 +124,13 @@ namespace Clean_Go.BusinessLogic
 
         private void SeleccionarBoton(Button boton)
         {
-            // Restablecer el diseño del botón activo anterior
-            if (_botonActivo != null)
+                        if (_botonActivo != null)
             {
                 _botonActivo.BackColor = Color.White;
                 _botonActivo.ForeColor = Color.FromArgb(71, 85, 105);
             }
 
-            // Aplicar estilo activo al botón actual (azul Clean&Go corporativo)
-            _botonActivo = boton;
+                        _botonActivo = boton;
             _botonActivo.BackColor = Color.FromArgb(8, 145, 178);
             _botonActivo.ForeColor = Color.White;
         }
@@ -148,16 +139,14 @@ namespace Clean_Go.BusinessLogic
         {
             try
             {
-                // 1. Obtener conteos de la base de datos
-                var conteos = _ordenesBLL.ObtenerConteosPorEstado();
+                                var conteos = _ordenesBLL.ObtenerConteosPorEstado();
                 
                 lblKpiPendientesValor.Text = conteos.ContainsKey(1) ? conteos[1].ToString() : "0";
                 lblKpiProcesoValor.Text = conteos.ContainsKey(2) ? conteos[2].ToString() : "0";
                 lblKpiListoValor.Text = conteos.ContainsKey(3) ? conteos[3].ToString() : "0";
                 lblKpiEntregadoValor.Text = conteos.ContainsKey(4) ? conteos[4].ToString() : "0";
 
-                // 2. Cargar órdenes de hoy / recientes en la grilla
-                var listaOrdenes = _ordenesBLL.ObtenerTodos();
+                                var listaOrdenes = _ordenesBLL.ObtenerTodos();
                 
                 System.Data.DataTable tabla = new System.Data.DataTable();
                 tabla.Columns.Add("Orden");
@@ -186,8 +175,7 @@ namespace Clean_Go.BusinessLogic
                 dgvEntregasHoy.DataSource = null;
                 dgvEntregasHoy.DataSource = tabla;
 
-                // Estilizar la tabla del Dashboard
-                if (dgvEntregasHoy.Columns.Contains("Orden")) dgvEntregasHoy.Columns["Orden"].HeaderText = "N° Orden";
+                                if (dgvEntregasHoy.Columns.Contains("Orden")) dgvEntregasHoy.Columns["Orden"].HeaderText = "N° Orden";
                 if (dgvEntregasHoy.Columns.Contains("Fecha")) dgvEntregasHoy.Columns["Fecha"].HeaderText = "Fecha Ingreso";
                 if (dgvEntregasHoy.Columns.Contains("Entrega")) dgvEntregasHoy.Columns["Entrega"].HeaderText = "F. Estimada Entrega";
                 if (dgvEntregasHoy.Columns.Contains("Total")) dgvEntregasHoy.Columns["Total"].HeaderText = "Total";
@@ -203,8 +191,7 @@ namespace Clean_Go.BusinessLogic
         {
             lblHeaderTitle.Text = titulo;
 
-            // Limpiar y preparar panel de contenido
-            pnlContent.Controls.Clear();
+                        pnlContent.Controls.Clear();
 
             formHijo.TopLevel = false;
             formHijo.FormBorderStyle = FormBorderStyle.None;
@@ -219,8 +206,7 @@ namespace Clean_Go.BusinessLogic
             SeleccionarBoton(btnMenuDashboard);
             lblHeaderTitle.Text = "Panel de Control";
 
-            // Limpiar panel y volver a colocar el Dashboard
-            pnlContent.Controls.Clear();
+                        pnlContent.Controls.Clear();
             pnlContent.Controls.Add(pnlDashboard);
             ActualizarDashboard();
         }
@@ -253,8 +239,7 @@ namespace Clean_Go.BusinessLogic
         {
             SeleccionarBoton(btnMenuReportes);
 
-            // Crear un menú contextual para elegir el reporte
-            ContextMenuStrip menuReportes = new ContextMenuStrip();
+                        ContextMenuStrip menuReportes = new ContextMenuStrip();
             ToolStripMenuItem item1 = new ToolStripMenuItem("Reporte de Órdenes");
             ToolStripMenuItem item2 = new ToolStripMenuItem("Historial de Orden");
 
@@ -310,45 +295,31 @@ namespace Clean_Go.BusinessLogic
         {
             if (dgv == null) return;
 
-            // Habilitar doble búfer para evitar parpadeos en el grid
-            var dgvType = dgv.GetType();
+                        var dgvType = dgv.GetType();
             var pi = dgvType.GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
             pi?.SetValue(dgv, true, null);
 
-            // Fondo y Bordes generales
-            dgv.BackgroundColor = Color.FromArgb(248, 250, 252); // Slate 50
-            dgv.BorderStyle = BorderStyle.None;
+                        dgv.BackgroundColor = Color.FromArgb(248, 250, 252);             dgv.BorderStyle = BorderStyle.None;
             dgv.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgv.GridColor = Color.FromArgb(226, 232, 240); // Slate 200
-
-            // Cabeceras
-            dgv.EnableHeadersVisualStyles = false;
+            dgv.GridColor = Color.FromArgb(226, 232, 240); 
+                        dgv.EnableHeadersVisualStyles = false;
             dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(8, 145, 178); // Azul Corporativo #0891B2
-            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(8, 145, 178);             dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dgv.ColumnHeadersHeight = 38;
 
-            // Filas y Celdas
-            dgv.DefaultCellStyle.BackColor = Color.White;
-            dgv.DefaultCellStyle.ForeColor = Color.FromArgb(51, 65, 85); // Slate 700
-            dgv.DefaultCellStyle.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular);
-            dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(224, 242, 254); // Cyan 100 #E0F2FE
-            dgv.DefaultCellStyle.SelectionForeColor = Color.FromArgb(15, 23, 42); // Slate 900
-            dgv.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                        dgv.DefaultCellStyle.BackColor = Color.White;
+            dgv.DefaultCellStyle.ForeColor = Color.FromArgb(51, 65, 85);             dgv.DefaultCellStyle.Font = new Font("Segoe UI", 9.5F, FontStyle.Regular);
+            dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(224, 242, 254);             dgv.DefaultCellStyle.SelectionForeColor = Color.FromArgb(15, 23, 42);             dgv.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
 
-            // Filas Alternadas
-            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(248, 250, 252); // Slate 50
-            dgv.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.FromArgb(224, 242, 254);
+                        dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(248, 250, 252);             dgv.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.FromArgb(224, 242, 254);
             dgv.AlternatingRowsDefaultCellStyle.SelectionForeColor = Color.FromArgb(15, 23, 42);
 
-            // Alto de filas
-            dgv.RowTemplate.Height = 35;
+                        dgv.RowTemplate.Height = 35;
             dgv.RowHeadersVisible = false;
             
-            // Selección y comportamiento
-            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                        dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv.MultiSelect = false;
             dgv.AllowUserToAddRows = false;
             dgv.AllowUserToDeleteRows = false;
@@ -369,8 +340,7 @@ namespace Clean_Go.BusinessLogic
             btn.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
             btn.UseVisualStyleBackColor = false;
 
-            // Efecto Hover (sutil cambio de color)
-            btn.MouseEnter += (s, e) =>
+                        btn.MouseEnter += (s, e) =>
             {
                 btn.BackColor = Color.FromArgb(
                     Math.Max(0, backColor.R - 20),

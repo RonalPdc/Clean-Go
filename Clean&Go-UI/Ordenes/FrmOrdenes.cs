@@ -20,8 +20,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
             _usuarioLogueado = usuarioLogueado;
             ConfigurarEventos();
 
-            // Estilos Premium
-            DisenoHelper.StyleButton(btnNuevo, Color.FromArgb(8, 145, 178), Color.White);
+                        DisenoHelper.StyleButton(btnNuevo, Color.FromArgb(8, 145, 178), Color.White);
             DisenoHelper.StyleButton(btnCambiarEstado, Color.FromArgb(8, 145, 178), Color.White);
             DisenoHelper.StyleButton(btnBuscar, Color.FromArgb(71, 85, 105), Color.White);
         }
@@ -60,8 +59,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
                     );
                 }
 
-                // Cargar clientes en memoria para mapear a nombres
-                var clientesBLL = new Clean_Go_BusinessLogic.Service.Clientes.ClientesBLL();
+                                var clientesBLL = new Clean_Go_BusinessLogic.Service.Clientes.ClientesBLL();
                 var clientesList = clientesBLL.ObtenerTodos();
                 var dictClientes = new Dictionary<int, string>();
                 foreach (var c in clientesList)
@@ -69,8 +67,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
                     dictClientes[c.ClienteId] = $"{c.Nombre} {c.Apellido}";
                 }
 
-                // Cargar usuarios en memoria para mapear a nombres de usuario
-                var usuariosBLL = new Clean_Go_BusinessLogic.Service.Usuarios.UsuariosBLL();
+                                var usuariosBLL = new Clean_Go_BusinessLogic.Service.Usuarios.UsuariosBLL();
                 var usuariosList = usuariosBLL.ObtenerTodos();
                 var dictUsuarios = new Dictionary<int, string>();
                 foreach (var u in usuariosList)
@@ -78,8 +75,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
                     dictUsuarios[u.UsuarioId] = u.NombreUsuario;
                 }
 
-                // Proyectar lista legible para el Grid
-                var listaLegible = new List<object>();
+                                var listaLegible = new List<object>();
                 foreach (var o in ordenes)
                 {
                     string clienteNombre = dictClientes.ContainsKey(o.ClienteId) ? dictClientes[o.ClienteId] : "Desconocido (" + o.ClienteId + ")";

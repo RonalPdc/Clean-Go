@@ -25,8 +25,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
             btnCancelar.Click += (s, e) => this.Close();
             btnGuardar.Click += BtnGuardar_Click;
 
-            // Estilos Premium
-            DisenoHelper.StyleButton(btnGuardar, Color.FromArgb(8, 145, 178), Color.White);
+                        DisenoHelper.StyleButton(btnGuardar, Color.FromArgb(8, 145, 178), Color.White);
             DisenoHelper.StyleButton(btnCancelar, Color.FromArgb(148, 163, 184), Color.White);
         }
 
@@ -78,8 +77,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
             try
             {
                 int nuevoEstadoId = (int)cmbNuevoEstado.SelectedValue;
-                // Si el comentario está vacío, enviar texto por defecto
-                string comentario = string.IsNullOrWhiteSpace(txtComentario.Text) ? "Cambio de estado" : txtComentario.Text.Trim();
+                                string comentario = string.IsNullOrWhiteSpace(txtComentario.Text) ? "Cambio de estado" : txtComentario.Text.Trim();
 
                 bool resultado = _ordenesBLL.CambiarEstado(_orden.OrdenId, nuevoEstadoId, _usuarioLogueado.UsuarioId, comentario);
 

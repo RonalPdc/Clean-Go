@@ -160,11 +160,7 @@ namespace Clean_Go_DataAccess.Repositories.Ordenes
         public Dictionary<int, int> ObtenerConteosPorEstado()
         {
             Dictionary<int, int> dic = new Dictionary<int, int>();
-            dic[1] = 0; // Recibida
-            dic[2] = 0; // En Proceso
-            dic[3] = 0; // Lista Para Entrega
-            dic[4] = 0; // Entregada
-
+            dic[1] = 0;             dic[2] = 0;             dic[3] = 0;             dic[4] = 0; 
             using (SqlConnection cn = ConexionDB.Instancia.ObtenerConexion())
             {
                 string sql = "SELECT EstadoId, COUNT(*) AS Cantidad FROM Ordenes GROUP BY EstadoId";

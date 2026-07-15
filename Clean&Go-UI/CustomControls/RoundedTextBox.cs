@@ -177,8 +177,7 @@ namespace Clean_Go.BusinessLogic.CustomControls
                     e.Graphics.DrawPath(pen, path);
             }
 
-            // Dibujar ícono
-            if (!string.IsNullOrEmpty(_iconText))
+                        if (!string.IsNullOrEmpty(_iconText))
             {
                 Color iconColor = _isFocused ? _borderColorFocus : _placeholderColor;
                 using (SolidBrush brush = new SolidBrush(iconColor))
@@ -193,8 +192,7 @@ namespace Clean_Go.BusinessLogic.CustomControls
                 }
             }
 
-            // Dibujar placeholder
-            if (string.IsNullOrEmpty(_textBox.Text) && !_isFocused && !string.IsNullOrEmpty(_placeholderText))
+                        if (string.IsNullOrEmpty(_textBox.Text) && !_isFocused && !string.IsNullOrEmpty(_placeholderText))
             {
                 int iconSpace = string.IsNullOrEmpty(_iconText) ? 15 : 42;
                 using (SolidBrush brush = new SolidBrush(_placeholderColor))
