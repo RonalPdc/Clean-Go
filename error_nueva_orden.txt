@@ -1,0 +1,8 @@
+=== ERROR EN LOAD ===
+Fecha: 07/15/2026 4:33:37 AM
+Mensaje: Sólo el valor AutoCompleteMode.None se puede utilizar cuando DropDownStyle es ComboBoxStyle.DropDownList y AutoCompleteSource no es AutoCompleteSource.ListItems.
+StackTrace:
+   en System.Windows.Forms.ComboBox.set_AutoCompleteMode(AutoCompleteMode value)
+   en Clean_Go.BusinessLogic.Ordenes.FrmOrdenesNuevo.FrmOrdenesNuevo_Load(Object sender, EventArgs e) en C:\Users\Ronal\source\repos\Clean&Go\Clean&Go-UI\Ordenes\FrmOrdenesNuevo.cs:línea 61
+InnerException: 
+
