@@ -34,13 +34,14 @@ namespace Clean_Go.BusinessLogic.Reportes
             btnImprimir.FlatStyle = FlatStyle.Flat;
             btnImprimir.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
             btnImprimir.ForeColor = Color.White;
-            btnImprimir.Location = new Point(540, 15);
-            btnImprimir.Size = new Size(130, 30);
+            btnImprimir.Location = new Point(570, 15);
+            btnImprimir.Size = new Size(100, 30);
             btnImprimir.Text = "Imprimir / PDF";
             btnImprimir.UseVisualStyleBackColor = false;
             btnImprimir.Click += btnImprimir_Click;
 
             this.Controls.Add(btnImprimir);
+            btnImprimir.BringToFront();
         }
 
         private void CargarEstados()

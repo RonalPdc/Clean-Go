@@ -73,7 +73,7 @@
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>18pt</FontSize>
                       <FontWeight>Bold</FontWeight>
-                      <ForeColor>#0F172A</ForeColor>
+                      <Color>#0F172A</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -131,7 +131,7 @@
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>9.5pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <ForeColor>#FFFFFF</ForeColor>
+                                    <Color>#FFFFFF</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -166,7 +166,7 @@
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>9.5pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <ForeColor>#FFFFFF</ForeColor>
+                                    <Color>#FFFFFF</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -201,7 +201,7 @@
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>9.5pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <ForeColor>#FFFFFF</ForeColor>
+                                    <Color>#FFFFFF</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -236,7 +236,7 @@
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>9.5pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <ForeColor>#FFFFFF</ForeColor>
+                                    <Color>#FFFFFF</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -271,7 +271,7 @@
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>9.5pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <ForeColor>#FFFFFF</ForeColor>
+                                    <Color>#FFFFFF</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -312,7 +312,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>9.5pt</FontSize>
-                                    <ForeColor>#1E293B</ForeColor>
+                                    <Color>#1E293B</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -345,7 +345,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>9.5pt</FontSize>
-                                    <ForeColor>#1E293B</ForeColor>
+                                    <Color>#1E293B</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -379,7 +379,7 @@
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>9.5pt</FontSize>
                                     <Format>dd/MM/yyyy HH:mm</Format>
-                                    <ForeColor>#1E293B</ForeColor>
+                                    <Color>#1E293B</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -412,7 +412,7 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>9.5pt</FontSize>
-                                    <ForeColor>#1E293B</ForeColor>
+                                    <Color>#1E293B</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -446,7 +446,7 @@
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>9.5pt</FontSize>
                                     <Format>'$'#,0.00</Format>
-                                    <ForeColor>#1E293B</ForeColor>
+                                    <Color>#1E293B</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -487,7 +487,7 @@
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>10pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
-                                    <ForeColor>#1E293B</ForeColor>
+                                    <Color>#1E293B</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -619,7 +619,7 @@
                                     <FontSize>10pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Format>'$'#,0.00</Format>
-                                    <ForeColor>#0891B2</ForeColor>
+                                    <Color>#0891B2</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
