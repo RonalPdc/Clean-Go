@@ -33,7 +33,7 @@ namespace Clean_Go_NotificationService
             string intervaloNotifStr = ConfigurationManager.AppSettings["IntervaloNotificacionesMs"];
 
             if (!int.TryParse(intervaloNotifStr, out _intervaloNotificaciones))
-                _intervaloNotificaciones = 10000;
+                _intervaloNotificaciones = 1000;
 
             _hiloTrabajo = new Thread(EjecutarCiclo);
             _hiloTrabajo.IsBackground = true;
