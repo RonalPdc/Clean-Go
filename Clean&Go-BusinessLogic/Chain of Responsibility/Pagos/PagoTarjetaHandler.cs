@@ -4,7 +4,7 @@ namespace Clean_Go_BusinessLogic.Service.Pagos
     {
         public override bool ProcesarPago(string metodo, decimal monto)
         {
-            if (metodo == "Tarjeta de Crédito")
+            if (metodo == "Tarjeta")
             {
                 return true;
             }
