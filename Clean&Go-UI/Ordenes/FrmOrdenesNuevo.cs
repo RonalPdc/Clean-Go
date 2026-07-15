@@ -75,7 +75,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
             {
                 var clientes = _clientesBLL.ObtenerTodos();
                 var clientesActivos = clientes.FindAll(c => c.Estado);
-                cmbCliente.DisplayMember = "Nombre";
+                cmbCliente.DisplayMember = "NombreCompletoConCedula";
                 cmbCliente.ValueMember = "ClienteId";
                 cmbCliente.DataSource = clientesActivos;
 

@@ -14,5 +14,10 @@ namespace Clean_Go_Entities.Clientes
         public string TelegramChatId { get; set; }
         public DateTime FechaRegistro { get; set; }
         public bool Estado { get; set; }
+
+        public string NombreCompletoConCedula
+        {
+            get { return Nombre + " " + Apellido + " (" + Cedula + ")"; }
+        }
     }
 }

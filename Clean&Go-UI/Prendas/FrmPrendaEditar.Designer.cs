@@ -8,6 +8,7 @@ namespace Clean_Go.BusinessLogic.Prendas
         private System.ComponentModel.IContainer components = null;
 
         private Label lblTitulo;
+        private Label lblSubtitulo;
         private Label lblNombre;
         private TextBox txtNombre;
         private CheckBox chkEstado;
@@ -28,6 +29,7 @@ namespace Clean_Go.BusinessLogic.Prendas
         private void InitializeComponent()
         {
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.lblSubtitulo = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.chkEstado = new System.Windows.Forms.CheckBox();
@@ -38,16 +40,25 @@ namespace Clean_Go.BusinessLogic.Prendas
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.lblTitulo.Location = new System.Drawing.Point(20, 20);
+            this.lblTitulo.Location = new System.Drawing.Point(20, 15);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(142, 21);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Detalle de Prenda";
 
+            this.lblSubtitulo.AutoSize = true;
+            this.lblSubtitulo.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.lblSubtitulo.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblSubtitulo.Location = new System.Drawing.Point(21, 40);
+            this.lblSubtitulo.Name = "lblSubtitulo";
+            this.lblSubtitulo.Size = new System.Drawing.Size(200, 15);
+            this.lblSubtitulo.TabIndex = 4;
+            this.lblSubtitulo.Text = "Ingrese o edite el tipo de prenda.";
+
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-            this.lblNombre.Location = new System.Drawing.Point(20, 60);
+            this.lblNombre.Location = new System.Drawing.Point(20, 75);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(60, 17);
             this.lblNombre.TabIndex = 1;
@@ -57,7 +68,7 @@ namespace Clean_Go.BusinessLogic.Prendas
             this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txtNombre.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.txtNombre.Location = new System.Drawing.Point(100, 57);
+            this.txtNombre.Location = new System.Drawing.Point(100, 72);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(200, 24);
             this.txtNombre.TabIndex = 0;
@@ -67,7 +78,7 @@ namespace Clean_Go.BusinessLogic.Prendas
             this.chkEstado.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkEstado.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.chkEstado.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-            this.chkEstado.Location = new System.Drawing.Point(100, 95);
+            this.chkEstado.Location = new System.Drawing.Point(100, 110);
             this.chkEstado.Name = "chkEstado";
             this.chkEstado.Size = new System.Drawing.Size(61, 21);
             this.chkEstado.TabIndex = 1;
@@ -80,7 +91,7 @@ namespace Clean_Go.BusinessLogic.Prendas
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(100, 135);
+            this.btnGuardar.Location = new System.Drawing.Point(100, 150);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(95, 33);
             this.btnGuardar.TabIndex = 2;
@@ -93,7 +104,7 @@ namespace Clean_Go.BusinessLogic.Prendas
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(205, 135);
+            this.btnCancelar.Location = new System.Drawing.Point(205, 150);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(95, 33);
             this.btnCancelar.TabIndex = 3;
@@ -103,12 +114,13 @@ namespace Clean_Go.BusinessLogic.Prendas
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(330, 190);
+            this.ClientSize = new System.Drawing.Size(330, 205);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.chkEstado);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNombre);
+            this.Controls.Add(this.lblSubtitulo);
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
