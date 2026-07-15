@@ -1,10 +1,10 @@
 namespace Clean_Go_BusinessLogic.Service.Pagos
 {
-    public class PagoTransferenciaHandler : ManejadorPagoBase
+    public class PagoStripeHandler : ManejadorPagoBase
     {
         public override bool ProcesarPago(string metodo, decimal monto)
         {
-            if (metodo == "Transferencia Bancaria")
+            if (metodo == "Stripe")
             {
                 return true;
             }

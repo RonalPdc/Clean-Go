@@ -83,7 +83,7 @@ namespace Clean_Go.BusinessLogic.Ordenes
                 cmbMetodoPago.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
                 cmbMetodoPago.Location = new System.Drawing.Point(380, 523);
                 cmbMetodoPago.Size = new System.Drawing.Size(160, 25);
-                cmbMetodoPago.Items.AddRange(new object[] { "Efectivo", "Tarjeta de Crédito", "Transferencia Bancaria" });
+                cmbMetodoPago.Items.AddRange(new object[] { "Efectivo", "Tarjeta", "Stripe" });
                 cmbMetodoPago.SelectedIndex = 0;
 
                 this.Controls.Add(lblMetodoPago);
@@ -297,18 +297,59 @@ namespace Clean_Go.BusinessLogic.Ordenes
 
             try
             {
-                string metodoSeleccionado = cmbMetodoPago.SelectedItem?.ToString() ?? "Efectivo";
+                string metodoSeleccionado = "";
+                if (cmbMetodoPago.SelectedItem != null)
+                {
+                    metodoSeleccionado = cmbMetodoPago.SelectedItem.ToString();
+                }
+                else
+                {
+                    metodoSeleccionado = "Efectivo";
+                }
+
+                if (metodoSeleccionado == "Tarjeta" || metodoSeleccionado == "Stripe")
+                {
+                    FrmDatosTarjeta frmTarjeta = new FrmDatosTarjeta();
+                    DialogResult resTarjeta = frmTarjeta.ShowDialog();
+                    if (resTarjeta != DialogResult.OK)
+                    {
+                        return;
+                    }
+                }
+
+                if (metodoSeleccionado == "Stripe")
+                {
+                    int prendaId = 1;
+                    int servicioId = 1;
+                    if (cmbPrenda.SelectedValue != null)
+                    {
+                        prendaId = (int)cmbPrenda.SelectedValue;
+                    }
+                    if (cmbServicio.SelectedValue != null)
+                    {
+                        servicioId = (int)cmbServicio.SelectedValue;
+                    }
+
+                    DetalleOrden comision = new DetalleOrden();
+                    comision.TipoPrendaId = prendaId;
+                    comision.ServicioId = servicioId;
+                    comision.Cantidad = 1;
+                    comision.Precio = _totalAcumulado * 0.03m;
+                    comision.Observaciones = "Cargo comision Stripe 3%";
+                    _detalles.Add(comision);
+                    _totalAcumulado = _totalAcumulado + comision.Precio;
+                }
 
                 Clean_Go_BusinessLogic.Service.Pagos.IManejadorPago efectivo = new Clean_Go_BusinessLogic.Service.Pagos.PagoEfectivoHandler();
                 Clean_Go_BusinessLogic.Service.Pagos.IManejadorPago tarjeta = new Clean_Go_BusinessLogic.Service.Pagos.PagoTarjetaHandler();
-                Clean_Go_BusinessLogic.Service.Pagos.IManejadorPago transferencia = new Clean_Go_BusinessLogic.Service.Pagos.PagoTransferenciaHandler();
+                Clean_Go_BusinessLogic.Service.Pagos.IManejadorPago stripe = new Clean_Go_BusinessLogic.Service.Pagos.PagoStripeHandler();
 
                 efectivo.ConfigurarSiguiente(tarjeta);
-                tarjeta.ConfigurarSiguiente(transferencia);
+                tarjeta.ConfigurarSiguiente(stripe);
 
                 bool pagoProcesado = efectivo.ProcesarPago(metodoSeleccionado, _totalAcumulado);
 
-                if (!pagoProcesado)
+                if (pagoProcesado == false)
                 {
                     MessageBox.Show("El metodo de pago seleccionado no pudo ser procesado.", "Error de Pago", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -316,16 +357,21 @@ namespace Clean_Go.BusinessLogic.Ordenes
 
                 BloquearControles(false);
 
-                Orden orden = new Orden
+                Orden orden = new Orden();
+                orden.NumeroOrden = txtNumeroOrden.Text.Trim();
+                orden.ClienteId = (int)cmbCliente.SelectedValue;
+                orden.FechaEntregaEstimada = dtpFechaEntrega.Value;
+                if (string.IsNullOrWhiteSpace(txtObservacionesCabecera.Text))
                 {
-                    NumeroOrden = txtNumeroOrden.Text.Trim(),
-                    ClienteId = (int)cmbCliente.SelectedValue,
-                    FechaEntregaEstimada = dtpFechaEntrega.Value,
-                    Observaciones = string.IsNullOrWhiteSpace(txtObservacionesCabecera.Text) ? null : txtObservacionesCabecera.Text.Trim(),
-                    UsuarioRegistroId = _usuarioLogueado.UsuarioId,
-                    Total = _totalAcumulado,
-                    MetodoPago = metodoSeleccionado
-                };
+                    orden.Observaciones = null;
+                }
+                else
+                {
+                    orden.Observaciones = txtObservacionesCabecera.Text.Trim();
+                }
+                orden.UsuarioRegistroId = _usuarioLogueado.UsuarioId;
+                orden.Total = _totalAcumulado;
+                orden.MetodoPago = metodoSeleccionado;
 
                 bool creado = _ordenesBLL.CrearOrden(orden, _detalles);
 

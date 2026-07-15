@@ -111,7 +111,7 @@
     <Compile Include="Chain of Responsibility\Pagos\ManejadorPagoBase.cs" />
     <Compile Include="Chain of Responsibility\Pagos\PagoEfectivoHandler.cs" />
     <Compile Include="Chain of Responsibility\Pagos\PagoTarjetaHandler.cs" />
-    <Compile Include="Chain of Responsibility\Pagos\PagoTransferenciaHandler.cs" />
+    <Compile Include="Chain of Responsibility\Pagos\PagoStripeHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Clean&amp;Go-DataAccess\Clean&amp;Go-DataAccess.csproj">

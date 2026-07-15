@@ -186,6 +186,12 @@
     <Compile Include="Ordenes\FrmOrdenesNuevo.Designer.cs">
       <DependentUpon>FrmOrdenesNuevo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ordenes\FrmDatosTarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ordenes\FrmDatosTarjeta.Designer.cs">
+      <DependentUpon>FrmDatosTarjeta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ordenes\FrmOrdenesCambiarEstado.cs">
       <SubType>Form</SubType>
     </Compile>
