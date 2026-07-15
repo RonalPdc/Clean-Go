@@ -49,51 +49,50 @@ namespace Clean_Go.BusinessLogic.Reportes
             // lblDesde
             // 
             this.lblDesde.AutoSize = true;
-            this.lblDesde.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblDesde.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblDesde.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-            this.lblDesde.Location = new System.Drawing.Point(10, 20);
+            this.lblDesde.Location = new System.Drawing.Point(5, 21);
             this.lblDesde.Name = "lblDesde";
-            this.lblDesde.Size = new System.Drawing.Size(48, 17);
             this.lblDesde.TabIndex = 9;
             this.lblDesde.Text = "Desde:";
             // 
             // dtpDesde
             // 
-            this.dtpDesde.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.dtpDesde.Location = new System.Drawing.Point(60, 17);
+            this.dtpDesde.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDesde.Location = new System.Drawing.Point(55, 18);
             this.dtpDesde.Name = "dtpDesde";
             this.dtpDesde.ShowCheckBox = false;
-            this.dtpDesde.Size = new System.Drawing.Size(120, 24);
+            this.dtpDesde.Size = new System.Drawing.Size(100, 23);
             this.dtpDesde.TabIndex = 8;
             // 
             // lblHasta
             // 
             this.lblHasta.AutoSize = true;
-            this.lblHasta.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblHasta.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblHasta.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-            this.lblHasta.Location = new System.Drawing.Point(188, 20);
+            this.lblHasta.Location = new System.Drawing.Point(162, 21);
             this.lblHasta.Name = "lblHasta";
-            this.lblHasta.Size = new System.Drawing.Size(44, 17);
             this.lblHasta.TabIndex = 7;
             this.lblHasta.Text = "Hasta:";
             // 
             // dtpHasta
             // 
-            this.dtpHasta.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.dtpHasta.Location = new System.Drawing.Point(235, 17);
+            this.dtpHasta.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpHasta.Location = new System.Drawing.Point(208, 18);
             this.dtpHasta.Name = "dtpHasta";
             this.dtpHasta.ShowCheckBox = false;
-            this.dtpHasta.Size = new System.Drawing.Size(120, 24);
+            this.dtpHasta.Size = new System.Drawing.Size(100, 23);
             this.dtpHasta.TabIndex = 6;
             // 
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
-            this.lblEstado.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblEstado.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblEstado.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-            this.lblEstado.Location = new System.Drawing.Point(363, 20);
+            this.lblEstado.Location = new System.Drawing.Point(316, 21);
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(51, 17);
             this.lblEstado.TabIndex = 5;
             this.lblEstado.Text = "Estado:";
             // 
@@ -102,10 +101,10 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.cmbEstado.BackColor = System.Drawing.Color.FromArgb(241, 245, 249);
             this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cmbEstado.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.cmbEstado.Location = new System.Drawing.Point(417, 17);
+            this.cmbEstado.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cmbEstado.Location = new System.Drawing.Point(366, 17);
             this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(110, 25);
+            this.cmbEstado.Size = new System.Drawing.Size(105, 23);
             this.cmbEstado.TabIndex = 4;
             // 
             // btnImprimir
@@ -114,11 +113,11 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnImprimir.FlatAppearance.BorderSize = 0;
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.btnImprimir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnImprimir.ForeColor = System.Drawing.Color.White;
-            this.btnImprimir.Location = new System.Drawing.Point(535, 15);
+            this.btnImprimir.Location = new System.Drawing.Point(479, 15);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(105, 30);
+            this.btnImprimir.Size = new System.Drawing.Size(95, 28);
             this.btnImprimir.TabIndex = 10;
             this.btnImprimir.Text = "Imprimir / PDF";
             this.btnImprimir.UseVisualStyleBackColor = false;
@@ -130,11 +129,11 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.btnFiltrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFiltrar.FlatAppearance.BorderSize = 0;
             this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFiltrar.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.btnFiltrar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnFiltrar.ForeColor = System.Drawing.Color.White;
-            this.btnFiltrar.Location = new System.Drawing.Point(648, 15);
+            this.btnFiltrar.Location = new System.Drawing.Point(580, 15);
             this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(80, 30);
+            this.btnFiltrar.Size = new System.Drawing.Size(75, 28);
             this.btnFiltrar.TabIndex = 3;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = false;
@@ -146,11 +145,11 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLimpiar.FlatAppearance.BorderSize = 0;
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Location = new System.Drawing.Point(736, 15);
+            this.btnLimpiar.Location = new System.Drawing.Point(661, 15);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(80, 30);
+            this.btnLimpiar.Size = new System.Drawing.Size(75, 28);
             this.btnLimpiar.TabIndex = 2;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
@@ -183,13 +182,13 @@ namespace Clean_Go.BusinessLogic.Reportes
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvOrdenes.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvOrdenes.Location = new System.Drawing.Point(15, 60);
+            this.dgvOrdenes.Location = new System.Drawing.Point(15, 58);
             this.dgvOrdenes.MultiSelect = false;
             this.dgvOrdenes.Name = "dgvOrdenes";
             this.dgvOrdenes.ReadOnly = true;
             this.dgvOrdenes.RowHeadersVisible = false;
             this.dgvOrdenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrdenes.Size = new System.Drawing.Size(870, 395);
+            this.dgvOrdenes.Size = new System.Drawing.Size(750, 395);
             this.dgvOrdenes.TabIndex = 1;
             // 
             // lblTotalOrdenes
@@ -202,14 +201,14 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.lblTotalOrdenes.Name = "lblTotalOrdenes";
             this.lblTotalOrdenes.Size = new System.Drawing.Size(137, 19);
             this.lblTotalOrdenes.TabIndex = 0;
-            this.lblTotalOrdenes.Text = "Total de órdenes: 0";
+            this.lblTotalOrdenes.Text = "Total de ordenes: 0";
             // 
             // FrmReporteOrdenes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(900, 490);
+            this.ClientSize = new System.Drawing.Size(780, 490);
             this.Controls.Add(this.lblTotalOrdenes);
             this.Controls.Add(this.dgvOrdenes);
             this.Controls.Add(this.btnLimpiar);
@@ -223,7 +222,7 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.Controls.Add(this.lblDesde);
             this.Name = "FrmReporteOrdenes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Reporte de Órdenes";
+            this.Text = "Reporte de Ordenes";
             this.Load += new System.EventHandler(this.FrmReporteOrdenes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).EndInit();
             this.ResumeLayout(false);
