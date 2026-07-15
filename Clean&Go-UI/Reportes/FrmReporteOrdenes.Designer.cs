@@ -30,8 +30,8 @@ namespace Clean_Go.BusinessLogic.Reportes
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblDesde = new System.Windows.Forms.Label();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.lblHasta = new System.Windows.Forms.Label();
@@ -50,9 +50,10 @@ namespace Clean_Go.BusinessLogic.Reportes
             // 
             this.lblDesde.AutoSize = true;
             this.lblDesde.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblDesde.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
+            this.lblDesde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
             this.lblDesde.Location = new System.Drawing.Point(5, 21);
             this.lblDesde.Name = "lblDesde";
+            this.lblDesde.Size = new System.Drawing.Size(42, 15);
             this.lblDesde.TabIndex = 9;
             this.lblDesde.Text = "Desde:";
             // 
@@ -62,7 +63,6 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDesde.Location = new System.Drawing.Point(55, 18);
             this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.ShowCheckBox = false;
             this.dtpDesde.Size = new System.Drawing.Size(100, 23);
             this.dtpDesde.TabIndex = 8;
             // 
@@ -70,9 +70,10 @@ namespace Clean_Go.BusinessLogic.Reportes
             // 
             this.lblHasta.AutoSize = true;
             this.lblHasta.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblHasta.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
+            this.lblHasta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
             this.lblHasta.Location = new System.Drawing.Point(162, 21);
             this.lblHasta.Name = "lblHasta";
+            this.lblHasta.Size = new System.Drawing.Size(40, 15);
             this.lblHasta.TabIndex = 7;
             this.lblHasta.Text = "Hasta:";
             // 
@@ -82,7 +83,6 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpHasta.Location = new System.Drawing.Point(208, 18);
             this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.ShowCheckBox = false;
             this.dtpHasta.Size = new System.Drawing.Size(100, 23);
             this.dtpHasta.TabIndex = 6;
             // 
@@ -90,15 +90,16 @@ namespace Clean_Go.BusinessLogic.Reportes
             // 
             this.lblEstado.AutoSize = true;
             this.lblEstado.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblEstado.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
+            this.lblEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
             this.lblEstado.Location = new System.Drawing.Point(316, 21);
             this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(45, 15);
             this.lblEstado.TabIndex = 5;
             this.lblEstado.Text = "Estado:";
             // 
             // cmbEstado
             // 
-            this.cmbEstado.BackColor = System.Drawing.Color.FromArgb(241, 245, 249);
+            this.cmbEstado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cmbEstado.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -107,25 +108,9 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.cmbEstado.Size = new System.Drawing.Size(105, 23);
             this.cmbEstado.TabIndex = 4;
             // 
-            // btnImprimir
-            // 
-            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(8, 145, 178);
-            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImprimir.FlatAppearance.BorderSize = 0;
-            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnImprimir.ForeColor = System.Drawing.Color.White;
-            this.btnImprimir.Location = new System.Drawing.Point(479, 15);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(95, 28);
-            this.btnImprimir.TabIndex = 10;
-            this.btnImprimir.Text = "Imprimir / PDF";
-            this.btnImprimir.UseVisualStyleBackColor = false;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
-            // 
             // btnFiltrar
             // 
-            this.btnFiltrar.BackColor = System.Drawing.Color.FromArgb(8, 145, 178);
+            this.btnFiltrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(145)))), ((int)(((byte)(178)))));
             this.btnFiltrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFiltrar.FlatAppearance.BorderSize = 0;
             this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -141,7 +126,7 @@ namespace Clean_Go.BusinessLogic.Reportes
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(116)))), ((int)(((byte)(139)))));
             this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLimpiar.FlatAppearance.BorderSize = 0;
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -155,33 +140,49 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
+            // btnImprimir
+            // 
+            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(145)))), ((int)(((byte)(178)))));
+            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImprimir.FlatAppearance.BorderSize = 0;
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnImprimir.ForeColor = System.Drawing.Color.White;
+            this.btnImprimir.Location = new System.Drawing.Point(479, 15);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(95, 28);
+            this.btnImprimir.TabIndex = 10;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
             // dgvOrdenes
             // 
             this.dgvOrdenes.AllowUserToAddRows = false;
             this.dgvOrdenes.AllowUserToDeleteRows = false;
-            this.dgvOrdenes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgvOrdenes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvOrdenes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvOrdenes.BackgroundColor = System.Drawing.Color.FromArgb(241, 245, 249);
+            this.dgvOrdenes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
             this.dgvOrdenes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrdenes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(41)))), ((int)(((byte)(59)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrdenes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOrdenes.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOrdenes.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvOrdenes.Location = new System.Drawing.Point(15, 58);
             this.dgvOrdenes.MultiSelect = false;
             this.dgvOrdenes.Name = "dgvOrdenes";
@@ -196,7 +197,7 @@ namespace Clean_Go.BusinessLogic.Reportes
             this.lblTotalOrdenes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTotalOrdenes.AutoSize = true;
             this.lblTotalOrdenes.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblTotalOrdenes.ForeColor = System.Drawing.Color.FromArgb(8, 145, 178);
+            this.lblTotalOrdenes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(145)))), ((int)(((byte)(178)))));
             this.lblTotalOrdenes.Location = new System.Drawing.Point(15, 465);
             this.lblTotalOrdenes.Name = "lblTotalOrdenes";
             this.lblTotalOrdenes.Size = new System.Drawing.Size(137, 19);
