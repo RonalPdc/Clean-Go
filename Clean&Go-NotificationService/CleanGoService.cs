@@ -80,5 +80,15 @@ namespace Clean_Go_NotificationService
                     contadorMs = 0;
             }
         }
+
+        public void IniciarConsola()
+        {
+            OnStart(null);
+        }
+
+        public void DetenerConsola()
+        {
+            OnStop();
+        }
     }
 }
