@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Net.Http;
+using Telegram.Bot;
+using Telegram.Bot.Types;
 using Clean_Go_DataAccess.Repositories.Notificaciones;
 using Clean_Go_DataAccess.Repositories.Ordenes;
 using Clean_Go_DataAccess.Repositories.Clientes;
@@ -17,14 +18,13 @@ namespace Clean_Go_NotificationService
         private readonly ColaNotificacionDAL _notificacionDAL = new ColaNotificacionDAL();
         private readonly OrdenDAL _ordenDAL = new OrdenDAL();
         private readonly ClienteDAL _clienteDAL = new ClienteDAL();
-        private readonly HttpClient _httpClient = new HttpClient();
-
-        private readonly string _botToken;
+        private readonly TelegramBotClient _botClient;
         private int _lastUpdateId = 0;
 
         public TelegramBotProcessor()
         {
-            _botToken = ConfigurationManager.AppSettings["TelegramBotToken"];
+            string botToken = ConfigurationManager.AppSettings["TelegramBotToken"];
+            _botClient = new TelegramBotClient(botToken);
         }
 
         public void ProcesarNotificacionesPendientes()
@@ -61,48 +61,17 @@ namespace Clean_Go_NotificationService
         {
             try
             {
-                string url = "https://api.telegram.org/bot" + _botToken + "/getUpdates?offset=" + _lastUpdateId;
-                HttpResponseMessage response = _httpClient.GetAsync(url).Result;
-                if (!response.IsSuccessStatusCode) return;
-
-                string json = response.Content.ReadAsStringAsync().Result;
-                int index = 0;
-
-                while (true)
+                var updates = _botClient.GetUpdates(offset: _lastUpdateId).GetAwaiter().GetResult();
+                foreach (var update in updates)
                 {
-                    index = json.IndexOf("\"update_id\":", index);
-                    if (index == -1) break;
+                    _lastUpdateId = update.Id + 1;
 
-                    index += 12;
-                    int endUpdateId = json.IndexOf(",", index);
-                    if (endUpdateId == -1) break;
-
-                    string updateIdStr = json.Substring(index, endUpdateId - index).Trim();
-                    int updateId = int.Parse(updateIdStr);
-                    _lastUpdateId = updateId + 1;
-
-                    int chatIndex = json.IndexOf("\"chat\":", index);
-                    if (chatIndex == -1) continue;
-
-                    int idIndex = json.IndexOf("\"id\":", chatIndex);
-                    if (idIndex == -1) continue;
-
-                    idIndex += 5;
-                    int endChatId = json.IndexOf(",", idIndex);
-                    if (endChatId == -1) continue;
-
-                    string chatId = json.Substring(idIndex, endChatId - idIndex).Trim();
-
-                    int textIndex = json.IndexOf("\"text\":\"", idIndex);
-                    if (textIndex == -1) continue;
-
-                    textIndex += 8;
-                    int endText = json.IndexOf("\"", textIndex);
-                    if (endText == -1) continue;
-
-                    string text = json.Substring(textIndex, endText - textIndex).Trim();
-                    
-                    ResponderConsulta(chatId, text);
+                    if (update.Message != null && !string.IsNullOrWhiteSpace(update.Message.Text))
+                    {
+                        string chatId = update.Message.Chat.Id.ToString();
+                        string text = update.Message.Text;
+                        ResponderConsulta(chatId, text);
+                    }
                 }
             }
             catch (Exception ex)
@@ -180,16 +149,8 @@ namespace Clean_Go_NotificationService
         {
             try
             {
-                string url = "https://api.telegram.org/bot" + _botToken + "/sendMessage";
-                var values = new Dictionary<string, string>
-                {
-                    { "chat_id", chatId },
-                    { "text", mensaje }
-                };
-
-                var content = new FormUrlEncodedContent(values);
-                HttpResponseMessage response = _httpClient.PostAsync(url, content).Result;
-                return response.IsSuccessStatusCode;
+                _botClient.SendMessage(chatId, mensaje).GetAwaiter().GetResult();
+                return true;
             }
             catch
             {
