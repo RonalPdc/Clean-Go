@@ -26,6 +26,8 @@ namespace Clean_Go.BusinessLogic.Reportes
             CargarEstados();
             CargarOrdenes();
 
+            cmbEstado.Width = 90;
+
             Button btnImprimir = new Button();
             btnImprimir.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnImprimir.BackColor = Color.FromArgb(8, 145, 178);
@@ -34,8 +36,8 @@ namespace Clean_Go.BusinessLogic.Reportes
             btnImprimir.FlatStyle = FlatStyle.Flat;
             btnImprimir.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
             btnImprimir.ForeColor = Color.White;
-            btnImprimir.Location = new Point(570, 15);
-            btnImprimir.Size = new Size(100, 30);
+            btnImprimir.Location = new Point(555, 15);
+            btnImprimir.Size = new Size(115, 30);
             btnImprimir.Text = "Imprimir / PDF";
             btnImprimir.UseVisualStyleBackColor = false;
             btnImprimir.Click += btnImprimir_Click;
