@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using Clean_Go_DataAccess.Repositories.Ordenes;
 using Clean_Go_DataAccess.Repositories.Clientes;
 using Clean_Go_DataAccess.Repositories.Notificaciones;
@@ -100,6 +101,16 @@ namespace Clean_Go_BusinessLogic.Service.Ordenes
         public Dictionary<int, int> ObtenerConteosPorEstado()
         {
             return _ordenDAL.ObtenerConteosPorEstado();
+        }
+
+        public DataTable ObtenerReporteOrdenes(DateTime? desde, DateTime? hasta, string estado)
+        {
+            return _ordenDAL.ObtenerReporteOrdenes(desde, hasta, estado);
+        }
+
+        public List<string> ObtenerTodosEstados()
+        {
+            return _ordenDAL.ObtenerTodosEstados();
         }
     }
 }

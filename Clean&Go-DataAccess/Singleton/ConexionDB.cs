@@ -28,4 +28,3 @@ namespace Clean_Go_DataAccess.ConexionBD
         }
     }
 }
-

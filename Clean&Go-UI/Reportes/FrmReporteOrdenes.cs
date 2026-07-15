@@ -1,16 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
-using Clean_Go_DataAccess.ConexionBD;
 using Clean_Go.BusinessLogic;
+using Clean_Go_BusinessLogic.Service.Ordenes;
 
 namespace Clean_Go.BusinessLogic.Reportes
 {
     public partial class FrmReporteOrdenes : Form
     {
+        private readonly OrdenesBLL _ordenesBLL = new OrdenesBLL();
+
         public FrmReporteOrdenes()
         {
             InitializeComponent();
@@ -33,20 +34,10 @@ namespace Clean_Go.BusinessLogic.Reportes
                 cmbEstado.Items.Clear();
                 cmbEstado.Items.Add("Todos");
 
-                using (SqlConnection cn = ConexionDB.Instancia.ObtenerConexion())
+                List<string> estados = _ordenesBLL.ObtenerTodosEstados();
+                foreach (var est in estados)
                 {
-                    using (SqlCommand cmd = new SqlCommand("EstadosOrden_GetAll", cn))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cn.Open();
-                        using (SqlDataReader dr = cmd.ExecuteReader())
-                        {
-                            while (dr.Read())
-                            {
-                                cmbEstado.Items.Add(dr["Nombre"].ToString());
-                            }
-                        }
-                    }
+                    cmbEstado.Items.Add(est);
                 }
 
                 cmbEstado.SelectedIndex = 0;
@@ -61,42 +52,11 @@ namespace Clean_Go.BusinessLogic.Reportes
         {
             try
             {
-                DataTable tabla = new DataTable();
+                DateTime? desde = dtpDesde.Checked ? (DateTime?)dtpDesde.Value.Date : null;
+                DateTime? hasta = dtpHasta.Checked ? (DateTime?)dtpHasta.Value.Date.AddHours(23).AddMinutes(59).AddSeconds(59) : null;
+                string estado = cmbEstado.SelectedIndex > 0 ? cmbEstado.SelectedItem.ToString() : "Todos";
 
-                using (SqlConnection cn = ConexionDB.Instancia.ObtenerConexion())
-                {
-                    string sql = "SELECT o.OrdenId, o.NumeroOrden, c.Nombre + ' ' + c.Apellido AS Cliente, e.Nombre AS Estado, o.FechaRecepcion, o.FechaEntregaEstimada, o.Total FROM Ordenes o INNER JOIN Clientes c ON o.ClienteId = c.ClienteId INNER JOIN EstadosOrden e ON o.EstadoId = e.EstadoId WHERE 1=1";
-
-                    using (SqlCommand cmd = new SqlCommand())
-                    {
-                        cmd.Connection = cn;
-
-                        if (dtpDesde.Checked)
-                        {
-                            sql += " AND o.FechaRecepcion >= @Desde";
-                            cmd.Parameters.Add("@Desde", SqlDbType.DateTime).Value = dtpDesde.Value.Date;
-                        }
-
-                        if (dtpHasta.Checked)
-                        {
-                            sql += " AND o.FechaRecepcion <= @Hasta";
-                            cmd.Parameters.Add("@Hasta", SqlDbType.DateTime).Value = dtpHasta.Value.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
-                        }
-
-                        if (cmbEstado.SelectedIndex > 0)
-                        {
-                            sql += " AND e.Nombre = @Estado";
-                            cmd.Parameters.Add("@Estado", SqlDbType.VarChar).Value = cmbEstado.SelectedItem.ToString();
-                        }
-
-                        sql += " ORDER BY o.FechaRecepcion DESC";
-                        cmd.CommandText = sql;
-
-                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                        adapter.Fill(tabla);
-                    }
-                }
-
+                DataTable tabla = _ordenesBLL.ObtenerReporteOrdenes(desde, hasta, estado);
                 dgvOrdenes.DataSource = tabla;
 
                 if (dgvOrdenes.Columns.Contains("OrdenId"))

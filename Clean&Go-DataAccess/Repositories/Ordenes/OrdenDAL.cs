@@ -180,5 +180,70 @@ namespace Clean_Go_DataAccess.Repositories.Ordenes
             }
             return dic;
         }
+
+        public DataTable ObtenerReporteOrdenes(DateTime? desde, DateTime? hasta, string estado)
+        {
+            DataTable tabla = new DataTable();
+
+            using (SqlConnection cn = ConexionDB.Instancia.ObtenerConexion())
+            {
+                string sql = "SELECT o.OrdenId, o.NumeroOrden, c.Nombre + ' ' + c.Apellido AS Cliente, e.Nombre AS Estado, o.FechaRecepcion, o.FechaEntregaEstimada, o.Total FROM Ordenes o INNER JOIN Clientes c ON o.ClienteId = c.ClienteId INNER JOIN EstadosOrden e ON o.EstadoId = e.EstadoId WHERE 1=1";
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = cn;
+
+                    if (desde.HasValue)
+                    {
+                        sql += " AND o.FechaRecepcion >= @Desde";
+                        cmd.Parameters.Add("@Desde", SqlDbType.DateTime).Value = desde.Value;
+                    }
+
+                    if (hasta.HasValue)
+                    {
+                        sql += " AND o.FechaRecepcion <= @Hasta";
+                        cmd.Parameters.Add("@Hasta", SqlDbType.DateTime).Value = hasta.Value;
+                    }
+
+                    if (!string.IsNullOrWhiteSpace(estado) && estado != "Todos")
+                    {
+                        sql += " AND e.Nombre = @Estado";
+                        cmd.Parameters.Add("@Estado", SqlDbType.VarChar).Value = estado;
+                    }
+
+                    sql += " ORDER BY o.FechaRecepcion DESC";
+                    cmd.CommandText = sql;
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(tabla);
+                }
+            }
+
+            return tabla;
+        }
+
+        public List<string> ObtenerTodosEstados()
+        {
+            List<string> lista = new List<string>();
+
+            using (SqlConnection cn = ConexionDB.Instancia.ObtenerConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand("EstadosOrden_GetAll", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cn.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(dr["Nombre"].ToString());
+                        }
+                    }
+                }
+            }
+
+            return lista;
+        }
     }
 }
