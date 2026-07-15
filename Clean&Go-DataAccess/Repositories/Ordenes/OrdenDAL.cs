@@ -184,7 +184,7 @@ namespace Clean_Go_DataAccess.Repositories.Ordenes
             return dic;
         }
 
-        public DataTable ObtenerReporteOrdenes(DateTime? desde, DateTime? hasta, string estado)
+        public DataTable ObtenerReporteOrdenes(DateTime desde, DateTime hasta, string estado)
         {
             DataTable tabla = new DataTable();
 
@@ -194,8 +194,8 @@ namespace Clean_Go_DataAccess.Repositories.Ordenes
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@Desde", (object)desde ?? DBNull.Value);
-                    cmd.Parameters.AddWithValue("@Hasta", (object)hasta ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Desde", desde);
+                    cmd.Parameters.AddWithValue("@Hasta", hasta);
                     cmd.Parameters.AddWithValue("@Estado", string.IsNullOrWhiteSpace(estado) ? "Todos" : estado);
 
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);

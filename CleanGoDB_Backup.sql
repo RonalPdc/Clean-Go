@@ -953,7 +953,8 @@ BEGIN
            e.Nombre AS Estado, 
            o.FechaRecepcion, 
            o.FechaEntregaEstimada, 
-           o.Total 
+           o.Total,
+           o.MetodoPago
     FROM Ordenes o 
     INNER JOIN Clientes c ON o.ClienteId = c.ClienteId 
     INNER JOIN EstadosOrden e ON o.EstadoId = e.EstadoId 

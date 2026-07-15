@@ -103,7 +103,7 @@ namespace Clean_Go_BusinessLogic.Service.Ordenes
             return _ordenDAL.ObtenerConteosPorEstado();
         }
 
-        public DataTable ObtenerReporteOrdenes(DateTime? desde, DateTime? hasta, string estado)
+        public DataTable ObtenerReporteOrdenes(DateTime desde, DateTime hasta, string estado)
         {
             return _ordenDAL.ObtenerReporteOrdenes(desde, hasta, estado);
         }

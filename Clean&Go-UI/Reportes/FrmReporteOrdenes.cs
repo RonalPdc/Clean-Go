@@ -24,9 +24,18 @@ namespace Clean_Go.BusinessLogic.Reportes
         {
             DisenoHelper.StyleGrid(dgvOrdenes);
             CargarEstados();
+
+            dtpDesde.ShowCheckBox = false;
+            dtpHasta.ShowCheckBox = false;
+            dtpDesde.Value = DateTime.Today.AddDays(-7);
+            dtpHasta.Value = DateTime.Today;
+
             CargarOrdenes();
 
             cmbEstado.Width = 90;
+
+            btnFiltrar.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            btnLimpiar.Anchor = AnchorStyles.Top | AnchorStyles.Left;
 
             Button btnImprimir = new Button();
             btnImprimir.Anchor = AnchorStyles.Top | AnchorStyles.Left;
@@ -71,9 +80,17 @@ namespace Clean_Go.BusinessLogic.Reportes
         {
             try
             {
-                DateTime? desde = dtpDesde.Checked ? (DateTime?)dtpDesde.Value.Date : null;
-                DateTime? hasta = dtpHasta.Checked ? (DateTime?)dtpHasta.Value.Date.AddHours(23).AddMinutes(59).AddSeconds(59) : null;
-                string estado = cmbEstado.SelectedIndex > 0 ? cmbEstado.SelectedItem.ToString() : "Todos";
+                DateTime desde = dtpDesde.Value.Date;
+                DateTime hasta = dtpHasta.Value.Date.AddHours(23).AddMinutes(59).AddSeconds(59);
+                string estado = "";
+                if (cmbEstado.SelectedIndex > 0)
+                {
+                    estado = cmbEstado.SelectedItem.ToString();
+                }
+                else
+                {
+                    estado = "Todos";
+                }
 
                 DataTable tabla = _ordenesBLL.ObtenerReporteOrdenes(desde, hasta, estado);
                 dgvOrdenes.DataSource = tabla;
@@ -102,8 +119,8 @@ namespace Clean_Go.BusinessLogic.Reportes
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            dtpDesde.Checked = false;
-            dtpHasta.Checked = false;
+            dtpDesde.Value = DateTime.Today.AddDays(-7);
+            dtpHasta.Value = DateTime.Today;
             cmbEstado.SelectedIndex = 0;
             CargarOrdenes();
         }
