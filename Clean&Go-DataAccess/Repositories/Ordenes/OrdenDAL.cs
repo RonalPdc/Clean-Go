@@ -226,5 +226,76 @@ namespace Clean_Go_DataAccess.Repositories.Ordenes
 
             return lista;
         }
+
+        public DataTable ObtenerComboList()
+        {
+            DataTable tabla = new DataTable();
+
+            using (SqlConnection cn = ConexionDB.Instancia.ObtenerConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand("Orden_GetComboList", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(tabla);
+                }
+            }
+
+            return tabla;
+        }
+
+        public DataTable ObtenerPorNumero(string numeroOrden)
+        {
+            DataTable tabla = new DataTable();
+
+            using (SqlConnection cn = ConexionDB.Instancia.ObtenerConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand("Orden_GetByNumero", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@NumeroOrden", numeroOrden);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(tabla);
+                }
+            }
+
+            return tabla;
+        }
+
+        public DataTable ObtenerHistorialEstados(int ordenId)
+        {
+            DataTable tabla = new DataTable();
+
+            using (SqlConnection cn = ConexionDB.Instancia.ObtenerConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand("Orden_GetHistorialEstados", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@OrdenId", ordenId);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(tabla);
+                }
+            }
+
+            return tabla;
+        }
+
+        public DataTable ObtenerDetalle(int ordenId)
+        {
+            DataTable tabla = new DataTable();
+
+            using (SqlConnection cn = ConexionDB.Instancia.ObtenerConexion())
+            {
+                using (SqlCommand cmd = new SqlCommand("Orden_GetDetalle", cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@OrdenId", ordenId);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(tabla);
+                }
+            }
+
+            return tabla;
+        }
     }
 }

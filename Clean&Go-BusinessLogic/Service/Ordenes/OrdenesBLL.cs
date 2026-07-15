@@ -112,5 +112,25 @@ namespace Clean_Go_BusinessLogic.Service.Ordenes
         {
             return _ordenDAL.ObtenerTodosEstados();
         }
+
+        public DataTable ObtenerComboList()
+        {
+            return _ordenDAL.ObtenerComboList();
+        }
+
+        public DataTable ObtenerPorNumero(string numeroOrden)
+        {
+            return _ordenDAL.ObtenerPorNumero(numeroOrden);
+        }
+
+        public DataTable ObtenerHistorialEstados(int ordenId)
+        {
+            return _ordenDAL.ObtenerHistorialEstados(ordenId);
+        }
+
+        public DataTable ObtenerDetalle(int ordenId)
+        {
+            return _ordenDAL.ObtenerDetalle(ordenId);
+        }
     }
 }
